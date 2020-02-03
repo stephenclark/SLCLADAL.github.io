@@ -38,15 +38,15 @@ Once you have installed R, R-Studio, and have also initiated the session by exec
 
 # Conditional Inference Trees
 
-This section deals with tree-structure models, the most basic type is a conditional inference tree. Like random forests, conditional inference trees are non-parametric and thus do not rely on distributional requirements (or at least on fewer). The tree structure represents recursive partitioning of the data to minimize residual deviance. There are several advantages to using tree-based models:
+This section deals with tree-structure models, the most basic of which is a conditional inference tree. Like random forests, conditional inference trees are non-parametric and thus do not rely on distributional requirements (or at least on fewer). The tree structure represents recursive partitioning of the data to minimize residual deviance. There are several advantages to using tree-based models:
 
 * Tree-structure models are very useful because they can deal with different types of variables and provide a very good understanding of the structure in the data. 
 * Tree-structure models are particularly interesting for linguists because they can handle moderate sample sizes and many high-order interactions better then regression models. 
-* Tree-based models can be used as variable-selection procedure which informs about which variables have any sort of significant relationship with the dependent variable and can thereby inform model fitting.
+* Tree-based models can be used as variable-selection procedure which reveals which variables have any sort of significant relationship with the dependent variable and can thereby inform model fitting.
 
 Before we implement a conditional inference tree in R, we will have a look at how it works. We will do this in more detail here as random forests and Boruta analyses are extensions of conditional inference trees and are therefore based on the same concepts.
 
-Below is a conditional inference tree which shows how and what factors contribute to the use of discourse like. All conditional inference trees answer a simple question, namely "How do we classify elements based on the given predictors?". The answer that conditional inference trees provide is the classification of the elements based on the levels of the predictors. If predictors are not significant or all elements can be classified correctly without them (i.e. if these predictors are unnecessary), then they are not included in the decision tree (or in the model fitting process).  The conditional inference tree shows that the best predictor for discourse *like* use is age as it is the highest node. Among young speakers, those with high status use like more compared with speakers of lower social status. Among old speakers, women use discourse *like* more than men.
+Below is a conditional inference tree which shows how and what factors contribute to the use of discourse *like*. All conditional inference trees answer a simple question, namely "How do we classify elements based on the given predictors?". The answer that conditional inference trees provide is the classification of the elements based on the levels of the predictors. If predictors are not significant or all elements can be classified correctly without them (i.e. if these predictors are unnecessary), then they are not included in the decision tree (or in the model fitting process).  The conditional inference tree shows that the best predictor for discourse *like* use is age as it is the highest node. Among young speakers, those with high status use like more compared with speakers of lower social status. Among old speakers, women use discourse *like* more than men.
 
 ```{r cit1, echo=F, message=FALSE, warning=FALSE}
 library(partykit)              # activate partykit library
@@ -62,7 +62,7 @@ citd.ctree <- ctree(LikeUser ~ Age + Gender + Status,
 plot(citd.ctree, gp = gpar(fontsize = 8)) # plot final ctree
 ```
 
-Before going through how this conditional decision tree is generated, let us first go over some basic concepts. The top of the decision tree is called "root" or "root node", the categories at the end of branches are called "leaves" or "leaf nodes". Nodes that are in-between the root and leaves are called "internal nodes" or just "nodes". The root node has only arrows or lines pointing away from it, internal nodes have lines going to and from them, while leaf nodes only have lines pointing towards them.
+Before going through how this conditional decision tree is generated, let us first go over some basic concepts. The top of the decision tree is called the "root" or "root node", the categories at the end of branches are called "leaves" or "leaf nodes". Nodes that are in-between the root and leaves are called "internal nodes" or just "nodes". The root node has only arrows or lines pointing away from it, internal nodes have lines going to and from them, while leaf nodes only have lines pointing towards them.
 
 Let us now go over the process by which the decision tree above is generated. In our example, we want to predict whether a person makes use of discourse *like* given their age, gender, and social status. The first six lines of this fictitious data set are displayed in the table below:
 
@@ -120,7 +120,7 @@ citdata[fcts] <- lapply(citdata[fcts], factor)
 str(citdata)
 ```
 
-The data now consists of factors which two levels each. After initializing the R session, it needs to be determined, what the root of the decision tree should be. This means that we have to determine which of the variables represents the root node. In order to do so, we tabulate for each variable level, how many speakers of that level have used discourse *like* (LikeUsers) and how many have not used discourse *like* (NonLikeUsers).
+The data now consists of factors with two levels each. After initializing the R session, it needs to be determined, what the root of the decision tree should be. This means that we have to determine which of the variables represents the root node. In order to do so, we tabulate, for each variable level, how many speakers of that level have used discourse *like* (LikeUsers) and how many have not used discourse *like* (NonLikeUsers).
 
 ```{r cit5, echo=T, message=FALSE, warning=FALSE}
 # tabulate data
@@ -131,7 +131,7 @@ table(citdata$LikeUser, citdata$Age)
 table(citdata$LikeUser, citdata$Status)
 ```
 
-None of the predictors is perfect (the predictors are therefore referred to as "impure"). To determine which variable is the root, we will calculate the degree of "impurity" for each variable - the variable which has the lowest impurity value will be the root.
+None of the predictors are perfect (the predictors are therefore referred to as "impure"). To determine which variable is the root, we will calculate the degree of "impurity" for each variable - the variable which has the lowest impurity value will be the root.
 
 The most common measure of impurity in the context of conditional inference trees is called "Gini". The Gini value or gini index was introduced by Corrado Gini as a measure for income inequality. In our case we seek to maximize inequality of distributions of leave nodes which is why the gini index is useful for tree based models. For each level we apply the following equation to determine the gini impurity value:
 
@@ -240,7 +240,7 @@ The gini for status is .496 and we can now compare the gini values for age, gend
 gini_age; gini_gender; gini_status
 ```
 
-Since age has the lowest gini (impurity) value, our first split is by age and age, thus, represents our root node. Our manually calculated conditional inference tree right now looks as below.
+Since age has the lowest gini (impurity) value, our first split is by age; age, thus, represents our root node. Our manually calculated conditional inference tree right now looks as below.
 
 ```{r cit13, echo=F, message=FALSE, warning=FALSE}
 # plot tree we have so far!
@@ -318,7 +318,7 @@ tboldmalestatus
 chisq.test(tboldmalestatus) # no sig difference: no more splits!
 ```
 
-Since the $\chi$^2^-test reports no significant differences, we have reached an end ("leave") of this branch of our tree. We will now move on and check if we need to split the 4^th^ node (old female speakers) by status.
+Since the $\chi$^2^-test reports no significant differences, we have reached an end ("leaf") of this branch of our tree. We will now move on and check if we need to split the 4^th^ node (old female speakers) by status.
 
 ```{r cit18, echo=T, message=FALSE, warning=FALSE}
 # 4TH NODE
@@ -334,7 +334,7 @@ chisq.test(tboldfemalestatus) # no sig difference: no more splits!
 
 ```
 
-Here, too, we have reached the end of this branch ("leave") because the $\chi$^2^-test reports no significant differences. We can thus move on to the young speakers (the 5^th^ node) and test if and how to split this branch. 
+Here, too, we have reached the end of this branch ("leaf") because the $\chi$^2^-test reports no significant differences. We can thus move on to the young speakers (the 5^th^ node) and test if and how to split this branch. 
 
 ```{r cit19, echo=T, message=FALSE, warning=FALSE}
 # 5TH NODE
@@ -374,7 +374,7 @@ tbyounglowgender
 chisq.test(tbyounglowgender) # no sig difference: no more splits!
 ```
 
-Here, too, we have reached the end of this branch ("leave") because the $\chi$^2^-test reports no significant differences. We can thus move on to the young high-status speakers (the 7^th^ node) and test if we need to split this branch by gender. Again, we inspect the distribution and perform a $\chi$^2^-test.
+Here, too, we have reached the end of this branch ("leaf") because the $\chi$^2^-test reports no significant differences. We can thus move on to the young high-status speakers (the 7^th^ node) and test if we need to split this branch by gender. Again, we inspect the distribution and perform a $\chi$^2^-test.
 
 ```{r cit22, echo=T, message=FALSE, warning=FALSE}
 # 7TH node
@@ -403,7 +403,7 @@ citd.ctree <- ctree(LikeUser ~ Age + Gender + Status, data = citdata)
 plot(citd.ctree, gp = gpar(fontsize = 8)) # plot final ctree
 ```
 
-In addition to plotting the conditional inference tree, we can also check its accuracy. To do so, we predict the use of like based on the conditional inference tree and compare them to the observed uses of like. Then we use the "confusionMatrix" function from the "caret" package to get an overview of the accuracy statistics.
+In addition to plotting the conditional inference tree, we can also check its accuracy. To do so, we predict the use of *like* based on the conditional inference tree and compare them to the observed uses of *like*. Then we use the "confusionMatrix" function from the "caret" package to get an overview of the accuracy statistics.
 
 ```{r cit24, echo=T, message=FALSE, warning=FALSE}
 citprediction <- predict(citd.ctree)
@@ -517,13 +517,13 @@ When dealing with categorical variables with more than two levels, the situation
 
 ## Problems of Conditional Inference Trees
 
-Conditional Inference Trees are very intuitive, multivariate, non-parametric, they do not require large data sets, and they are easy to implement. Despite these obvious advantages, they have at least two major short comings: 
+Conditional Inference Trees are very intuitive, multivariate, non-parametric, they do not require large data sets, and they are easy to implement. Despite these obvious advantages, they have at least two major shortcomings: 
 
 * they are prone to overfitting;
 
-* they do not perform well why they are applied to new data. 
+* they do not perform well when they are applied to new data. 
 
-An extension which remedies these problems is to grow many varied trees - this is called a Random Forest Analysis and will have a look at how Random Forests work and how to implement them in R in the next section. 
+An extension which remedies these problems is to grow many varied trees - this is called a Random Forest Analysis. We will have a look at how Random Forests work and how to implement them in R in the next section. 
 
 #  Random Forests
 
@@ -533,7 +533,7 @@ Random Forests (RFs) are an extension of Conditional Inference Trees [@breiman20
 * RFs do not report if a variable is important as a main effect or as part of an interactions 
 * RFs do not indicate in which significant interactions a variable is involved.
 
-Therefore, Random Forest analyses are ideal for classification, imputing missing values, and - though to a lesser degree - as a variable selection procedure but they do not lend themselves for drawing inferences about the relationships of predictors and dependent variables. 
+Therefore, Random Forest analyses are ideal for classification, imputing missing values, and - though to a lesser degree - as a variable selection procedure, but they do not lend themselves for drawing inferences about the relationships of predictors and dependent variables. 
 
 **Bootstrapped Data**
 
@@ -566,11 +566,11 @@ Because the data is reshuffled for every new tree, a part of the data (on averag
 
 **Random Variable Selection**
 
-Random Forests also differ from simple CITs in that at each step, not all possible variables are considered for a node, but only a subset. For example, we have a data set with five predicting independent variables and one dependent variable. When generating a CIT, all possible variables (variables that do not represent a node further up in the tree) are considered as splitting candidates. In Random Forests, only a fixed number (typically the square-root of the number of independent variables) are considered as candidates for a node. So, at each potential split, a fixed number of randomly selected variables is considered potential node candidates.
+Random Forests also differ from simple CITs in that at each step, not all possible variables are considered for a node, but only a subset. For example, we have a data set with five predicting independent variables and one dependent variable. When generating a CIT, all possible variables (variables that do not represent a node further up in the tree) are considered as splitting candidates. In Random Forests, only a fixed number (typically the square-root of the number of independent variables) are considered as candidates for a node. So, at each potential split, a fixed number of randomly selected variables are considered potential node candidates.
 
 ## Random Forests in R
 
-This section shows how a Random Forest Analysis can be implemented in R. Ina first step, we load and inspect the data.
+This section shows how a Random Forest Analysis can be implemented in R. In a first step, we load and inspect the data.
 
 ```{r rf3, echo=T, message=FALSE, warning=FALSE}
 # load random forest data
@@ -580,7 +580,7 @@ head(rfdata); str(rfdata)
 
 ```
 
-The data consists of four categorical variables (Gender, Age, ConversationType, and SUFLike). Our dependent variable is SUFLike which stands for speech-unit final like (a pragmatic marker that is common in Irish English and is used as in "A wee girl of her age, like"). While Age and Gender are pretty straight forward what they are called, ConversationType encodes whether a conversation has taken place between interlocutors of the same or of different genders.
+The data consists of four categorical variables (Gender, Age, ConversationType, and SUFLike). Our dependent variable is SUFLike which stands for *speech-unit final like* (a pragmatic marker that is common in Irish English and is used as in "A wee girl of her age, like"). While Age and Gender are pretty straight forward, ConversationType encodes whether a conversation has taken place between interlocutors of the same or of different genders.
 
 Before going any further, we need to factorize the variables as tree-based models require factors instead of character variables (but they can, of course, handle numeric and ordinal variables). In addition, we will check if the data contains missing values (NAs).
 
@@ -645,7 +645,7 @@ The plot shows that Age is the most important predictor and that Priming is not 
 
 We will now use an alternative way to calculate RFs which allows us to use different diagnostics and pruning techniques by using the "randomForest" rather than the "cforest" function. 
 
-A few words on the parameters of the "randomForest" function: if the thing we're trying to predict is a numeric variable, the "randomForest" function will set  "mtry" (the number of variables  considered at each step)to the total number of variables divided by 3 (rounded down), or to 1 if the division results in a value less than 1.  If the thing we're trying to predict is a "factor" (i.e. either "yes/no"  or "ranked"), then randomForest() will set mtry to  the square root of the number of variables (rounded down to the next  integer value).Again, we start by setting a seed  to store random numbers and thus make results reproducible.
+A few words on the parameters of the "randomForest" function: if the thing we're trying to predict is a numeric variable, the "randomForest" function will set "mtry" (the number of variables it considered at each step) to the total number of variables divided by 3 (rounded down), or to 1 if the division results in a value less than 1. If the thing we're trying to predict is a "factor" (i.e. either "yes/no"  or "ranked"), then randomForest() will set "mtry" to the square root of the number of variables (rounded down to the next integer value). Again, we start by setting a seed to store random numbers and thus make results reproducible.
 
 ```{r rf9, echo=T, eval = T, message=FALSE, warning=FALSE}
 # set.seed
@@ -682,7 +682,7 @@ tuneRF(rfdata[, !colnames(rfdata)== "SUFLike"],
        plot = T, ntreeTry = 50, trace = T, improve = .05)
 ```
 
-The error rate is very similar across different values of mtry but the lowest values is reported if all 4 variables are considered at once. We can now create a pruned or optimized RF based on the previous recommendadtions (ntree = 30, mtry = 4). Again, we begin by setting a seed.
+The error rate is very similar across different values of mtry but the lowest values is reported if all 4 variables are considered at once. We can now create a pruned or optimized RF based on the previous recommendations (ntree = 30, mtry = 4). Again, we begin by setting a seed.
 
 ```{r rf12, echo=T, eval = T, message=FALSE, warning=FALSE}
 # set.seed (to store random numbers and thus make results reporducible)
@@ -718,11 +718,11 @@ A second type of visualization that can provide insights in the partialPlot func
 partialPlot(rfmodel3, rfdata, Age)
 ```
 
-Another common way to evaluate the performance of RFs and prune them is to split the data into a test and a training set. the model is then fit to the training set and, after that, applied to the test set. This allows us to evaluate how well the RF performs on data that it was not trained on. This approach is particularly common in machine learning contexts. 
+Another common way to evaluate the performance of RFs and prune them is to split the data into a test and a training set. the model is then fitted to the training set and, after that, applied to the test set. This allows us to evaluate how well the RF performs on data that it was not trained on. This approach is particularly common in machine learning contexts. 
 
 # Boruta
 
-Boruta [@kursa2010feature] is a variable selection procedure and it represents an extension of random forest analyses [@breiman2001random]. The name “Boruta” is derived from a demon in Slavic mythology who dwelled in pine forests. Boruta is an alternative to regression modelling that is better equipped to handle small data sets because it uses a distributional approach during which hundreds of (random) forests are grown from permutated data sets. Boruta Boruta outperforms random forest analyses because:
+Boruta [@kursa2010feature] is a variable selection procedure and it represents an extension of random forest analyses [@breiman2001random]. The name “Boruta” is derived from a demon in Slavic mythology who dwelled in pine forests. Boruta is an alternative to regression modelling that is better equipped to handle small data sets because it uses a distributional approach during which hundreds of (random) forests are grown from permutated data sets. Boruta outperforms random forest analyses because:
 
 * Boruta does not provide merely a single value for each predictor but a distribution of values leading to higher reliability. 
 * Boruta provides definitive cut-off points for variables that have no meaningful relationship with the dependent variable. This is a crucial difference between RF and Boruta that make Boruta particularly interesting from a variable selection point of view.
@@ -739,7 +739,7 @@ The Boruta procedure consists out of five steps.
 
 * In the fifth step, predictors that did not outperform the best shadow feature are removed and the process continues without them. After a set number of iterations, or if all the variables have been either confirmed as outperforming the best shadow feature, the algorithm stops. 
 
-Despite its obvious advantages of Boruta over random forest analyses and regression modelling, it can neither handle multicollinearity not hierarchical data structures where data points are nested or grouped by a given predictor (as is the case in the present analysis as data points are grouped by adjective type). As Boruta is a variable selection procedure, it is also limited in the sense that it provides information on which predictors to include and how good these predictors are (compared to the shadow variables) while it is neither able to take hierarchical data structure into account, nor does it provide information about how one level of a factor compares to other factors. In other words, Boruta shows that a predictor is relevant and how strong it is but it does not provide information on how the likelihood of an outcome being used differs between variable levels, for instance between men and women. 
+Despite the obvious advantages of Boruta over random forest analyses and regression modelling, it can handle neither multicollinearity nor hierarchical data structures where data points are nested or grouped by a given predictor (as is the case in the present analysis as data points are grouped by adjective type). As Boruta is a variable selection procedure, it is also limited in the sense that it provides information on which predictors to include and how good these predictors are (compared to the shadow variables) while it is not able to take hierarchical data structure into account, nor does it provide information about how one level of a factor compares to other factors. In other words, Boruta shows that a predictor is relevant and how strong it is but it does not provide information on how the likelihood of an outcome being used differs between variable levels, for instance between men and women. 
 
 ## Boruta in R
 
@@ -776,13 +776,13 @@ print(boruta1)
 getConfirmedFormula(boruta1)
 ```
 
-In a next step, we inspect the history to check if any of teh variables shows drastic fluctuations in their importance assessment.
+In a next step, we inspect the history to check if any of the variables show drastic fluctuations in their importance assessment.
 
 ```{r bo5, echo=T, eval = T, message=FALSE, warning=FALSE}
 plotImpHistory(boruta1)
 ```
 
-The fluctuations are do not show clear upward or downward trends (which what we want). If perdictors do perform worse than the shadow variables, then these variables should be excludded and the Boruta analysis should be re-run on the dataset that does no longer contain the superfluous variables. Tentative variables can remain but they are unlikely to have any substantial effect. We thus continue by removing variables that were confirmed as being unimportant, then setting a new seed, re-running the Boruta on the reduced data set, and again inspecting the decsions.
+The fluctuations do not show clear upward or downward trends (which is what we want). If predictors do perform worse than the shadow variables, then these variables should be excluded and the Boruta analysis should be re-run on the dataset that does no longer contain the superfluous variables. Tentative variables can remain but they are unlikely to have any substantial effect. We thus continue by removing variables that were confirmed as being unimportant, then setting a new seed, re-running the Boruta on the reduced data set, and again inspecting the decisions.
 
 ```{r bo6, echo=T, eval = T, message=FALSE, warning=FALSE}
 # remove irrelevant variables
@@ -801,7 +801,7 @@ getConfirmedFormula(boruta2)
 
 ```
 
-Onlyadjective frequency and adjective type are confirmed as being important while all other variables are considered tentative. However, no more variables need to be removed as all remaining variables are not considered unimportnat. In a last step, we visualize the results of the Boruta analysis.
+Only adjective frequency and adjective type are confirmed as being important while all other variables are considered tentative. However, no more variables need to be removed as all remaining variables are not considered unimportnat. In a last step, we visualize the results of the Boruta analysis.
 
 ```{r bo7, echo=T, eval = T, message=FALSE, warning=FALSE}
 par(mar = c(8, 8, 4, 2) + 0.1)
