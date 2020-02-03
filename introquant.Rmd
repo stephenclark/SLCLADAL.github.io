@@ -169,7 +169,7 @@ Why have we had a look at these examples and quizzes? Basically, the intention h
 
 ## The Anthropocentric Bias
 
-Another bias that we as humans are rarely aware of is the anthropological bias. The anthropological bias refers to conceptualizing the world around us in a way that assumes that the world is just as we as humans see the world. Another name for this bias is Experiential Realism. To exemplify what this means, think about what the world would look like for a bee of we were the size of microbes. Bees see ultraviolet - a wavelength of light that we, as humans, cannot directly perceive. This means that the world looks very different for bees. many flowers have evolved to be seen by bees as they rely on bees to spread their pollen. For a bee, a summer meadow looks something like the dark night's sky does for us: a dark blue background with islands of light that are the flower what reflect ultraviolet radiation (see below). l 
+Another bias that we as humans are rarely aware of is the anthropological bias. The anthropological bias refers to conceptualizing the world around us in a way that assumes that the world is just as we humans see the world. Another name for this bias is Experiential Realism. To exemplify what this means, think about what the world would look like for a bee. Bees see ultraviolet - a wavelength of light that humans cannot directly perceive. This means that the world looks very different for bees. Many flowers have evolved to be seen by bees as they rely on bees to spread their pollen. For a bee, a summer meadow looks something like the dark night's sky does for us: a dark blue background with islands of light that are the flowers reflecting ultraviolet radiation (see below).
 
 ```{r fig.width=10, fig.height=6, echo=FALSE, warning=FALSE}
 library(png)
@@ -187,11 +187,11 @@ par(mfrow=c(1, 1)) # plot window: 1plot/row and 3 plots/column
 
 Vyvyan Evans and Melanie Green describe the anthropological bias and its origin as follows: "However, the parts of this external reality to which we have access are largely constrained by the ecological niche we have adapted to and the nature of our embodiment. In other words, language does not directly reflect the world. Rather, it reflects our unique human construal of the world: our 'world view' as it appears to us through the lens of our embodiment" [@evans2006cognitive, pp. 46].
 
-There are other examples which show that our perception of the world depends on our senses and how they function. 
+There are other examples that show that our perception of the world depends on our senses and how they function. 
 
 > Experiment Time!
 >
-> Look at the dot between the red and green squares for about 30 seconds straight (try to really focus on that white dot!). Once the 30 seconds are over, immediately look at the white dot between the mirrored images of the sand dunes. What happens?
+> Look at the dot between the red and green squares for about 30 continuous seconds (try to really focus on that white dot!). Once the 30 seconds are over, immediately look at the white dot between the mirrored images of the sand dunes. What happens?
 >
 
 ```{r fig.width=6, fig.height=4, echo=FALSE, warning=FALSE}
@@ -209,11 +209,11 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-The left sand dunes appear greenish while the right sand dunes look red. This is because the neuronal networks which are responsible for make use see green have run out of neurotransmitters. As the neurons cannot fire anymore, we see the sand dunes without red (which makes the dune appear green) and without green (which makes the dune appear red). 
+The left sand dunes appear greenish while the right sand dunes look red. This is because the neural networks which are responsible for making us see green have run out of neurotransmitters. As the neurons cannot fire anymore, we see the sand dunes without red (which makes the dune appear green) and without green (which makes the dune appear red). 
 
 This example should just draw your attention to the fact that our perception of the world rests upon our senses and our brain. 
 
-Another factor which influences the way we perceive the world has to do with something that is called "Gestalt" and has been studied in subfield of psychology (Gestalt-psychology or Gestalt theory). Gestalt theory has to do with how we perceive shapes by grouping or lumping (unrelated) elements together. Consider the Figure below. Do you see the triangle?
+Another factor which influences the way we perceive the world has to do with something called "Gestalt" and has been studied in subfield of psychology (Gestalt-psychology or Gestalt theory). Gestalt theory has to do with how we perceive shapes by grouping or lumping (unrelated) elements together. Consider the Figure below. Do you see the triangle?
 
 ```{r fig.width=4, fig.height=4, echo=FALSE, warning=FALSE}
 library(png)
@@ -235,7 +235,7 @@ rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 
 ## Patterns and Matters of Habit 
 
-Related to but different from the phenomena with Gestalt theory is another interesting way in which our mind manipulates the input to our senses. Have a look at the upside-down faces of Margaret Thatcher below. Does one face strike you as odd?
+Related to but different from the phenomena of Gestalt theory is another interesting way in which our mind manipulates the input to our senses. Have a look at the upside-down faces of Margaret Thatcher below. Does one face strike you as odd?
 
 ```{r fig.width=5, fig.height=3.5, echo=FALSE, warning=FALSE}
 library(png)
@@ -255,7 +255,7 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-Most people are somewhat shocked how distorted the picture on the right really is. This is because our brain compensates the skewness of the Margaret Thatcher's face in the right picture while it does not "normalize" the picture when shown in the way that we normally see people. The interesting point is that our brain automatically adjusts the picture of a face based on out previous experience with faces. One could say that our perception - especially of human faces, autocorrects aspects of our visual input based on patterns and expectations build from previous input.
+Most people are somewhat shocked how distorted the picture on the right really is. This is because our brain compensates the skewness of the Margaret Thatcher's face in the right picture while it does not "normalize" the picture when shown in the way that we normally see people. The interesting point is that our brain automatically adjusts the picture of a face based on our previous experience with faces. One could say that our perception, especially of human faces, autocorrects aspects of our visual input based on patterns and expectations build from previous input.
 
 The autocorrection effect also plays on another bias which has to do with face recognition. Because reading and interpreting faces is and has been so important and informative for us, we are prone not only to see or find patterns in randomness but more specifically we are prone to seeing faces or constructing faces from ambiguous input. To see what I mean, have a look at the picture below. 
 
@@ -267,7 +267,7 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-Although the picture does not show a face, we interpret the various elements in the picture to form - in combination - a face. Of course, the face is not emerging from a merely chaotic assemblies of elements but the elements in the picture are arranged to create that effect. And although the arrangement is deliberate in the picture above, it still goes to show that humans are particularly available for suggestive, ambiguous input to be interpreted as human faces. One reason for this is that the context, here understood as the combinatorial effect of various unrelated elements, influences our perception and interpretation of visual input. 
+Although the picture does not show a face, we interpret the various elements in the picture to form - in combination - a face. Of course, the face is not emerging from a merely chaotic assembly of elements, but the elements in the picture are arranged to create that effect. And although the arrangement is deliberate in the picture above, it still goes to show that humans are particularly available for suggestive, ambiguous input to be interpreted as human faces. One reason for this is that the context, here understood as the combinatorial effect of various unrelated elements, influences our perception and interpretation of visual input. 
 
 Let me clarify this with another example. What symbol do you see in the red circle?
 
@@ -279,7 +279,7 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-Given that context, with the letters "A" and "C" to the left and right of the symbol, the most natural interpretation of the symbol is, of course, a "B". However, if the context changes (as you can see below), the interpretation changes with it although the symbol and all its features remain the same. 
+Given that context, with the letters "A" and "C" to the left and right of the symbol, the most natural interpretation of the symbol is, of course, a "B". However, if the context changes (as you can see below), the interpretation changes with it, even though the symbol and all its features remain the same. 
 
 ```{r fig.width=4, fig.height=4, echo=FALSE, warning=FALSE}
 library(png)
