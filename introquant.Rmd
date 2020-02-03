@@ -293,9 +293,9 @@ This goes to show that our perception and interpretation of the world around us 
 
 ## Confirmation Bias and Cherry Picking
 
-As creatures of habit, we focus on certain things while we ignore others. This is quite helpful to orient ourselves in a highly complex world but it is unfortunately quite detrimental to the scientific endeavour. This is particularly so as we tend to ignore things or ideas that do not match our expectations. So, rather than finding evidence that supports our assumptions and views, we need to actively look for evidence that shows that our assumptions are wrong. But while this is the better methodological approach towards finding real answers, it goes against how we intuitively operate. Unfortunately, seeking to confirm one’s view, which is also called confirmation bias or cherry picking, is not only human but leads to deeply misguided conclusions. 
+As creatures of habit, we focus on certain things while we ignore others. This is quite helpful to orient ourselves in a highly complex world, but it is unfortunately quite detrimental to the scientific endeavour. This is particularly so as we tend to ignore things or ideas that do not match our expectations. So, rather than finding evidence that supports our assumptions and views, we need to actively look for evidence that shows that our assumptions are wrong. But while this is the better methodological approach towards finding real answers, it goes against how we intuitively operate. Unfortunately, seeking to confirm one’s existing view, which is also called confirmation bias or cherry picking, leads to deeply misguided conclusions. 
 
-This means that we are constantly deceiving ourselves and therefore need to protect ourselves from our own wrong judgments. To protect ourselves from these natural (systematic) delusions that have been discussed so far, we have developed *sceptical or critical thinking skills*. Among these skills, the *hypothetic-deductive method of science* is known as the * scientific method *. However, these skills are not just there - they have to be learned and trained! Such sceptical skills form the basis of science because science, in its essence, is the search for answers about how the world really works. And in order to avoid being led astray, we have to safeguard us from our own biases by following a methodological and careful approach. The next section will focus on the relationship between science and why it must be methodological.
+This means that we are constantly deceiving ourselves and therefore need to protect ourselves from our own wrong judgments. To protect ourselves from these natural (systematic) delusions that have been discussed so far, we have developed *sceptical or critical thinking skills*, which underpin the *hypothetic-deductive method of science* also known as *the scientific method*. However, we are not born with these skills - they have to be learned and trained! Such sceptical skills form the basis of science because science, in its essence, is the search for answers about how the world really works. And in order to avoid being led astray, we have to safeguard ourselves from our own biases by following a methodological and careful approach. The next section will focus on the relationship between science and why it must be methodological.
 
 ---
 nocite: | 
@@ -306,16 +306,16 @@ nocite: |
 >
 > Given what you have learned in this chapter, can you come up with explanations for a belief in ghosts?
 >
-> Someone tells you that his grandfather smoked a pack of cigarettes and drank a bottle of whiskey every day and thus claims that smoking and drinking does not harm your health. What is problematic about the conclusion and why is anecdotal evidence not appropriate?
+> Someone tells you that his grandfather smoked a pack of cigarettes and drank a bottle of whiskey every day and thus claims that smoking and drinking does not harm your health. What is problematic about this conclusion and why is anecdotal evidence not appropriate?
 
 # What is science?
 
-This chapter elaborates further on basic concepts of science but focuses less on the philosophical underpinning and more strictly on the craftsmanship aspect. Thus, it introduces basic concepts science (e.g. empirical versus pure science, falsification, inter-subjectivity, internal and external validity) and the scientific method which is exemplified with an example dealing with lost keys: in a first step we make an observation (keys are not here), in a second step, we ask ourselves where the keys may be (research question), in a third step, we think about where we have lost the keys before (literature review), in a next step, we come up with an idea where the keys may be (hypothesis), next, we look for the keys where we expect them to be (empirical testing), then, we evaluate the result of the test (was hypothesis correct), and finally, we either have found the keys (hypothesis was correct) or not (keys are still missing) which causes us to come up with another idea and we need to go through the same steps again.
+We shift our focus now away from the philosophical underpinning of science, and more strictly on the craftsmanship aspect. Thus, it introduces basic concepts science (e.g. empirical versus pure science, falsification, inter-subjectivity, internal and external validity) and the scientific method which is exemplified with an example dealing with lost keys: in a first step we make an observation (keys are not here), in a second step, we ask ourselves where the keys may be (research question), in a third step, we think about where we have lost the keys before (literature review), in a next step, we come up with an idea where the keys may be (hypothesis), next, we look for the keys where we expect them to be (empirical testing), then, we evaluate the result of the test (was hypothesis correct), and finally, we either have found the keys (hypothesis was correct) or not (keys are still missing) which causes us to come up with another idea and we need to go through the same steps again.
 
 ## Clever Hans
 What is science? Well, let's start with the example of "*Clever Hans*" to illustrate how science is applied to phenomena. 
 
-"*Clever Hans*" was horse who responded to questions requiring mathematical calculations by tapping his hoof. If asked by his master, William Von Osten, what is the sum of 3 plus 2, the horse would tap his hoof five times. It appeared the animal was responding to human language and was capable of grasping mathematical concepts. It was 1891 when Hans became public but only in 1904 it was discovered by Oskar Pfungst that the horse was responding to subtle physical cues. Yet, more than a dozen scientists observed Hans and were convinced there was no signalling or trickery. But the scientists were wrong.
+"*Clever Hans*" was horse who responded to questions requiring mathematical calculations by tapping his hoof. If asked by his master, William Von Osten, what is the sum of 3 plus 2, the horse would tap his hoof five times. It appeared the animal was responding to human language and was capable of grasping mathematical concepts. It was 1891 when Hans became public, but not until 1904 when it was discovered by Oskar Pfungst that the horse was in fact responding to subtle physical cues. Yet, during that time, more than a dozen scientists observed Hans and were convinced there was no signalling or trickery. But the scientists were wrong.
 
 ```{r fig.width=10, fig.height=8, echo=FALSE, warning=FALSE}
 library(png)
@@ -325,9 +325,9 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-Pfungst noted that when the correct answer was not known to anyone present, Clever Hans didn't know it either. And when the horse couldn't see the person who did know the answer, the horse didn't respond correctly. This led Pfungst to conclude that the horse was getting visual cues, albeit subtle ones. It turned out that Von Osten and others were cuing Hans unconsciously by "tensing their muscles until Hans produced" the correct answer. The horse truly was clever, not because he understood human language but because he could perceive very subtle muscle movements.
+Pfungst noted that when the correct answer was not known to anyone present, Clever Hans didn't know it either. And when the horse couldn't see the person who did know the answer, the horse didn't respond correctly. This led Pfungst to conclude that the horse was getting visual cues, albeit subtle ones. It turned out that Von Osten and others were cuing Hans unconsciously by tensing their muscles until Hans produced the correct answer. The horse truly was clever, not because he understood human language but because he could perceive very subtle muscle movements.
 
-The fact that it took a methodological and very careful approach to find out why the hoarse appeared to be able to do math is very telling. So, we use science because it effectively protects us from being deceived by others (which would be bad) and, more importantly, by ourselves (which is much worse). The consistent application of the scientific method not only brings insight into how the world really works but it allows us to find ways in which the world around us can then be used to our advantage (fire, wheel, agriculture, magnetism, steam engine, telephone, microwave, nuclear fusion, etc.), 
+The fact that it took a methodological and very careful approach to find out why the hoarse appeared to be able to do math is very telling. So, we use science because it effectively protects us from being deceived by others (which would be bad) and, more importantly, by ourselves (which is much worse). The consistent application of the scientific method not only brings insight into how the world really works, but it allows us to find ways in which the world around us can then be used to our advantage (fire, wheel, agriculture, magnetism, steam engine, telephone, microwave, nuclear fusion, etc.), 
 
 So, what is science?
 
@@ -347,25 +347,25 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-Which varieties of science are there?
+What varieties of science are there?
+
 * Empirical Science: Examines phenomena of reality through the scientific method (cf.), with the aim of explaining and / or predicting them (for example, functional linguistics, biology, astronomy, sociology, ...).
 
-Formal science
-* Examines systems of abstract constructs using axiomatically set or derived rules (for example, mathematics, formal logic, theoretical computer science, system theory, chaos theory, formal linguistics, ...).
+* Formal science: Examines systems of abstract constructs using axiomatically set or derived rules (for example, mathematics, formal logic, theoretical computer science, system theory, chaos theory, formal linguistics, ...).
 
 # What is (empirical) Linguistics?
 
-Linguistics is commonly defined as the "*The scientific study of language or individual languages*" and linguists try to uncover the systems behind language, to describe these systems, and to theoretically explain and model them [@evans2006cognitive]. Linguistics who work empirically conduct research on linguistic phenomena based on observations of reality and is thus descriptive rather than prescriptive in nature.
+Linguistics is commonly defined as the "*The scientific study of language or individual languages*". Linguists try to uncover the systems behind language, to describe these systems, and to theoretically explain and model them [@evans2006cognitive]. Linguists who work empirically conduct research on linguistic phenomena based on observations of reality and thieir work is thus descriptive rather than prescriptive in nature.
 
 How does the scientific method work in linguistics?
 
-In empirical research typically follows the scheme described below.
+Empirical research typically follows the scheme described below.
 
 * Make an observation (e.g. *My keys are gone!*)
 * Deduce a Test-Hypothesis (H~1~) based on observation (e.g. *My keys are on the table next to the TV!*)
-* Formulate Nullhypothesis (H~0~) (e.g. *My keys are not on the table next to the TV!*)
+* Formulate Null-Hypothesis (H~0~) (e.g. *My keys are not on the table next to the TV!*)
 * Determining the level of significance at which the H~0~ is rejected ()
-* Formulate potential results: what resulst are possible wnad what do they mean for the H~0~ and H~1~? (*My keys are not on the table next to the TV!*: H~0~ cannot be rejected, formulate new H~1~)
+* Formulate potential results: what results are possible and what do they mean for the H~0~ and H~1~? (*My keys are not on the table next to the TV!*: H~0~ cannot be rejected, formulate new H~1~)
 * Design experiment/study/research (e.g. *I will go over to the TV and see if my keys on the table next to the TV.*)
 * Conduct experiment/study/research (e.g. *Actually go over to the TV and see if my keys on the table next to the TV.*)
 * Statistical analysis 
