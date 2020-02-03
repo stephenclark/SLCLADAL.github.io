@@ -51,26 +51,26 @@ What do you think? Well, in fact, you should switch doors as it does make a diff
 
 ## The Birthday Conundrum
 
-Another interesting way to show that we are not good with numbers relates to the so-called "Birthday Conundrum". The birthday conundrum deals with exponentials and it can best be exemplified by the following scenario: imagine you are in a class consisting of 23 students. 
+Another interesting way to show that we are not good with numbers is the so-called "Birthday Conundrum". The birthday conundrum deals with exponentials and it can best be exemplified by the following scenario: Imagine you are in a class consisting of 23 students...
 
 > Think Break!
 >
 > How likely is it that 2 students have the same birthday?
 >
 
-In a room of just 23 people there’s a 50-50 chance of two people having the same birthday. In a room of 75 there’s a 99.9 percent chance of two people matching. The vast majority of people will intuitively come up with much higher numbers of students that are required to find a pair of students that have the same birthday. But why is that?
+In a room of just 23 people, there’s a 50-50 chance of two people having the same birthday. In a room of 75 there’s a 99.9 percent chance of two people matching. The vast majority of people will intuitively come up with much higher numbers of students that are required to find a pair of students that have the same birthday. But why is that?
 
 Well, we are quite good with our numeric intuition when it comes to simple addition, subtraction, and multiplication but we are really bad when it comes to exponential growth. 
 
 Let us go back to our problem: What are the chances that two students in a class of 23 have their birthday on the same day?
 
-We could list all possible couples and count all the ways they could fit but that would be really labour intensive. In fact, it would be the same as asking "What's the chance to get one or more heads in 23-coin flips?".
+We could list all possible couples and count all the ways they could fit, but that would be really labour intensive. In fact, it would be the same as asking "What's the chance of getting one or more heads in 23-coin flips?".
 
 Is there an easier way to solve the coin-flip and the birthday problem? 
 
-Yes, there is. We can turn the problem on its head: instead of determining the likelihood of each and every path to get heads, we simply calculate the chance to get only tails (or all separate birthdays).
+Yes, there is. We can turn the problem on its head: instead of determining the likelihood of each and every path to get heads, we simply calculate the chance of getting only tails (or all separate birthdays).
 
-If there's a 1% chance of getting only tails (it is, in fact, $.5^23$ to be precise but let's stick with 1 percent for the sake of simplicity here), there's a 99% chance of having at least one head. We do not know if it's only 1 head or 2 or 15 or 23: there is at least once head, and that is what matters here. If we subtract the probability of the negative of our problem from 1, we get the probability of the scenario that we are interested in.
+If there's a 1% chance of getting only tails (it is, in fact, $.5^23$ to be precise, but let's stick with 1 percent for the sake of simplicity here), there's a 99% chance of having at least one head. We do not know if it's only 1 head or 2 or 15 or 23: there is at least once head, and that is what matters here. If we subtract the probability of the negative of our problem from 1, we get the probability of the scenario that we are interested in.
 
 The same principle applies to birthdays. Instead of finding all possibilities, we find the chance that everyone is different (the "negative" scenario). We then determine the probability of the positive and have the chance of at least two people having the same birthday. It can be 1 pair, or 2 or 20, but at least two people have the same birthday.
 
@@ -111,9 +111,9 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-Most students initially think that the ball costs 10 cents but this is not the correct answer. Do you know why? Well, if the ball costs 10 cents and the bat costs 1 AUD more, then the bat would cost 1.10 AUD and both together would cost 1.20 AUD and not 1.10 AUD. The correct answer is of course 5 cents (0.05 AUD + 1.05AUD = 1.10 AUD).
+Most people initially think that the ball costs 10 cents, but this is not the correct answer. Do you know why? Well, if the ball costs 10 cents and the bat costs 1 AUD more, then the bat would cost 1.10 AUD and both together would cost 1.20 AUD and not 1.10 AUD. The correct answer is of course 5 cents (0.05 AUD + 1.05AUD = 1.10 AUD).
 
-According to the psychologist Daniel Kahnemann, one possible explanation for this bias is that humans have two different ways of thinking: fast thinking which is very intuitive and quick and slow thinking which takes longer and is more deliberate. While fast thinking is typically a very economical way to decide, slow and deliberate is more precise but more "*expensive*" as it takes more time and effort. Science is essentially a method to approach problems, that we would normally use fast thinking to resolve, with slow and deliberate thought.
+According to the psychologist Daniel Kahnemann, one possible explanation for this bias is that humans have two different ways of thinking: fast thinking, which is very intuitive and quick; and slow thinking, which takes longer and is more deliberate. While fast thinking is typically a very economical way to decide, slow and deliberate is more precise but more "*expensive*" as it takes more time and effort. Science is essentially a method to approach problems with slow and deliberate thought.
 
 ## Randomness
 
