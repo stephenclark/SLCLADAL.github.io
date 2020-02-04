@@ -17,9 +17,9 @@ This tutorial introduces classification using "R". The entire code for the secti
 
 # Preparation
 
-As all caluculations and visualizations in this tutorial rely on R, it is necessary to install R and RStudio. If these programms (or, in the case of R, environments) are not installed yet, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
+As all calculations and visualizations in this tutorial rely on R, it is necessary to install R and RStudio. If these programs (or, in the case of R, environments) are not installed yet, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries needed for running the code below. If you have already installed the libraries mentioned below, then you can skip ahead ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
+In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries needed for running the code below. If you have already installed the libraries mentioned below, then you ignore this section and skip ahead. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -94,7 +94,7 @@ trainingData <- read.delim("https://slcladal.github.io/data/paragraph_training_d
 colnames(trainingData); str(trainingData)
 ```
 
-How is the ratio between domestic and foreign content in the training data?
+What is the ratio between domestic and foreign content in the training data?
 
 ```{r class5, echo=T, eval = T, message=FALSE, warning=FALSE}
 classCounts <- table(trainingData[, "LABEL"])
@@ -117,11 +117,11 @@ dim(DTM)
 
 # Classification
 
-Now we build a linear classification model with the LiblineaR package. The package LiblineaR wraps around the open source library LIBLINEAR which provides a very fast implementations for two text classification algorithms: 1. Logistic Regression, and 2. Support Vector Machines (SVM) with a linear kernel. For both algorithms, different regularization methods exist (e.g. L1, and L2-regularization). The combination of algorithms and regularization can be controlled by the `type` parameter of the `LiblineaR` function. We stick to the default type, L2-regularized logistic regression (LR), since it usually achieves good performance in text classification.
+Now we build a linear classification model with the LiblineaR package. The package LiblineaR wraps around the open source library LIBLINEAR which provides very fast implementations for two text classification algorithms: 1. Logistic Regression, and 2. Support Vector Machines (SVM) with a linear kernel. For both algorithms, different regularization methods exist (e.g. L1, and L2-regularization). The combination of algorithms and regularization can be controlled by the `type` parameter of the `LiblineaR` function. We stick to the default type, L2-regularized logistic regression (LR), since it usually achieves good performance in text classification.
 
-First, we load the packages. Since Liblinear requires a special Sparse Matrix format, we also load the "SparseM" package and a conversion function which allows to convert `slam`-matrices (as used in the `tm` package) into `SparseM`-matrices. 
+First, we load the packages. Since Liblinear requires a special Sparse Matrix format, we also load the "SparseM" package and a conversion function which allows us to convert `slam`-matrices (as used in the `tm` package) into `SparseM`-matrices. 
 
-Then, we split the annotated data into a training set (80%) and a test set (20%) using a boolean selector. The expression assigned to `selector_idx` creates a boolean vector of length `r numberOfDocuments` containing a FALSE value in every fifths position. This selector is used to select to training set. Its inverted vector (!) is used to select the test set.
+Then, we split the annotated data into a training set (80%) and a test set (20%) using a boolean selector. The expression assigned to `selector_idx` creates a boolean vector of length `r numberOfDocuments` containing a FALSE value in every fifth position. This selector is used to select the training set. Its inverted vector (!) is used to select the test set.
 
 ```{r class7, echo=T, eval = T, message=FALSE, warning=FALSE}
 require(LiblineaR)
@@ -155,7 +155,7 @@ print(accuracy)
 
 The accuracy of `r accuracy` appears moderate for a first try. But how does it actually relate to a base line? Think of the imbalanced class proportions in our training set. Let us create a pseudo classification as base line, in which we do not classify at all, but simply assume the label "DOMESTIC" or "FOREIGN" for each paragraph.
 
-We further employ a function called "F.measure" which gives more differentiated measures than simple accuracy ("A")to determine the classification quality. The F.measure ("F") is the harmonic mean of Precision ("P") and Recall ("R") (see https://en.wikipedia.org/wiki/Precision_and_recall#Definition_.28classification_context.29 for Details).
+We further employ a function called "F.measure" which gives more differentiated measures than simple accuracy ("A") to determine the classification quality. The F.measure ("F") is the harmonic mean of Precision ("P") and Recall ("R") (see https://en.wikipedia.org/wiki/Precision_and_recall#Definition_.28classification_context.29 for Details).
 
 ```{r class9, echo=T, eval = T, message=FALSE, warning=FALSE}
 # Create pseudo classification
@@ -181,7 +181,7 @@ To evaluate a classifier, the training data can be divided into training and tes
 
 For this, training data is split into e.g. K = 10 parts. Then k-1 parts are used for training and 1 part is used for testing. This process is repeated k times, with another split of the overall data set for testing in each iteration.
 
-The final result is determined from the average of the quality of the k runs. This allows a good approximation to the classification quality, including all training data.
+The final result is determined from the average of the quality of the k runs. This allows a good approximation of the classification quality, including all training data.
 
 The `get_k_fold_logical_indexes` function introduced below returns a logical vector for the fold `j` for cross-validation. It splits a training data record of the size `n` into `k` folds. The resulting vector and its negated vector can be used for easy training data / test data selection.
 
@@ -199,7 +199,7 @@ get_k_fold_logical_indexes(2, k = 10, n = 12)
 get_k_fold_logical_indexes(3, k = 10, n = 12)
 ```
 
-Now we run 1) splitting of the annotated data, 2) model computation and testing in one for-loop.
+Now we run the following: 1) splitting of the annotated data, and 2) model computation and testing in one for-loop.
 
 ```{r class11, echo=T, eval = T, message=FALSE, warning=FALSE}
 k <- 10
@@ -242,11 +242,11 @@ These first tries have clarified how to utilize and evaluate machine learning fu
 
 ## C-Parameter
 
-For a linear classification model, the cost parameter (C-parameter) is the most important parameter to tweak (for other SVM kernels such as the radial or polynomial kernel there are other important parameters which influence the shape of the kernel function).  The **C-parameter** determines the cost of classifications on the training data during training. 
+For a linear classification model, the cost parameter (C-parameter) is the most important parameter to tweak (for other SVM kernels such as the radial or polynomial kernel, there are other important parameters that influence the shape of the kernel function).  The **C-parameter** determines the cost of classifications on the training data during training. 
 
-High values of C lead to a high costs of misclassification. The decision boundary which the classifier learns, will try to avoid any misclassification. But, values too high can lead to an overfitting of the model. This means, it adapts well to the training data, but classification will more likely fail on new test data.
+High values of C lead to a high cost of misclassification. The decision boundary, which the classifier learns, will try to avoid any misclassification. But, values too high can lead to an overfitting of the model. This means it adapts well to the training data, but classification will more likely fail on new test data.
 
-Low values of C lead to less strict decision boundaries, which accepts some misclassifications. Such a model might generalize better on unseen data. But in the end, there is now exact method to determine a good C-value beforehand. It rather is an empirical question. To choose an optimal C-value, we simply try from a range of values, run k-fold-cross-validation for each single value and decide for the C which resulted in the best classification accuracy / F-measure. This is realized in the following for-loop, which utilizes the function `k_fold_cross_validation`. The function (have a look into `F.measure.R`) simply wraps the code for cross-validation, we used above.
+Low values of C lead to less strict decision boundaries, which accepts some misclassifications. Such a model might generalize better on unseen data. But in the end, there is now exact method to determine a good C-value beforehand. It rather is an empirical question. To choose an optimal C-value, we simply try from a range of values, run k-fold-cross-validation for each single value and decide for the C which resulted in the best classification accuracy / F-measure. This is realized in the following for-loop, which utilizes the function `k_fold_cross_validation`. The function (have a look into `F.measure.R`) simply wraps the code for cross-validation that we used above.
 
 
 ```{r class12, echo=T, eval = T, message=FALSE, warning=FALSE}
@@ -263,15 +263,15 @@ bestC <- cParameterValues[which.max(fValues)]
 print(paste0("Best C value: ", bestC, ", F1 = ", max(fValues)))
 ```
 
-From the empirical test, we can obtain C = `r bestC` as optimal choice for the cost parameter. On the current training data set with the current features it achieves `r max(fValues)` F-score.
+From the empirical test, we can obtain C = `r bestC` as optimal choice for the cost parameter. On the current training data set with the current features, it achieves `r max(fValues)` F-score.
 
 ## Optimized Preprocessing
 
-Not only the classification model has parameters which can be optimized to improve the results. More important are the features used for classification. In our preprocessing chain above, we extracted single types and transformed them into lower case. We now add different preprocessing steps and check on the results. To get an optimal cost parameter for each new feature set, we wrapped the code for C-parameter optimization into the `optimize_C` function.
+Not only does the classification model have parameters which can be optimized to improve the results - more important are the features used for classification. In our preprocessing chain above, we extracted single types and transformed them into lower case. We now add different preprocessing steps and check on the results. To get an optimal cost parameter for each new feature set, we wrapped the code for C-parameter optimization into the `optimize_C` function.
 
 **Stop word removal**
 
-Stop words often do not contribute to the meaning of a text. For the decision between DOMESTIC and FOREIGN affairs, we do not expect any useful information from them. So let's remove them and if it improves the classifier.
+Stop words often do not contribute to the meaning of a text. For the decision between DOMESTIC and FOREIGN affairs, we do not expect any useful information from them. So let's remove them and see if it improves the classifier.
 
 ```{r class13, echo=T, eval = T, message=FALSE, warning=FALSE}
 processedCorpus <- tm_map(corpus, content_transformer(tolower))
@@ -288,7 +288,7 @@ best_C <- optimize_C(annotatedDTM, annotatedLabels)
 k_fold_cross_validation(annotatedDTM, annotatedLabels, cost = best_C)
 ```
 
-Now let us see, if the use of bigrams, i.e. concatenations of sequences of two words can improve the result. Bigrams help to overcome a little bit the bag-of-words assumption of Document-Term-Matrices. With them, we can learn multi-word units such as *great britain*, *international affairs* or *united nations* as meaningful features for our task. The package `tokenizers` provides a simple and fast implementation to generate n-grams.
+Now let's see if the use of bigrams (i.e. concatenations of sequences of two words) can improve the result. Bigrams help to overcome a little bit the bag-of-words assumption of Document-Term-Matrices. With them, we can learn multi-word units such as *great britain*, *international affairs* or *united nations* as meaningful features for our task. The package `tokenizers` provides a simple and fast implementation to generate n-grams.
 
 **Bigrams**
 
@@ -339,7 +339,7 @@ Each individual approach to optimize our text features for classification has so
 
 But, testing different features must be done for each new task / language individually, since there is no "one-size fits all" approach to this.
 
-GENERAL ADVISE: For this tutorial we utilized a rather small training set of 300 examples, 91 of them in the positive class. Better classification accuracy can be expected, if more training data is available. Hence, instead of spending too much time on feature optimization, it will probably be a better idea to invest into generation of more training data first.
+GENERAL ADVICE: For this tutorial we utilized a rather small training set of 300 examples; 91 of them in the positive class. Better classification accuracy can be expected if more training data is available. Hence, instead of spending too much time on feature optimization, it will probably be a better idea to invest in generation of more training data first.
 
 # Final classification
 
@@ -355,7 +355,7 @@ final_labels <- predict(final_model, convertSlamToSparseM(DTM))$predictions
 table(final_labels) / sum(table(final_labels))
 ```
 
-We see that the classifier puts the majority of the around 21,000 paragraphs into the DOMESTIC category. We can visualize the result as a bar chart with `ggplot2`. For better readability
+We see that the classifier puts the majority of the 21,000 (approx) paragraphs into the DOMESTIC category. We can visualize the result as a bar chart with `ggplot2` for better readability.
 
 ```{r class18, cache = T, message=FALSE, warning=FALSE, fig.height=25, fig.width=10}
 speech_year <- substr(testdata$date, 0, 4)
@@ -376,7 +376,7 @@ ggplot(presidents_df, aes(x = speech, y = paragraph_position, fill = category)) 
   geom_tile(stat="identity") + coord_flip()
 ```
 
-Can you see how DOMESTIC affairs related content gets more important over the course of centuries? Also the position of FOREIGN policy statements changes around the turn from the 19th to 20th century from the begginning of a speech to more dispersed positions thoughout the speech, and finally a tendency to rather place them at the end of speeches.
+Can you see how DOMESTIC affairs related content gets more important over the course of the centuries? Also the position of FOREIGN policy statements changes around the turn from the 19th to 20th century, from the beginning of a speech to more dispersed positions thoughout the speech, and finally a tendency for them to be placed at the end of speeches.
 
 # Optional exercises
 
