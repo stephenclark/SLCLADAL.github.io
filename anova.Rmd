@@ -17,7 +17,7 @@ This tutorial introduces Analysis of Variance (ANOVA) in "R". The entire code fo
 
 # Preparation and session set up
 
-As all visualizations in this tutorial rely on "R", it is necessary to install "RStudio" (a programm which makes working with R particularly user-friendly). If "RStudio" is not already installed on your machine, please search for "RStudio" in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory). Once you have installed "RStudio", open it.
+As all visualizations in this tutorial rely on "R", it is necessary to install "RStudio" (a program that makes working with R particularly user-friendly). If "RStudio" is not already installed on your machine, please search for "RStudio" in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory). Once you have installed "RStudio", open it.
 
 In addition, we prepare our session by clearing the workspace, setting options, and installing certain "libraries" or "packages" that we need in this tutorial. Thus, please install the libraries by running the code below this paragraph (simply copy and paste the code into the editor window of RStudio and select "Run" from the task bar above) - the installation may take some time (depending on the number and the nature of the libraries it may take a couple of minutes).
 
@@ -163,13 +163,13 @@ par(mfrow = c(1, 1)) # restore original plotting parameters
 by(anova.data$errors, anova.data$group, stat.desc)
 ```
 
-Now, a Lavene's test is used to check if variance homogeneiety is given. If the p-value reported by the Lavene's test is greater than .05, the variance is homogeneous and thus acceptable. any conditions are violated conditions
+Now, a Levene's test is used to check if variance homogeneity is given. If the p-value reported by the Levene's test is greater than .05, the variance is homogeneous and thus acceptable.
 
 ```{r anova5, echo=T, eval = T, message=FALSE, warning=FALSE}
 leveneTest(errors, group, center = median)
 ```
 
-As the p-value reported by the Lavene's test is greater than .05, we can proceed with the ANOVA. 
+As the p-value reported by the Levene's test is greater than .05, we can proceed with the ANOVA. 
 
 ```{r anova6, echo=T, eval = T, message=FALSE, warning=FALSE}
 # perform anova
@@ -199,7 +199,7 @@ If the conditions for ANOVA are not met, we need to use robust alternatives whic
 
 ## Welch Test
 
-If Lavene's test is significant, i.e. in case we are dealing with unequal variances, we can use the Welch Test which combat problems arising from violations of the homogeneity of variance assumption (Field, Miles & Field 2012: 414).
+If Levene's test is significant, i.e. in case we are dealing with unequal variances, we can use the Welch Test which combats problems arising from violations of the homogeneity of variance assumption (Field, Miles & Field 2012: 414).
 
 ```{r anova9, echo=T, eval = T, message=FALSE, warning=FALSE}
 oneway.test(errors ~ group, data = anova.data)
@@ -222,7 +222,7 @@ med1way(anova.wide)
 t1waybt(anova.wide, tr = .2, nboot = 599)
 ```
 
-# ANAOVAs with Planned Contrasts 
+# ANOVAs with Planned Contrasts 
 
 Contrasts are a handy way to inspect if there are differences not only between the groups, but e.g. between those that have not had any alcohol and those who had.
 
