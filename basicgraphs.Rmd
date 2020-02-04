@@ -15,37 +15,36 @@ knitr::include_graphics("images/uq1.jpg")
 
 This tutorial focuses on data visualization using R. The entire code for the tutorial can be downloaded [here](https://slcladal.github.io/rscripts/basicgraphsrscript.r). 
 
-When it comes to data visualization, R offers a myriad of options and ways to show and summarize data which makes R an incredibly flexible tool that offers full control over the distinct layers of plots.
+When it comes to data visualization, R offers myriad options and ways to show and summarize data. It is also incredibly flexible, because it also allows us to modify these visualizations to match our individual needs. In addition, a major advantage of using R is that the code can be stored, distributed, and run very easily. This means that R represents a framework for creating graphs that enables sustainable, reproducible, and transparent procedures. 
 
-Before addressing practical issues, rather general questions relating to what needs to be kept in mind when visualizing data, e.g. axes labelling, are discussed. In addition, the section discusses pros and cons of different types of graphs (scatter plots, line graphs, bar plots, histograms, pie charts, box plots and many more).
+As there exists a multitude of different ways to visualize data, this section can only highlight the most common types of visualization. Each type of visualization (or graph or plot) is briefly introduced followed by code which produces that type of visualization in R.
 
-The practical part presents the code used to set up graphs so that they can be recreated and also discusses potential problems that you may encounter when setting up a graph. 
+The practical part presents the code used to set up graphs so that they can be recreated, and also discusses potential problems that you may encounter when setting up a graph. Before addressing practical issues, we discuss some rather general questions relating to what needs to be kept in mind when visualizing data, e.g. axes labelling. In addition, the section discusses pros and cons of different types of graphs (scatter plots, line graphs, bar plots, histograms, pie charts, box plots and many more).
 
-As there exists a multitude of different ways to visualize data, this section can only highlight the most common types of visualization. Each type of visualization (or graph or plot) is briefly introduced followed by code which produces the type of visualization in R. This section focuses on using R when dealing with plots because R is extremely flexible when it comes to creating graphics. R is flexible in the sense that one can produce not only a huge variety of different types of visualization in R but also to modify these visualizations to match one's individual needs. In addition, a major advantage of using R consists in the fact that the code can be store, distributed, and run very easily. This means that R represents a framework for creating graphs that enables sustainable, reproducible, and transparent procedures. 
 
 ## Basics of visualization
 
-Before turning to the practical issues relating to creating graphs, a few words on what one has to keep in mind when visualizing data are in order. On a very general level, graphs should be used to inform the reader about properties and relationships between variables. This implies that...
+A few words on what one has to keep in mind when visualizing data are in order. On a very general level, graphs should be used to inform the reader about properties and relationships between variables. This implies that:
 
-* graphs, including axes, must be labelled properly to allow the reader to understand the visualization with ease. 
-* visualizations should not use more dimensions than the data has that is visualized.
+* graphs, including their axes, must be labelled properly to allow the reader to understand the visualization with ease. 
+* visualizations should not use more dimensions than the the number of dimensions that exist in data being visualized.
 * all elements within a graph should be unambiguous.
 * variable scales should be portrayed accurately (for instance, lines - which imply continuity - should not be used for categorically scaled variables).
 * graphs should be as intuitive as possible.
 
 ## Visualization using R
 
-A few words on different frameworks for creating graphics in R are in order. There are three frameworks in which to create graphics in R. The *basic* framework, the *lattice* framework, and the *ggplot* or *tidyverse* framework. 
+There are (at least) three frameworks that we can use to create graphics in R. The *basic* framework, the *lattice* framework, and the *ggplot* or *tidyverse* framework. 
 
-The *basic* framework is the oldest of the three and is included in the "base"-package that is automatically activated when entering R. The idea behind the "base" environment is that the creation of graphics is seen in analogy to a painter who paints on an empty canvass. Each line or element is added to the graph consecutively which oftentimes leads to code that is very comprehensible but also very long.
+The *basic* framework is the oldest of the three and is included in the "base"-package, which is automatically activated when entering R. The idea behind the "base" environment is that the creation of graphics is seen in analogy to a painter who paints on an empty canvas. Each line or element is added to the graph consecutively, which oftentimes leads to code that is very comprehensible but also very long.
 
-The *lattice* environment was a follow-up to the *base* package and it complemented it insofar as it made it much easier to display various variables and variable levels simultaneously. The philosophy of the lattice-package is quite different from the philosophy of *base*: whereas everything had to be specified in *base*, the graphs created in the *lattice* environment require only very little code but are therefore very easily created when one is satisfied with the design but vey labour intensive when it comes to customizing graphs. However, *lattice* is very handy when summarizing relationships between multiple variable and variable levels.
+The *lattice* environment was a follow-up to the *base* package and made it much easier to display various variables and variable levels simultaneously. The philosophy of the *lattice*-package is quite different from the philosophy of *base*: while everything had to be specified in *base*, the graphs created in the *lattice* environment require very little code. It is therefore very easy to create graphics using *lattice* when one is satisfied with the design, but vey labour intensive when it comes to customizing graphs. However, *lattice* is very handy when summarizing relationships between multiple variables and variable levels.
 
-The *ggplot* environment was written by Hadley Wickham and it combines the positive aspects of both the *base* and the *lattice* package. It was first publicized in the *gplot* and *ggplot1* packages but the latter was soon repackaged and improved in the now most widely used package for data visualization: the *ggplot2* package. The *ggplot* environment implements a philosophy of graphic design described in builds on *The Grammar of Graphics* by Leland Wilkinson [@wilkinson2012grammar].
+The *ggplot* environment was written by Hadley Wickham and combines the positive aspects of both the *base* and the *lattice* package. It was first publicized in the *gplot* and *ggplot1* packages, but the latter was soon repackaged and improved in the now most-widely used package for data visualization: the *ggplot2* package. The *ggplot* environment implements a philosophy of graphic design described in *The Grammar of Graphics* by Leland Wilkinson [@wilkinson2012grammar].
 
-The philosophy of *ggplot2* is to consider graphics as consisting out of basic elements (called *aesthetics* and they include, for instance, the data set to be plotted and the axes) and layers that overlayed onto the aesthetics. The idea of the *ggplot2* package can be summarized as taking "care of many of the fiddly details that make plotting a hassle (like drawing legends) as well as providing a powerful model of graphics that makes it easy to produce complex multi-layered graphics."
+The philosophy of *ggplot2* is to consider graphics as consisting out of basic elements (called *aesthetics* like, for instance, the data set to be plotted, and the axes) and layers that overlayed onto the aesthetics. The idea of the *ggplot2* package can be summarized as taking "care of many of the fiddly details that make plotting a hassle (like drawing legends) as well as providing a powerful model of graphics that makes it easy to produce complex multi-layered graphics."
 
-Thus, ggplots typically start with the function call (ggplot) followed by the specification of the data, then the aesthetics (aes), and then a specification of the type of plot that is created (geom_line for line graphs, geom_box for boxplots, geom_bar for bargraphs, , geom_text for text, etc.). In addition, ggplot allows to specify all elements that the graph consists of (e.g. the theme and axes)
+Thus, ggplots typically start with the function call (ggplot) followed by the specification of the data, then the aesthetics (aes), and then a specification of the type of plot that is created (geom_line for line graphs, geom_box for boxplots, geom_bar for bargraphs, geom_text for text, etc.). In addition, ggplot allows us to specify all elements that the graph consists of (e.g. the theme and axes).
 
 In the following, we will start to create a couple of graphs in the *base* environment (and a very brief example of how create visualizations in the *lattice* framework) but we will then concentrate on how to create *ggplot* graphs.
 
@@ -108,7 +107,7 @@ We will now turn to creating the graphs.
 
 # Scatter Plots
 
-The first, and simplest graph, is a so-called *scatterplot*. Scatterplots are used when the graph is set up to display the relationship between two numeric variables. We will start off with creating a scatter plot in *base*, then in *lattice* and finally in the *ggplot* environment.
+The first (and simplest) graph is a so-called *scatter plot*. Scatterplots are used when the graph is set up to display the relationship between two numeric variables. We will start by creating a scatter plot in *base*, then in *lattice*, and finally in the *ggplot* environment.
 
 ## Scatter Plots in base  
 
@@ -127,7 +126,7 @@ plot(Prepositions ~ Date,                 # plot Prepositions by Date
 
 Let us go over the command. The first part of the call is "plot" which is the function for plotting data in the "base" package. In the round brackets are the arguments in which we specify what the plot should look like. The "Prepositions ~ Date" part tells R which variables should be displayed and the "type = "p"" part tells R which type of plot we want ("p" stands for points, "l", for lines, "b" for both lines and points). The part "data = plotdata" tells R which data set to take the data from, and "ylab = "Prepositions (Frequency)"" and "xlab = "Date (year of composition)"" informs R about the axes' labels. The part "main = "plot type 'p' (points)" informs R about what we want as the main title of the plot. 
 
-In a next step, we will change the title, add two regression lines to the scatterplot (in the first case a linear and in the second case a smoothed regression line) and we will change the points as well as the colour of the points.
+In a next step, we will change the title, add two regression lines to the scatter plot (in the first case a linear and in the second case a smoothed regression line) and we will change the points as well as the colour of the points.
 
 ```{r scatter2, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create simple scatter plot with ablines
@@ -150,14 +149,14 @@ lines(                                    # add line (x,y)
   )                                       # end drawing line
 ```
 
-The only things that are different in the main call are the "pch" argument with has changed the points into filled dots (this is what the 20 stands for) and the "col" argument which we have specified as "lightgrey". The regression lines are added using the "abline" and the "lines" argument.
+The only things that are different in the main call are the "pch" argument which has changed the points into filled dots (this is what the 20 stands for) and the "col" argument which we have specified as "lightgrey". The regression lines are added using the "abline" and the "lines" argument.
 
 >
 > Exercise Time!
 >
 > Load the data set called "data03" and create a simple scatterplot showing the "Variable1" on the x-axis and "Variable2" on the y-axis.
 >
-> Tipp: Use the code below to load the data.
+> Tip: Use the code below to load the data.
 >
 
 ```{r scatter 3, eval = T, echo = T, results = 'asis', message=FALSE, warning=FALSE}
@@ -184,7 +183,7 @@ plot(Variable2 ~ Variable1,
 
 ## Scatter Plots in lattice
 
-We now turn to data visualization in *lattice*. As the *lattice* package is already loaded, we can create a first simple scatter plot using the "xyplot" function form the "lattice" package.
+We now turn to data visualization in *lattice*. As the *lattice* package is already loaded, we can create a first simple scatter plot using the "xyplot" function from the "lattice" package.
 
 ```{r scatter6, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create simple scatter plot
@@ -205,9 +204,9 @@ xyplot(Prepositions ~ Date | Genre,         # plot Prepositions by Date by Genre
        )                                    # end drawing plot
 ```
 
-The only new code in the chunk above is the "| Genre" part. This part means that the relationship between Prepositions and Date should be displayed by Genre So, the |-symbol can be translated into "by". The splitting of the plot into different panels for Genre is then done automatically. 
+The only new code in the chunk above is the "| Genre" part. This part means that the relationship between Prepositions and Date should be displayed by Genre. So, the "|" symbol can be translated to "by". The splitting of the plot into different panels for Genre is then done automatically. 
 
-Like in base, we can modify lattice-plots and specify, e.g. the symbols that are plotted or their colour.
+Like in "base", we can modify lattice-plots and specify, for example, the symbols that are plotted or their colour.
 
 ```{r scatter7b, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create scatter plots by species
@@ -237,7 +236,7 @@ ggplot(plotdata,                # plot data from data set plodata
 
 Let's go over the code above. The function call for plotting in "ggplot2" is simply "ggplot". This function takes the data set as its first argument and then requires aesthetics. The aesthetics are defined within the "ggplot" function as the arguments of "aes". The "aes" function takes the axes as the arguments (in the current case). Then, we need to define the type of plot that we want. As we want a scatter plot with points, we add the "geom_point()" function without any arguments (as we do not want to specify the size, colour, and shape of the points just yet).
 
-The advantage of "ggplot2" is that is really easy to modify the plot by adding new layers and to change the basic outlook by modifying the theme which is what we will do in the code below.
+The advantage of "ggplot2" is that is really easy to modify the plot by adding new layers and to change the basic outlook by modifying the theme. We will do this in the code below.
 
 ```{r scatter10, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create scatter plot colored by genre
@@ -249,7 +248,7 @@ ggplot(plotdata,               # plot data from data set plotdata
   theme_bw()                   # define theme  as black and white (bw)
 ```
 
-The example above is intended to show that creating ggplots is can be very simple but "ggplot2" is extremely flexible and thus allows us to modify the plot in various ways. To exemplify how a ggplot may be modified, we will change the colour of the dots, add a white rather than a grey background.
+The example above is intended to show that creating ggplots is can be very simple, but the "ggplot2" package is extremely flexible and thus allows us to modify the plot in various ways. To exemplify how a ggplot may be modified, we will change the colour of the dots, and add a white rather than a grey background.
 
 ```{r scatter11, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create scatter plot colored by genre
@@ -267,9 +266,9 @@ The white background is created by specifying the theme as a black and white the
 
 ## Using symbols in scatter plots
 
-Instead of using simple dots to represent data points, it can be useful to use symbols instead to make it easier for readers to understand what individual dots refer to. This is so because the reader does not have to take the eyes away from the graph to the legend to understand what a dot represents. 
+Instead of using simple dots to represent data points, it can be useful to use symbols instead to make it easier for readers to understand what individual dots refer to. This is so the reader does not have to take the eyes away from the graph to the legend to understand what a dot represents. 
 
-As the data is too rich for such a visualization, we will create a reduced data set so that the graph is more readily interpretable.
+As the data we are using is too rich for such a visualization, we will create a reduced data set so that the graph is more readily interpretable.
 
 ```{r data3, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # modify data
@@ -282,7 +281,7 @@ plotdataredux <- plotdata %>%
 str(plotdataredux)
 ```
 
-We can now specify the symbols in the scatterplot.
+We can now specify the symbols in the scatter plot.
 
 ```{r scatter12, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create scatter plot colored by genre
@@ -310,7 +309,7 @@ ggplot(plotdata, aes(Date, Prepositions,  color = Genre)) +
         axis.text.x = element_text(size=8, angle=90))
 ```
 
-If we only want to show the lines, we simply drop the "geom_point" function.
+If we want to show the lines only, we simply remove the "geom_point" function.
 
 ```{r scatter14, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create scatter plot colored by genre in different panels
@@ -334,7 +333,7 @@ ggplot(plotdata, aes(x=Date, y= Prepositions,  color = Genre)) +
         axis.text.x = element_text(size=8, angle=90))
 ```
 
-Although these are not scatterplots, plots with dot-symbols are very flexible and can be extended to show properties of the distribution of values. One way to create such a plot is to plot means as dot-symbols and add error bars to provide information about the underlying distribution. The plot below illustrates such a plot and additionally shows how plots can be further customized.
+Although these are not scatter plots, plots with dot-symbols are very flexible and can be extended to show properties of the distribution of values. One way to create such a plot is to plot means as dot-symbols and add error bars to provide information about the underlying distribution. The plot below illustrates such a plot and additionally shows how plots can be further customized.
 
 ```{r scatter16, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # scatter plot with error bars
@@ -390,7 +389,7 @@ We are now in a position to start creating line graphs with *ggplot*.
 
 # Line Graphs
 
-Line graphs are used when we have numeric values that are linked (in one way or another) because they come from the same speaker or genre as in our case). 
+Line graphs are used when we have numeric values that are linked (in one way or another) because they come from the same speaker or genre, as in our case). 
 
 ```{r line1, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # define aesthetics
@@ -458,13 +457,13 @@ ggplot(lineplotdata, aes(x=Date, y= Mean,  color = Genre, linetype = Genre)) +
   theme_set(theme_bw(base_size = 10))    
 ```
 
-Although the code for the customized smoothed line graph is much longer and requires addition specifications, it is a very nice way to portrait the development over time.
+Although the code for the customized smoothed line graph is much longer and requires addition specifications, it is a very nice way to portray the development over time.
 
 ## Line graphs for Likert-scaled data
 
-A special case of line graphs is used when dealing with Likert-scaled variables. In such cases, the line graph displays the density of cumulative frequencies of responses. The difference between the cumulative frequencies of responses displays differences in preferences. We will only focus on how to create such graphs using the "ggplot" environment here as it has an inbuild function ("ecdf") which is designed to handle such data.
+A special case of line graphs is used when dealing with Likert-scaled variables. In such cases, the line graph displays the density of cumulative frequencies of responses. The difference between the cumulative frequencies of responses shows differences in preferences. We will only focus on how to create such graphs using the "ggplot" environment here as it has an inbuilt function ("ecdf") which is designed to handle such data.
 
-In a first step, we create a data set which consists of a Likert-scaled variable. The fictitious data created here consists of rating of students from three courses about how satisfied they were with their language-learning course. The response to the Likert item is numeric so that "strongly disagree/very dissatisfied" would get the lowest and "strongly agree/very satisfied" the highest numeric value. 
+In a first step, we create a data set which consists of a Likert-scaled variable. The fictitious data created here consists of rating of students from three courses about how satisfied they were with their language-learning course. The response to the Likert item is numeric so that "strongly disagree/very dissatisfied" is represented by the lowest numeric value, and "strongly agree/very satisfied" by the highest numeric value. 
 
 ```{r line9, echo=T, message=FALSE, warning=FALSE}
 # create lickert data
@@ -505,7 +504,7 @@ ggplot(likertdata,aes(x = Satisfaction, color = Course)) +
   scale_colour_manual(values = c("goldenrod2", "indianred4", "blue"))  
 ```
 
-The satisfaction of the German course was the lowest as the red line shows the highest density (frequency of responses) of "very dissatisfied" and "dissatisfied" ratings. The students in our fictitious data set were most satisfied with the Chinese course as the blue line is the lowest for "very dissatisfied" and "dissatisfied" ratings while the difference between the courses shrinks for "satisfied" and "very satisfied". The Japanese language course is in-between the German and the Chinese course.  
+The satisfaction of the German course was the lowest as the red line shows the highest density (frequency of responses) of "very dissatisfied" and "dissatisfied" ratings. The students in our fictitious data set were most satisfied with the Chinese course as the blue line is the lowest for "very dissatisfied" and "dissatisfied" ratings, while the difference between the courses shrinks for "satisfied" and "very satisfied". The Japanese language course is in-between the German and the Chinese course.  
 
 
 # Pie charts
@@ -529,7 +528,7 @@ bardata <- plotdata %>%
 head(bardata)
 ```
 
-Before creating bar plots, we will briefly turn to pie charts because pie charts are very common despite suffering from certain shortcomings. Consider the following example which highlights some of the issues that arise when using pie charts.
+Before creating bar plots, we will briefly turn to pie charts because pie charts are very common, despite suffering from certain shortcomings. Consider the following example which highlights some of the issues that arise when using pie charts.
 
 ```{r pie1, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create pie chart
@@ -543,7 +542,7 @@ ggplot(bardata,  aes("", Percent, fill = Date)) +
 
 If the slices of the pie chart are not labelled, it is difficult to see which slices are smaller or bigger compared to other slices. This problem can easily be avoided when using a bar plot instead.
 
-The labelling of pie charts is, however, somewhat tedious as the positioning is tricky. Below is an example for adding labels without specification.
+The labelling of pie charts is however somewhat tedious, as the positioning is tricky. Below is an example for adding labels without specification.
 
 ```{r pie3, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create pie chart
@@ -577,7 +576,7 @@ ggplot(piedata,  aes("", Percent, fill = Date)) +
 
 # Bar plots
 
-Like pie charts, bar plot display frequency information across categorical variable levels.
+Like pie charts, bar plots display frequency information across categorical variable levels.
 
 ```{r bar3, echo = T, results='hide', message=FALSE, warning=FALSE}
 # bar plot
@@ -597,7 +596,7 @@ Compared with the pie chart, it is much easier to grasp the relative size and or
 
 ## Grouped Bar plots
 
-Bar plot can be grouped to add another layer of information which is particularly useful when dealing with frequency counts across multiple categorical variables. But before we can create grouped bar plots, we need to create an appropriate data set. 
+Bar plots can be grouped to add another layer of information which is particularly useful when dealing with frequency counts across multiple categorical variables. But before we can create grouped bar plots, we need to create an appropriate data set. 
 
 ```{r bar4, echo = T, results='hide', message=FALSE, warning=FALSE}
 # create bar plot data
@@ -632,7 +631,7 @@ ggplot(newbardata, aes(Date, Frequency, fill = Genre)) +
   theme_bw()                         
 ```
 
-One issue to consider when using stacked bar plots is the number of variable levels: when dealing with many variable levels, stacked bar plots tend to become rather confusing. This can be solved by either collapsing infrequent variable levels or choose a colour palette that reflects some other inherent piece of information such as *formality* (e.g. blue) versus *informality* (e.g. red).
+One issue to consider when using stacked bar plots is the number of variable levels: when dealing with many variable levels, stacked bar plots tend to become rather confusing. This can be solved by either collapsing infrequent variable levels or choosing a colour palette that reflects some other inherent piece of information such as *formality* (e.g. blue) versus *informality* (e.g. red).
 
 Stacked bar plots can also be normalized so that changes in percentages become visible. This is done by exchanging "position=position_dodge()" with "position=""fill"". 
 
@@ -648,9 +647,9 @@ ggplot(newbardata, aes(Date, Frequency, fill = Genre)) +
 
 Bar plots are particularly useful when visualizing data obtained through Likert items. As this is a very common issue that empirical researchers face. There are two basic ways to display Likert items using bar plots: grouped bar plots and more elaborate scaled bar plots.
 
-Although we have seen above how to create grouped bar plots, we will repeat it here with the language course example used above when we used cumulative density line graphs to visualise how to display Likert data.  
+Although we have seen above how to create grouped bar plots, we will repeat it here with the language course example used earlier (when we used cumulative density line graphs to visualise how to display Likert data).  
 
-In a first step, we recreate the data set which we have used above. The data set consists of a Likert-scaled variable (Satisfaction) which represents rating of students from three courses about how satisfied they were with their language-learning course. The response to the Likert item is numeric so that "strongly disagree/very dissatisfied" would get the lowest and "strongly agree/very satisfied" the highest numeric value. 
+In a first step, we recreate the data set which we have used above. The data set consists of a Likert-scaled variable (Satisfaction) which represents ratings of students from three courses about how satisfied they were with their language-learning course. The response to the Likert item is numeric so that "strongly disagree/very dissatisfied" is represented by the lowest value, and "strongly agree/very satisfied" by the highest. 
 
 ```{r bar8, echo=T, message=FALSE, warning=FALSE}
 # create likert data
@@ -702,7 +701,7 @@ plot(questionl28)
 
 ## Comparative bar plots with negative values
 
-Another frequent task is to evaluate the divergence of values from a reference, for instance when dealing with language learners where native speakers serve as a reference or target. To illustrate how such data can be visualized, we load the scales package as we want to create a bar plot in which we show the divergence of learners from native speakers regarding certain features and how that divergence changes over time. Then, we create an example data set which mirrors the format we expect for the actual data. 
+Another frequent task is to evaluate the divergence of values from a reference, for instance when dealing with language learners where native speakers serve as a reference or target. To illustrate how such data can be visualized, we load the "scales" package. This will allow us to create a bar plot that shows the divergence of learners from native speakers regarding certain features, and how that divergence changes over time. Then, we create an example data set which mirrors the format we expect for the actual data. 
 
 ```{r bar12, results='hide', message=FALSE, warning=FALSE}
 # create a vector with values called Test1
@@ -770,9 +769,9 @@ ggplot(plottable,
 
 # Association plots
 
-Another plot type that is related to bar plots is the association plot. Association plots are similar to bar plots in that they display difference as bars above or below a line (as shown above). However, association plots show the difference between the observed and expected frequencies rather than differences as deviations from a reference. Therefore, they are often used when graphically representing tables with absolute frequencies. We use the already loaded *vcd* package to create association plots. 
+Another plot type that is related to bar plots is the association plot. Association plots are similar to bar plots in that they display difference in the form of bars above or below a line (as shown above). However, association plots show the difference between the observed and expected frequencies rather than differences as deviations from a reference. Therefore, they are often used when graphically representing tables with absolute frequencies. We use the already loaded *vcd* package to create association plots. 
 
-We also modify the reduced plotdata as association plots work on matrices rather than data frames or tibbles. In addition, we will drop more genres as to avoid overlap in the y-axis labels later on.
+We also modify the reduced *plotdata*, as association plots work on matrices rather than data frames or tibbles. In addition, we will drop more genres as to avoid overlap in the y-axis labels later on.
 
 ```{r ass2, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # reduce data
@@ -790,33 +789,33 @@ assocmx
 ```
 
 
-Association plots are created by using the "assoc" function which takes a table (or a similar format such as a matrix or a data frame) as their argument. In addition, we specify "shade" as "T" in order to colour code the bars in the association plot and to add a legend.
+Association plots are created by using the "assoc" function which takes a table (or a similar format such as a matrix or a data frame) as their argument. In addition, we specify "shade" as "T" in order to colour-code the bars in the association plot and to add a legend.
 
 ```{r ass3, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create association plot
 assoc(assocmx, shade=TRUE)
 ```
 
-The bars above the line indicate that the observed frequency is higher than expected, bars under the line indicate frequencies that are lower than expected. However, the lack of colouring strongly suggests that there are no significant differences between the observed and the expected frequencies which means that genre is unlikely to have a significant effect of the frequency of prepositions.
+The bars above the line indicate that the observed frequency is higher than expected, bars under the line indicate frequencies that are lower than expected. However, the lack of colouring strongly suggests that there are no significant differences between the observed and the expected frequencies, which means that genre is unlikely to have a significant effect on the frequency of prepositions.
 
 # Mosaic plots
 
-Another plot which is useful to graphically depict the relationship of categorical variables is the mosaic plot. The size of the boxes in a mosaic plot indicate how frequent that subcategory is and the colours show whether or not the category differs from the value that is expected if given the overall distribution in the table. In addition, the hue of the colour shows how great the difference between observed and expected is and thus indicates whether the respective subcategory deviates significantly from the expected frequency. 
+Another plot which is useful to graphically depict the relationship of categorical variables is the mosaic plot. The sizes of the boxes in a mosaic plot indicate how frequent that subcategory is, and the colours show whether or not the category differs from the value that is expected, given the overall distribution in the table. In addition, the hue of the colour shows how great the difference between observed and expected is and thus indicates whether the respective subcategory deviates significantly from the expected frequency. 
 
 ```{r mos1, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create a mosaic plot
 mosaic(assocmx, shade=T, legend=TRUE)  
 ```
  
-According to the mosaic plot above, there are neither significant differences in the number of observations (the boxes are similar in size and shape) and that genre does not have a significant effect on the frequency of prepositions as the boxes are grey and not coloured. 
+According to the mosaic plot above, there are neither significant differences in the number of observations (the boxes are similar in size and shape) and that genre does not have a significant effect on the frequency of prepositions (the boxes are grey and not coloured). 
 
 # Heat maps
 
-Heat maps are similar to mosaic plots in that they display frequency information and use color-coding to indicate high and low values. Heat maps also work on matrices but they are much more powerful and versatile that mosaic plots. 
+Heat maps are similar to mosaic plots in that they display frequency information and use colour-coding to indicate high and low values. Heat maps also work on matrices but they are much more powerful and versatile that mosaic plots. 
 
-Heat maps are a very popular way to display frequency information and various packages have been written to create or customize heatmaps (for example the packages "ComplexHeatmap", "dendextend", "d3heatmap", "pheatmap") which means that many aspects of heatmaps can be modified. In this example, we will only use the most basic function to create a heat map.
+Heat maps are a very popular way to display frequency information and various packages have been written to create or customize heat maps (e.g. the packages "ComplexHeatmap", "dendextend", "d3heatmap", "pheatmap"). This means that many aspects of heat maps can be modified. In this example, we will use only the most basic function to create a heat map.
 
-We again modify the data and create a matrix from the original plotdata. In addition, we scale the frequencies. This is not necessary in the present case but when dealing with variables which differ in their mean and variance because they reflect different variables, scaling will normalize such variables and render their values comparable. 
+We again modify the data and create a matrix from the original *plotdata*. In addition, we scale the frequencies. This is not necessary in the present case but when dealing with variables that differ in their mean and variance because they reflect different variables, scaling will normalize such variables and render their values comparable. 
 
 ```{r ht1, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create data
@@ -838,20 +837,20 @@ heatmx <- scale(heatmx)
 heatmx
 ```
 
-Now that we have created a data matrix, we can cerate a simple heat map.
+Now that we have created a data matrix, we can create a simple heat map.
 
 ```{r ht2, echo = T, eval = T, message=FALSE, warning=FALSE}
 # create heat map
 heatmap(heatmx, scale = "none")
 ```
 
-The dendrogram on the top shows that documents from 1600 and 1700 as well as documents from 1800 and 1900 are grouped together and thus are more similar with respect to their preposition frequencies. The dendrogram on the left indicates that we have two categories of documents: the genres to towards the bottom tend to have fewer prepositions (indicated by the light colours) while the documents to the top tend to have more prepositions (thus the darker hues). Legal texts (genre = Law) have notably higher rates of prepositions as is derivable from the dark red colour of such texts.  
+The dendrogram on the top shows that documents from 1600 and 1700 as well as documents from 1800 and 1900 are grouped together and are thus more similar with respect to their preposition frequencies. The dendrogram on the left indicates that we have two categories of documents: the genres towards the bottom tend to have fewer prepositions (indicated by the light colours), while the documents to the top tend to have more prepositions (thus the darker hues). Legal texts (genre = Law) have notably higher rates of prepositions as is derivable from the dark red colour of such texts.  
 
 # Boxplots
 
 So far, we have plotted values but we have not plotted the underlying distributions. For instance, we have plotted mean values but not the variance within the distribution. One handy way to combine plotting general trends and their underlying distributions are boxplots.
 
-Boxplots, or Box-and-Whisker Plots, are exploratory graphics first created by John W. Tukey and they show the relationships between categorical and numeric variables. They are very useful because they not only provide measures of central tendency (the median which is the line in the middle of the box) but they also offer information about the distribution of the data. To elaborate, fifty percent of data points fall within the box while seventy-five percent of data points fall within the whiskers (the lines which look like extended error bars): the box thus encompasses the interquartile range between the first and third quartile. The whiskers show the minimum and maximum values in the data and only outliers (data points that lie 1.5 times the interquartile range or more above the third quartile or 1.5 times the interquartile range or more below the first quartile. If the whiskers differ in length, then this means that the data is asymmetrically distributed.
+Boxplots, or Box-and-Whisker Plots, are exploratory graphics first created by John W. Tukey and they show the relationships between categorical and numeric variables. They are very useful because they not only provide measures of central tendency (the median which is the line in the middle of the box) but they also offer information about the distribution of the data. To elaborate, fifty percent of data points fall within the box while seventy-five percent of data points fall within the whiskers (the lines which look like extended error bars): the box thus encompasses the interquartile range between the first and third quartile. The whiskers show the minimum and maximum values in the data and only outliers (data points that lie 1.5 times the interquartile range or more above the third quartile, or 1.5 times the interquartile range or more below the first quartile). If the whiskers differ in length, then this means that the data is asymmetrically distributed.
 
 ```{r box1, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create data
@@ -874,7 +873,7 @@ ggplot(boxdata, aes(Date, Prepositions, color = Genre)) +
   geom_boxplot(fill=c("gold", "gray70", "indianred4", "blue"), color="black") 
 ```
 
-Another interesting feature of boxplots is that they allow us to visually get an idea whether categories differ significantly. Because if add "notch = T" and the notches of the boxplots do not overlap, then this is a very strong indication that the categories actually differ significantly (see below). 
+Another interesting feature of boxplots is that they allow us to visually get an idea whether categories differ significantly. If we  add "notch = T", the notches of the boxplots do not overlap. This is a very strong indication that the categories actually differ significantly (see below). 
 
 ```{r box3, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create boxplot
@@ -886,7 +885,7 @@ ggplot(boxdata, aes(Date, Prepositions, color = Genre)) +
 
 # Violin plots
 
-An alternative to boxplots which display the distribution within the data even more accurately are violin plots. 
+An alternative to boxplots is the violin plot, which displays the distribution within the data even more accurately. 
 
 ```{r vio1, echo = T, results = 'asis', message=FALSE, warning=FALSE}
 # create violin plot
@@ -920,11 +919,11 @@ ggplot(plotdata, aes(Date, fill=Region)) +
   theme(legend.position=c(0,1), legend.justification=c(0,1)) 
 ```
 
-The density plot shows that the texts differ substantially with respect to where they were written as the distribution of texts written in southern Britain continues way into the 19^th^ century while we onyl have texts written in north until about 1800. 
+The density plot shows that the texts differ substantially with respect to where they were written: the distribution of texts written in southern Britain continues far into the 19^th^ century, while we only have texts written in the north until about 1800. 
 
 # Word clouds
 
-Word clouds visualize word frequencies of either single corpus or different corpora. Although word clouds are rarely used in academic publications, they are a common way to display language data and the topics of texts - which may be thought of as their semantic content. To exemplify how to use word clouds, we are going to have a look at rally speeches of Hillary Clinton and Donald Trump that were given during their 2016 campaigns. In a first step, we load and process the data as the relevant packages are already loaded.
+Word clouds visualize word frequencies of either a single corpus or different corpora. Although word clouds are rarely used in academic publications, they are a common way to display language data and the topics of texts, which may be thought of as their semantic content. To exemplify how to use word clouds, we are going to have a look at rally speeches of Hillary Clinton and Donald Trump that were given during their 2016 campaigns. In a first step, we load and process the data (the relevant packages are already loaded).
 
 ```{r wc2, eval = T, echo = T, message=FALSE, warning=FALSE}
 # load and process speeches by clinton
@@ -1000,6 +999,6 @@ commonality.cloud(tdm,
           colors = brewer.pal(6, "Spectral"))
 ```
 
-At first, I thought that word clouds are simply a fancy but not very helpful way to inspect language data but I have to admit that word clouds really surprised me as they do appear to possess potential to provide an idea of what groups of people are talking about. The comparative word cloud shows that the Trump uses a lot of contractions ("'re", "'ll", etc.) and stresses concepts linked to the future ("going") thereby stressing his vision of the US (great). In Contrast, Clinton did not use contractions but talked about "Americans", "work", the "economy", and "women".
+At first, I thought that word clouds are simply a fancy but not very helpful way to inspect language data, but I have to admit that word clouds really surprised me as they do appear to provide an idea of what groups of people are talking about. The comparative word cloud shows that the Trump uses a lot of contractions ("'re", "'ll", etc.) and stresses concepts linked to the future ("going") thereby stressing his vision of the US (great). In Contrast, Clinton did not use contractions but talked about "Americans", "work", the "economy", and "women".
 
 # References
