@@ -17,9 +17,9 @@ This tutorial introduces topic modeling using "R". The entire code for the secti
 
 # Preparation and session set up
 
-As all caluculations and visualizations in this tutorial rely on "R", it is necessary to install "R", "RStudio", and "Tinn-R". If these programms (or, in the case of "R", environments) are not already installed on your machine, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
+As all calculations and visualizations in this tutorial rely on "R", it is necessary to install "R", "RStudio", and "Tinn-R". If these programs (or, in the case of "R", environments) are not already installed on your machine, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain "libraries" or "packages" need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the librariesby running the code below this paragraph. If you have already installed the libraries mentioned below, then you can skip ahead ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
+In addition, certain "libraries" or "packages" need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries by running the code below this paragraph. If you have already installed the libraries mentioned below, then you can ignore this section and skip ahead. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -44,7 +44,7 @@ library(topicmodels)
 ```
 
 
-The 231 SOTU addresses are rather long documents. Documents lengths clearly affects the results of topic modeling. For very short texts (e.g. Twitter posts) or very long texts (e.g. books), it can make sense to concatenate/split single documents to receive longer/shorter textual units for modeling.
+The 231 SOTU addresses are rather long documents. Document length clearly affects the results of topic modeling. For very short texts (e.g. Twitter posts) or very long texts (e.g. books), it can make sense to concatenate/split single documents to receive longer/shorter textual units for modeling.
 
 For the SOTU speeches for instance, we infer the model based on paragraphs instead of entire speeches. By manual inspection / qualitative inspection of the results you can check if this procedure yields better (interpretable) topics. In `sotu_paragraphs.csv`, we provide a paragraph separated version of the speeches.
 
@@ -90,7 +90,7 @@ As an unsupervised machine learning method, topic models are suitable for the ex
 
 For parameterized models such as Latent Dirichlet Allocation (LDA), the number of topics `K` is the most important parameter to define in advance. How an optimal `K` should be selected depends on various factors. If `K` is too small, the collection is divided into a few very general semantic contexts. If `K` is too large, the collection is divided into too many topics of which some may overlap and others are hardly interpretable.
 
-For our first analysis we choose a thematic "resolution" of `K = 20` topics. In contrast to a resolution of 100 or more, this number of topics can be evaluated qualitatively very easy.
+For our first analysis we choose a thematic "resolution" of `K = 20` topics. In contrast to a resolution of 100 or more, this number of topics can be evaluated qualitatively very easily.
 
 ```{r tm4, echo=T, eval = T, message=FALSE, warning=FALSE}
 # load package topicmodels
@@ -279,13 +279,13 @@ so <- sort(countsOfPrimaryTopics, decreasing = TRUE)
 paste(so, ":", names(so))
 ```
 
-We see that sorting topics by the  Rank-1 method places topics with rather specific thematic coherences in upper ranks of the list. 
+We see that sorting topics by the Rank-1 method places topics with rather specific thematic coherences in upper ranks of the list. 
 
 This sorting of topics can be used for further analysis steps such as the semantic interpretation of topics found in the collection, the analysis of time series of the most important topics or the filtering of the original collection based on specific sub-topics.
 
 # Filtering documents
 
-The fact that a topic model conveys of topic probabilities for each document, resp. paragraph in our case, makes it possible to use it for thematic filtering of a collection. AS filter we select only those documents which exceed a certain threshold of their probability value for certain topics (for example, each document which contains topic `X` to more than 20 percent).
+The fact that a topic model conveys of topic probabilities for each document, resp. paragraph in our case, makes it possible to use it for thematic filtering of a collection. As filter we select only those documents which exceed a certain threshold of their probability value for certain topics (for example, each document which contains topic `X` to more than 20 percent).
 
 In the following, we will select documents based on their topic content and display the resulting document quantity over time.
 
@@ -300,7 +300,7 @@ filteredCorpus <- corpus[selectedDocumentIndexes]
 filteredCorpus
 ``` 
 
-Our filtered corpus contains `r length(filteredCorpus)` documents related to the topic `r topicToFilter` to at least 20 %.
+Our filtered corpus contains `r length(filteredCorpus)` documents related to the topic `r topicToFilter` to at least 20%.
 
 # Topic proportions over time
 
