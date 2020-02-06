@@ -40,19 +40,19 @@ lim <- par()
 rasterImage(ima, lim$usr[1], lim$usr[3], lim$usr[2], lim$usr[4])
 ```
 
-While rapidly growing as a valid approach to analysing textual data, Text Analysis is [critizised](https://www.chronicle.com/article/The-Digital-Humanities-Debacle/245986)  for lack of "quantitative rigor and because its findings are either banal or, if interesting, not statistically robust (see [here](https://www.chronicle.com/article/The-Digital-Humanities-Debacle/245986). This criticism is correct in that most of the analysis that performed in Computational Literary Studies (CLS) are not yet as rigorous as analyses in fields that have a longer history of computational based, quantitative research, such as, for instance, corpus linguistics. However, the practices and methods used in CLS will be refined, adapted and show a rapid increase in quality if more research is devoted to these approaches. Also, Text Analysis simply offers an alternative way to analyse texts that is not in competition to traditional techniques but rather complements them.
+While rapidly growing as a valid approach to analysing textual data, Text Analysis is [critizised](https://www.chronicle.com/article/The-Digital-Humanities-Debacle/245986) for lack of "quantitative rigor" and because its findings are either banal or, if interesting, not statistically robust (see [here](https://www.chronicle.com/article/The-Digital-Humanities-Debacle/245986). This criticism is correct in that most of the analysis that performed in Computational Literary Studies (CLS) are not yet as rigorous as analyses in fields that have a longer history of computational based, quantitative research, such as, for instance, corpus linguistics. However, the practices and methods used in CLS will be refined, adapted and show a rapid increase in quality as more research is devoted to these approaches. Also, Text Analysis simply offers an alternative way to analyse texts that is not in competition to traditional techniques but rather complements them.
 
-Given it relatively recent emergence, so far, most of the applications of Text Analysis are based upon a relatively limited number of key procedures or concepts (e.g. concordancing, word frequencies, annotation or tagging, parsing, collocation, text classification, Sentiment Analysis, Entity Extraction, Topic Modelling, etc.). In the following, we will explore these procedures and introduce some basic tools that help you perform the introduced tasks. 
+Given its relatively recent emergence, so far, most of the applications of Text Analysis are based upon a relatively limited number of key procedures or concepts (e.g. concordancing, word frequencies, annotation or tagging, parsing, collocation, text classification, Sentiment Analysis, Entity Extraction, Topic Modelling, etc.). In the following, we will explore these procedures and introduce some basic tools that help you perform the introduced tasks. 
 
 # Text Analysis at UQ
 
 The [UQ Library](https://www.library.uq.edu.au/) offers a very handy and attractive summary of [resources, concepts, and tools](https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/introduction) that can be used by researchers interested in Text Analysis and Distant Reading. Also, the UQ library site offers short video introductions and addresses issues that are not discussed here such as [copyright issues](https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/considerations), [data sources available at the UQ library](https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/sources-of-text-data), as well as [social media](https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/sources-of-text-data) and [web scaping](https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/web-scraping).
 
-In contrast to the UQ library site, the focus of this introduction lies on the practical how-to of text analysis. this means that the following concentrates on how to perform analyses rather than discussing their underlying concepts or evaluating their scientific merits. 
+In contrast to the UQ library site, the focus of this introduction lies on the practical how-to of text analysis. This means that the following concentrates on how to perform analyses rather than discussing their underlying concepts or evaluating their scientific merits. 
 
 # Tools versus Scripts
 
-It is perfectly fine to use tools for the analyses exemplified below. However, the aim here is not primarily to show how to perform text analyses but how to perfrom text analyses in a way that complies with practices that guarantee sustainable, transparent, reproducible research. As R code can be readily shared and optimally contains all the data extraction, processing, vizualization, and analysis steps, using scripts is preferable over using (commercial) software. 
+It is perfectly fine to use tools for the analyses exemplified below. However, the aim here is to show how to perform text analyses *in a way that complies with practices that guarantee sustainable, transparent, reproducible research*. As R code can be readily shared and optimally contains all the data extraction, processing, vizualization, and analysis steps, using scripts is preferable over using (commercial) software. 
 
 In addition to being not as transparent and hindering reproduction of research, using tools can also lead to dependencies on third parties which does not arise when using open source software. 
 
@@ -60,9 +60,9 @@ Finally, the widespread use of "R" particularly among data scientists, engineers
 
 # Preparation
 
-As all caluculations and visualizations in this tutorial rely on "R", it is necessary to install "R", "RStudio", and "Tinn-R". If these programms (or, in the case of "R", environments) are not installed already, please search for them in your favorite serach engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
+As all caluculations and visualizations in this tutorial rely on "R", it is necessary to install "R", "RStudio", and "Tinn-R". If these programs (or, in the case of "R", environments) are not installed already, please search for them in your favorite serach engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain "libraries" need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries needed for running the code below. If you have already installed the libraries mentioned below, then you can skip ahead ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
+In addition, certain "libraries" need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries needed for running the code below. If you have already installed the libraries mentioned below, then you can skip ahead and ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -111,7 +111,7 @@ darwin <- readLines("https://slcladal.github.io/data/origindarwin.txt") %>%
 nchar(darwin)
 ```
 
-Now that we have the subsections of the data that we aim to investigate, we can perform the concordancing. To create a KWIC display, we load the function "ConcR" from a script called "ConcR_2.3_loadedfiles.R". Then we define a pattern that we want to look for (the pattern can be a simple word or it contain regular expressions). Then, we define the amount of context that we want to have displayed (in our case 50 characters). Finally, we run the concordance function "ConcR" with the arguments "darwin" the text elements that we want to inspect, the search pattern, and the context.
+Now that we have the subsections of the data that we aim to investigate, we can perform the concordancing. To create a KWIC display, we load the function "ConcR" from a script called "ConcR_2.3_loadedfiles.R". Then we define a pattern that we want to look for (the pattern could be a simple word or it could contain regular expressions). Then, we define the amount of context that we want to have displayed (in our case 50 characters). Finally, we run the concordance function "ConcR" with the arguments "darwin" the text elements that we want to inspect, the search pattern, and the context.
 
 ```{r conc3, echo=T, eval = T, message=FALSE, warning=FALSE}
 # load function for concordancing
@@ -139,7 +139,7 @@ Now, the KWIC display is finished and we could go about investigating how Darwin
 
 # Word Frequency
 
-One basic aspect of Text Analysis consists in extracting word frequency lists, i.e. determining how often word forms occur in a given text or collection of texts. In fact, frequency information lies at the very core of Text Analysis. 
+One basic aspect of Text Analysis consists of extracting word frequency lists, i.e. determining how often word forms occur in a given text or collection of texts. In fact, frequency information lies at the very core of Text Analysis. 
 
 To exemplify how frequency information can help us in an analysis, we will continue working with the KWIC display that we have created above.
 
@@ -301,7 +301,7 @@ colnames(numbers) <- c("", "Private dialogues", "Scripted monologues")
 kable(numbers, caption = "", align=c(rep('c',times=2)))
 ```
 
-This simple example shows that second person pronouns make up 2.6 percent of all words that are used in private dialogues while they only amount to 0.63 percent in scripted speeches. A handy way to present such differences visually are association and mosaic plots.
+This simple example shows that second person pronouns make up 2.6 percent of all words that are used in private dialogues, while they only amount to 0.63 percent in scripted speeches. A handy way to present such differences visually are association and mosaic plots.
 
 ```{r wf11, eval=T, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
 d <- matrix(c(6761, 659, 259625, 105295), nrow = 2, byrow = T)
@@ -310,7 +310,7 @@ rownames(d) <- c("you, your", "Other words")
 assocplot(d)
 ```
 
-Bars above the dashed line indicate relative overuse while bars below the line suggest relative underuse. Therefore, the association plot indicates underuse of "you/your" and overuse of "other words" in monologues while the opposite trends holds true for dialogues, i.e. overuse of "you/your" and underuse of "Other words". 
+Bars above the dashed line indicate relative overuse while bars below the line suggest relative underuse. Therefore, the association plot indicates underuse of "you/your" and overuse of "other words" in monologues while the opposite trends holds true for dialogues, i.e. overuse of "you/your" and underuse of "other words". 
 
 # Collocations and N-grams
 
@@ -450,7 +450,7 @@ plot(res.ca, shadow = T, cex = 1, selectRow = "cos2 0.1", selectCol = "cos2 0.9"
 
 The bi-plot shows that "natural" and "selection" collocate, as do "animals" and "plants", "period", "long", and "time" as well as "conditions" and "life". Other words with lower collocation strength are masked from the bi-plot. 
 
-We will now use an example of one individual word to show, how collocation strength for individual terms is calculated and displayed as a network.
+We will now use an example of one individual word to show how collocation strength for individual terms is calculated and displayed as a network.
 
 ```{r coll10, eval=T, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
 # load function for co-occurrence calculation
@@ -484,7 +484,7 @@ tmpGraph[, 3] <- coocs[1:numberOfCoocs]
 resultGraph <- rbind(resultGraph, tmpGraph)
 ```
 
-Calculate cooccurence statistics and add them to the graph object. 
+Calculate co-occurence statistics and add them to the graph object. 
 
 ```{r coll12, eval=T, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
 # iterate over most significant numberOfCoocs co-occurrences
@@ -576,7 +576,7 @@ str(text)
 
 Now that the text data has been read into "R", we can proceed with the part-of-speech tagging. To perform the pos-tagging, we load the function for pos-tagging, load the NLP and open NLP libraries and detach packages that would cause conflicts (because these packages contain functions that have identical names to the openNLP package).
 
-> A word of warnung is in order here. The openNLP library is written is Java and may require a re-installation of Java as well as re-setting the path variable to Java. A short video on how to set the path variable can be found (here)[https://www.youtube.com/watch?v=yrRmLOcB9fg]. 
+> A word of warning is in order here. The openNLP library is written is Java and may require a re-installation of Java as well as re-setting the path variable to Java. A short video on how to set the path variable can be found (here)[https://www.youtube.com/watch?v=yrRmLOcB9fg]. 
 
 ```{r pos2, eval=T, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
 # load function
@@ -599,7 +599,7 @@ The resulting vector contains the part-of-speech tagged text.
 
 ## Syntactic Parsing
 
-Parsing refers to another type of annotation in which either structural information (as in the case of XML documents) or syntactic relations are added to text. As syntactic parsing is commonly more relevant in the language sciences, the following will focus only on syntactic parsing. syntactic parsing builds on PoS-tagging and allows drawing syntactic trees or dependencies. Unfortunately, syntactic parsing still has relatively high error rates when dealing with language that is not very formal. However, syntactic parsing is very reliable when dealing with written language.
+Parsing refers to another type of annotation in which either structural information (as in the case of XML documents) or syntactic relations are added to text. As syntactic parsing is commonly more relevant in the language sciences, the following will focus only on syntactic parsing. Syntactic parsing builds on PoS-tagging and allows drawing syntactic trees or dependencies. Unfortunately, syntactic parsing still has relatively high error rates when dealing with language that is not very formal. However, syntactic parsing is very reliable when dealing with written language.
 
 ```{r pars1, eval=T, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
 # extract text
@@ -642,11 +642,11 @@ parse2graph(ptexts[1], title = "", margin=-0.2, vertex.color=NA,
             edge.width=1, edge.color='red', edge.arrow.size=0)
 ```
 
-Syntax trees are very handy because the allow us to check how reliable the parser performed. In the example above, the sentence was, in fact, parsed erroneously: the clause containing the string <just as the man has attended a funeral> is dependent on the relative clause <who gave him the book> although the first clause would correctly be dependent on the clause <By chance Harry encountered the man>. However, other constituents are parsed correctly.
+Syntax trees are very handy because they allow us to check how reliable the parser performed. In the example above, the sentence was, in fact, parsed erroneously: the clause containing the string <just as the man has attended a funeral> is dependent on the relative clause <who gave him the book> although the first clause would correctly be dependent on the clause <By chance Harry encountered the man>. However, other constituents are parsed correctly.
 
 # Text Classification
 
-Text classification refers to methods that allow to classify a given text to a predefined set of languages, genres, authors, or the like. Such classifications are typically based on the relative frequency of word classes, key words, phonemes, or other linguistic features such as average sentence length, words per line, etc.
+Text classification refers to methods that allow us to classify a given text to a predefined set of languages, genres, authors, or the like. Such classifications are typically based on the relative frequency of word classes, key words, phonemes, or other linguistic features such as average sentence length, words per line, etc.
 
 As with most other methods that are used in text analysis, text classification typically builds upon a training set that is already annotated with the required tags. Training sets and the features that are derived from these training sets can be created by oneself or one can use build in training sets that are provided in the respective software packages or tools. 
 
@@ -704,7 +704,7 @@ classdata <- rbind(German, English, Spanish, Unknown)
 head(classdata)
 ```
 
-Now, we group the data so that we see, how often each phoneme is used in each language.
+Now, we group the data so that we see how often each phoneme is used in each language.
 
 ```{r tc4, echo=T, eval = T, message=FALSE, warning=FALSE}
 # set options
@@ -753,7 +753,7 @@ plot(clustertexts,         # plot result as dendrogram
      main = "")            # no title
 ```
 
-According to the cluster analysis, the unknown text clusters together with the English texts which suggests that the unknown text is likely to be English.
+According to the cluster analysis, the unknown text clusters together with the English texts, which suggests that the unknown text is likely to be English.
 
 Before we begin with the actual classification, we will split the data so that we have one data set without "Unknown" (this is our training set) and one data set with only "Unknown" (this is our test set).
 
@@ -790,13 +790,13 @@ Based on the frequencies of phonemes in the unknown text, the knn-classifier pre
 
 # Sentiment Analysis
 
-Sentiment Analysis is a cover term for approaches which extract information on emotion or opinion from natural language. Sentiment analyses have been successfully applied to analysis of language data in a wide range of disciplines such as psychology, economics, education, as well as political and social sciences. Commonly sentiment analyses are used to determine the stance of a larger group of speakers towards a given phenomenon such as political candidates or parties, product lines or situations. Crucially, sentiment analyses are employed in these domains because they have advantages compared to alternative methods investigating the verbal expression of emotion. One advantage of sentiment analyses is that the emotion coding of sentiment analysis is fully replicable. 
+Sentiment Analysis is a cover term for approaches that extract information on emotion or opinion from natural language. Sentiment analyses have been successfully applied to analysis of language data in a wide range of disciplines such as psychology, economics, education, as well as political and social sciences. Commonly, sentiment analyses are used to determine the stance of a larger group of speakers towards a given phenomenon such as political candidates or parties, product lines or situations. Crucially, sentiment analyses are employed in these domains because they have advantages compared to alternative methods investigating the verbal expression of emotion. One advantage of sentiment analyses is that the emotion coding of sentiment analysis is fully replicable. 
 
-Typically, Sentiment Analysis represents a type of classifier only provide information about positive or negative polarity, e.g. whether a tweet is "positive" or "negative". Therefore, Sentiment Analysis is often regarded as rather coarse-grained and, thus, rather irrelevant for the types of research questions in linguistics. 
+Typically, Sentiment Analysis represents a type of classifier that only provides information about positive or negative polarity, e.g. whether a tweet is "positive" or "negative". Therefore, Sentiment Analysis is often regarded as rather coarse-grained and, thus, rather irrelevant for the types of research questions in linguistics. 
 
 In the language sciences, Sentiment Analysis can also be a very helpful tool if the type of Sentiment Analysis provides more fine-grained information. In the following, we will perform such a information-rich Sentiment Analysis. The Sentiment Analysis used here does not only provide information about polarity but it will also provide association values for eight core emotions. 
 
-The more fine-grained output is made possible by relying on the Word-Emotion Association Lexicon (Mohammad & Turney 2013), which comprises 10,170 terms, and in which lexical elements are assigned scores based on ratings gathered through the crowd-sourced Amazon Mechanical Turk service. For the Word-Emotion Association Lexicon raters were asked whether a given word was associated with one of eight emotions. The resulting associations between terms and emotions are based on 38,726 ratings from 2,216 raters who answered a sequence of questions for each word which were then fed into the emotion association rating (cf. Mohammad & Turney 2013). Each term was rated 5 times. For 85 percent of words, at least 4 raters provided identical ratings. For instance, the word "cry" or "tragedy" are more readily associated with SADNESS while words such as "happy" or "beautiful" are indicative of JOY and words like "fit" or "burst" may indicate ANGER. This means that the sentiment analysis here allows us to investigate the expression of certain core emotions rather than merely classifying statements along the lines of a crude positive-negative distinction. 
+The more fine-grained output is made possible by relying on the Word-Emotion Association Lexicon (Mohammad & Turney 2013), which comprises 10170 terms, and in which lexical elements are assigned scores based on ratings gathered through the crowd-sourced Amazon Mechanical Turk service. For the Word-Emotion Association Lexicon raters were asked whether a given word was associated with one of eight emotions. The resulting associations between terms and emotions are based on 38726 ratings from 2216 raters who answered a sequence of questions for each word, which were then fed into the emotion association rating (cf. Mohammad & Turney 2013). Each term was rated 5 times. For 85 percent of words, at least 4 raters provided identical ratings. For instance, the word "cry" or "tragedy" are more readily associated with SADNESS while words such as "happy" or "beautiful" are indicative of JOY and words like "fit" or "burst" may indicate ANGER. This means that the sentiment analysis here allows us to investigate the expression of certain core emotions rather than merely classifying statements along the lines of a crude positive-negative distinction. 
 
 In the following, we will perform a sentiment analysis to investigate the emotionality of five different novels. We will start with the first example and load five pieces of literature. 
 
@@ -933,7 +933,7 @@ orwellpeople
 
 # Topic Modelling
 
-Topic Modelling is a procedure that allows to extract clusters of key words. These key word clusters can represent topics and the extraction and detection of such key word clusters builds on word frequencies and correlations between word frequencies. 
+Topic Modelling is a procedure that allows us to extract clusters of key words. These key word clusters can represent topics and the extraction and detection of such key word clusters builds on word frequencies and correlations between word frequencies. 
 
 ```{r tm1, echo=T, eval = T, message=FALSE, warning=FALSE}
 # load data
@@ -973,7 +973,7 @@ textsclean <- texts %>%
   tm_map(removeWords, extrawords)
 ```
 
-We now create a document term matrix and perform a Linear Discriminant Analysis (LDA). An LDA is a type of classification procedure that is commonly used in machine learning (similar to KNN-Clustering or other classification methods). To obtain even better results, dimensionality reduction procedures such as Principal Component Analysis (PCA) or Multidimensional Scaling (MDS) could be performed prior to applying the LDA ( [see here for an example](https://towardsdatascience.com/linear-discriminant-analysis-lda-101-using-r-6a97217a55a6)). We will not perform any dimension reduction here fro the sake of brevity though.
+We now create a document term matrix and perform a Linear Discriminant Analysis (LDA). An LDA is a type of classification procedure that is commonly used in machine learning (similar to KNN-Clustering or other classification methods). To obtain even better results, dimensionality reduction procedures such as Principal Component Analysis (PCA) or Multidimensional Scaling (MDS) could be performed prior to applying the LDA ( [see here for an example](https://towardsdatascience.com/linear-discriminant-analysis-lda-101-using-r-6a97217a55a6)). However, for the sake of brevity, we will not perform any dimension reduction here.
 
 ```{r tm3, echo=T, eval = T, message=FALSE, warning=FALSE}
 # create DTM
@@ -1089,7 +1089,7 @@ personas <- sapply(romeopersonas, function(x){
 personas
 ```
 
-We will edlete the first element as it only contains the chor but none of the main personas. 
+We will delete the first element as it only contains the chor but none of the main personas. 
 
 ```{r na6, echo=T, eval = T, message=FALSE, warning=FALSE}
 # remove first elements
