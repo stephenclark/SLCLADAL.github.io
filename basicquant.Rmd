@@ -450,7 +450,7 @@ When comparing the two Figures above, it is notable that the number at which you
 
 ## The Normal Distribution
 
-It is important to note here that the above described calculation of probabilities does not work for numeric variables that are intervall-scaled. The reason for this is that it is not possible to calculate the probabilities for all possible outcomes of a reaction time experiment. In such cases, we rely on distribution (typically the normal distribution) in order to detremine how likely or probable a certain outcome is. When relying on distributions, we determine whether a certain values falls within or outside of the area of a distribution that accounts for 5 percent of the entire area of the distribution - if it falls within the area that accounts for less tha  5 percent of the total area, then the resul is called statistically significant (see the normal distribution below).
+It is important to note here that the above described calculation of probabilities does not work for numeric variables that are interval-scaled. The reason for this is that it is not possible to calculate the probabilities for all possible outcomes of a reaction time experiment. In such cases, we rely on distribution (typically the normal distribution) in order to determine how likely or probable a certain outcome is. When relying on distributions, we determine whether a certain value falls within or outside the area of a distribution that accounts for 5 percent of the entire area of the distribution - if it falls within the area that accounts for less than  5 percent of the total area, then the result is called *statistically significant* (see the normal distribution below).
 
 
 ```{r echo=F, eval = T, message=FALSE, warning=FALSE}
@@ -487,9 +487,9 @@ text(1, 0.025, "0.675", cex = .75)
 
 The normal distribution (or Gaussian curve or Gaussian distribution) shown in the Figure above has certain characteristics that can be derived mathematically. Some of these characteristcs relate to the area of certain sections of that distribution and the mean, median, and mode are identical (and are at the value of the highest point of the normal distribution).
 
-In addition, 50 percent of the total area under the curve are to left and 50 percent of the right of the mean value. Furthermore, 68 percent of the area are within -1 and +1 standard devaitions from the mean; 95 percent of the area lie between -2 and +2 standard devaitions from the mean;  99.7 percent of the area lie between -3 and +3 standard devaitions from the mean. 
+In addition, 50 percent of the total area under the curve is to left and 50 percent of the right of the mean value. Furthermore, 68 percent of the area is within -1 and +1 standard devaitions from the mean; 95 percent of the area lies between -2 and +2 standard deviations from the mean;  99.7 percent of the area lies between -3 and +3 standard deviations from the mean. 
 
-In addition, 5 percent of the area lie outside -1.96 and +1.96 standard devaitions from the mean (if these areas are combined) (see the Figure below).
+In addition, 5 percent of the area lies outside -1.96 and +1.96 standard deviations from the mean (if these areas are combined) (see the Figure below).
 
 
 ```{r echo=F, eval = T, message=FALSE, warning=FALSE}
@@ -506,7 +506,7 @@ text(-3, 0.15, "2.5%")
 text(-3, 0.085, "(sd=-1.96)")
 ```
 
-Finally, 5 percent of the area lies beyond +1.68 standard devaitions from the mean (see the Figure below).    
+Finally, 5 percent of the area lies beyond +1.68 standard deviations from the mean (see the Figure below).    
 
 ```{r echo=F, eval = T, message=FALSE, warning=FALSE}
 plot(dnorm, -4, 4, axes = F, xlab = "Standard Deviations", ylab = "Probability")
@@ -518,11 +518,11 @@ lines(c(1.64, 1.64), c(0, 0.5), col="lightgrey", lty=2)
 text(3, 0.15, "5% (sd=1.64)")
 ```
 
-These properties are extremely useful when determining the likelihood of values or outcomes that reflect certain intervall-scalled variables. 
+These properties are extremely useful when determining the likelihood of values or outcomes that reflect certain interval-scaled variables. 
 
 > Exercises
 >
-> Create a table with the possible outcomes and probabilities of 4 coin tosses (you can consider the table showing the outcomes of three coin tossse above as a guideline).
+> Create a table with the possible outcomes and probabilities of 4 coin tosses (you can consider the table showing the outcomes of three coin tosses above as a guideline).
 
 ```{r echo=F, eval = F, message=FALSE, warning=FALSE}
 sum(dbinom(4, 7, 0.5))
@@ -554,9 +554,9 @@ sum(dbinom(3:6, 7, 0.5))
 
 ## The Binomial Distribution
 
-A distribution which is very similar to the normal distribution is the "binomial distribution". The binomial distribution displays the probability of binary outcomes. So, in fact, the distribution of the coin flips above represents a binomial distribution. However, the binomial distribution cane be (as above in case of the cpin flips) but does not have to be symmetric (like the normal distribution). 
+A distribution which is very similar to the normal distribution is the "binomial distribution". The binomial distribution displays the probability of binary outcomes. So, in fact, the distribution of the coin flips above represents a binomial distribution. However, the binomial distribution can be symmetric like the normal distribution (as above in case of the coin flips) but does not have to be. 
 
-To illustrate this, let us consider the follwoing example: we are interested in how many people use discourse *like* in Australian English. We have analyzed a corpus, for instance the Australian component of the Internationa Corpus of English (see https://www.ice-corpora.uzh.ch/en.html) and found that 10 percent of all speakers have used discourse *like*. In this example, the corpus encompasses 100 speakers (actually the the spoken section of the Australian component of the ICE represents moe than 100 speakers but it will make things easier for us in this example).
+To illustrate this, let us consider the following example: we are interested in how many people use discourse *like* in Australian English. We have analyzed a corpus, for instance the Australian component of the International Corpus of English (see https://www.ice-corpora.uzh.ch/en.html) and found that 10 percent of all speakers have used discourse *like*. In this example, the corpus encompasses 100 speakers (actually the spoken section of the Australian component of the ICE represents more than 100 speakers but it will make things easier for us in this example).
 
 Now, given the result of our corpus analysis, we would like to know what percentage of speakers of Australian English use discourse *like* with a confidence of 95 percent. Given the corpus study results, we can plot the expected binomial distribution of discourse *like* users in Australian English.
 
@@ -584,9 +584,9 @@ box()
 ```
 
 
-The barplot above shows the probability distribution of discourse *like* users in Australian English. The first thing we notice is that the binomial distribution is not symmetric as it is slightly left-skewed. If we would incerase the number of draws or speakers in our example, the distribution would, however, approximate the normal distribution very quickly. because the binomial distribution approximates the normal distribution for large N or if the probability is close to .5, it is common practice to use the normal distribution instead of the binomial distribution. 
+The barplot above shows the probability distribution of discourse *like* users in Australian English. The first thing we notice is that the binomial distribution is not symmetric as it is slightly left-skewed. If we would incerase the number of draws or speakers in our example, the distribution would, however, approximate the normal distribution very quickly. Because the binomial distribution approximates the normal distribution for large N or if the probability is close to .5, it is common practice to use the normal distribution instead of the binomial distribution. 
 
-The barplot below also shows the probability distribution of discourse *like* users in Australian English but, in addition, it is color-coded: bars within the 95 percent confidence interval are "lightgray", the bars in red are outside the 95 percent confidence interval. In other words, if we repeated the corpus analysis, for instance 1000 times, on corpora which represent speakers from the same population, then 95 percent of samples would have between 1 and 8 discourse *like* users. 
+The barplot below also shows the probability distribution of discourse *like* users in Australian English but, in addition, it is color-coded: the bars within the 95 percent confidence interval are "lightgray", the bars in red are outside the 95 percent confidence interval. In other words, if we repeated the corpus analysis 1000 times, for instance, on corpora which represent speakers from the same population, then 95 percent of samples would have between 1 and 8 discourse *like* users. 
 
 ```{r echo=F, eval = T, message=FALSE, warning=FALSE}
 # summ probs
@@ -613,9 +613,9 @@ In addition to the normal distribution and the binomial distribution, there are 
 
 # Alpha and Beta Errors
 
-One practice that unfortunetely still very frequent, which is a very serious problem in data analysis, and which has led to the development of multivariate techniques is the increase of the error rates in multiple or repeated testing. 
+One practice that is unfortunately still very frequent, which is a very serious problem in data analysis, and which has led to the development of multivariate techniques, is the increase of the error rates in multiple or repeated testing. 
 
-We have stated before that we usually assume a significance level of 5%. However, this also means that, on average, every 20^th^ test result, which has a significance value of .05, is misinterpreted because, on average, one out of 20 results shown to be significant *is actually not caused by a real effect but the result of normally distributed probabilities and a fixed significance level*. If we perform several tests, the probability that we obtain a significant result for soemthing which is, in fact, not significant adds up and incerases exponetntially. Indeed, even with only four tests the likelihood of a significant result in the test - altought there is in actually no difference - is 18.5%! This incerase in error rates can by easily calculated with formula below.
+We have stated before that we usually assume a significance level of 5%. However, this also means that, on average, every 20^th^ test result, which has a significance value of .05, is misinterpreted because, on average, one out of 20 results shown to be significant *is actually not caused by a real effect but the result of normally distributed probabilities and a fixed significance level*. If we perform several tests, the probability that we obtain a significant result for soemthing which is, in fact, not significant adds up and increases exponentially. Indeed, even with only four tests the likelihood of a significant result in the test - altough there is actually no difference - is 18.5%! This increase in error rates can by easily calculated with formula below.
 
 
 \begin{equation}
@@ -636,7 +636,7 @@ We have stated before that we usually assume a significance level of 5%. However
 
 We will return to this later, but first we will look at different types of errors.
 
-One differentiates between $\alpha$- (or alpha-) and $\beta$ (or beta-) errors. $\alpha$ errors represent a situation in which a test reports a significant effect althought there is no effect in empirical reality. $\beta$ errors reflect a situation in which a test does not report a significant effect although there is one in empirical reality (see Table below).
+One differentiates between $\alpha$- (or alpha-) and $\beta$ (or beta-) errors. $\alpha$ errors represent a situation in which a test reports a significant effect although there is no effect in empirical reality. $\beta$ errors reflect a situation in which a test does not report a significant effect although there is one in empirical reality (see Table below).
 
 ```{r echo=F, message=FALSE, warning=FALSE}
 #install.packages("knitr")      # install library (remove # to activate)
@@ -652,7 +652,7 @@ kable(errortb, caption = "Alpha- and beta-errors.", booktabs = T)%>%
   add_header_above(c("Reality" = 1, "Test" = 2))
 ```
 
-Regarding the difference between $\alpha$ and $\beta$ errors, it can be said that $\beta$ errors are generally to be preferred, as they merely state that, based on the data, it can not be assumed that X or Y is the case, while $\alpha$ errors do not false statements become part of recognized knowledge. As a rule of thumb, more conservative and conservative behavior is less problematic in terms of science theory, and thus $\alpha$ rather than $\beta$ errors should be avoided.
+Regarding the difference between $\alpha$ and $\beta$ errors, it can be said that $\beta$ errors are generally to be preferred, as they merely state that, based on the data, it can not be assumed that X or Y is the case, while $\alpha$ errors cause false statements to become part of recognized knowledge. As a rule of thumb, more conservative and conservative behavior is less problematic in terms of science theory, and thus $\alpha$ rather than $\beta$ errors should be avoided.
 
 Now that we have clarified what types of errors exist and that errors accumulate, we will examine a related concept: *Independence*.
 
@@ -662,15 +662,15 @@ If errors would always add up, then statistics would not be possible, since ever
 
 If tests are independent of one another, then their errors do not accumulate. However, if they are related to each other, then the errors add up. A word of caution is in order here as the concept of independence in statistics has a different meaning from everyday use: in statistics, independence means the independence of hypotheses. In the case of specifications of more general hypotheses, the specified hypotheses are not independent of the general hypothesis and are not independent of the other specified hypotheses. In other words, if we test several specific hypotheses in a more generalized hypothesis, then the hypotheses are not strictly independent and cannot be treated that way. If we formulate two hypotheses that are not conceptually linked or one hypothesis is not derived from the other, then these hypotheses are independent. 
 
-We encounter a related phenomenon when dealing with extensions of $\chi$^2^ test: the reason why we could not calculate the ordinary Pearson's $\chi$^2^ test when focusuing on subtables derived from larger tables is that the data of represented in the subtable is not independent from the other obsrevations summarized in the larger table. 
+We encounter a related phenomenon when dealing with extensions of $\chi$^2^ test: the reason why we could not calculate the ordinary Pearson's $\chi$^2^ test when focusuing on subtables derived from larger tables is that the data represented in the subtable is not independent from the other observations summarized in the larger table. 
 
-When we performed the ordinary Pearson's $\chi$^2^ test we tested whether emotion metaphors are realized differently across registers. The subsequent test built on the results of that frist test and zoomed in on a specified hypothesis (namely that two specific types of metaphors would differ in two specific registers). Therefore, we are dealing with two hypotheses, the second hypothesis being a specification of the first hypothesis. This means that the hypotheses were related and not independent. Consequently, the errors would have added up if we had not considered that not only the part table was extracted from the data, but we wanted to test a part table of a larger table.
+When we performed the ordinary Pearson's $\chi$^2^ test we tested whether emotion metaphors are realized differently across registers. The subsequent test built on the results of that first test and zoomed in on a specified hypothesis (namely that two specific types of metaphors would differ in two specific registers). Therefore, we are dealing with two hypotheses, the second hypothesis being a specification of the first hypothesis. This means that the hypotheses were related and not independent. Consequently, the errors would have added up if we had not considered that not only the part table was extracted from the data, but we wanted to test a part table of a larger table.
 
 A second and perhaps more important feature of independence is that independent variables must not be correlated. If they are, however, this is called *multicollinearity* (more on this when we look at multiple regression).
 
 # Corrections
 
-Now that we know about error accumilation and issues of independence, how can we test multiple hypotheses (simultaneously)? One option is to use multivariate methods, as we will see in the section on "Advanced Statistics". Another option is to incorporate corrections to ensure that the $\alpha$-level remains at 5% even with repeated or multiple testing.
+Now that we know about error accumulation and issues of independence, how can we test multiple hypotheses (simultaneously)? One option is to use multivariate methods, as we will see in the section on "Advanced Statistics". Another option is to incorporate corrections to ensure that the $\alpha$-level remains at 5% even with repeated or multiple testing.
 
 The best known and probably the most widely used correction is the *Bonferroni* correction, where the $\alpha$-level is divided by the number of tests. For example, if we perform 4 tests, then the $\alpha$-level is lowered to .05 / 4 = .0125 so that the $\alpha$-level of the four tests returns to the usual 5% level. The disadvantage of this correction is that it is more conservative and therefore leads to a relatively high $\beta$-error rate.
 
@@ -678,9 +678,9 @@ Other common corrections are the Holm and the Benjamini-Hochberg corrections. Ho
 
 # What To Do With Non-Normal Data
 
-We have now a basic understanding of the normal distribution and its characterists. The normal distribution is relevant in statistics because tests build on assumptions that involve the distributions of variables or residuals. If the data is not distributed normally but the test you want to use assumes and therefore requires normality, then there is a problem. In this section, we will have a look at ways to "nromalize" data. In this context, normalization refers to transformations of data that cause the data to exhibit different distributional characteristsics (e.g. being more normal).
+We have now a basic understanding of the normal distribution and its characteristics. The normal distribution is relevant in statistics because tests build on assumptions that involve the distributions of variables or residuals. If the data is not distributed normally but the test you want to use assumes and therefore requires normality, then there is a problem. In this section, we will have a look at ways to "normalize" data. In this context, normalization refers to transformations of data that cause the data to exhibit different distributional characteristics (e.g. being more normal).
 
-Let us have a look at an example to clarify what is meant here and what can be done when dealing with non-normal data. In a first step, we will create some data and test whether it is "nromal" or not. The  data represents the frequency of discourse particles differs across two corpora  that represent the speech of the same fifty speakers (see the Figure below).
+Let us have a look at an example to clarify what is meant here and what can be done when dealing with non-normal data. In a first step, we will create some data and test whether it is "normal" or not. The data represents the frequency of discourse particles across two corpora that represent the speech of the same fifty speakers (see the Figure below).
 
 ```{r normal1, echo=F, message=FALSE, warning=FALSE}
 Corpus <- c(rep("Corpus1", 100), 
@@ -700,7 +700,7 @@ ggplot(particletable,aes(x=Frequency, fill = Corpus))+
   scale_fill_manual(values = c('indianred4', 'gold')) # define colours
 ```
 
-In a first setp, we test wehther the frequencies of the discourse particles are distributed normally in the two corpora. The test we use here is called the Shapiro-Wilk test and it determines the likelihood with which a given sample is drawn from normally distributed population. If the Shapiro-Wilk test reports a significant result, then this means that the  samle is significantly non-normal und unlikely to be drawn from nromally distributed popualtion. 
+In a first setp, we test whether the frequencies of the discourse particles are distributed normally in the two corpora. The test we use here is called the Shapiro-Wilk test and it determines the likelihood with which a given sample is drawn from normally distributed population. If the Shapiro-Wilk test reports a significant result, then this means that the sample is significantly non-normal und unlikely to be drawn from normally distributed population. 
 
 ```{r testnromality, echo=F, eval = T, message=FALSE, warning=FALSE}
 # test for normality
@@ -711,9 +711,9 @@ shapiro.test(c1) # p > .05 = normal
 shapiro.test(c2) # p < .05 = non-normal
 ```
 
-Accordign to the Shapiro-Wilk test, the distribution in Corpus 1 is normal while the distribution in Corpus 2 is non-normal. It important to mention here that the Shapiro-Wilk test is inexact for small samples (N < 60) but to rigorous for large samples (N > 200).
+According to the Shapiro-Wilk test, the distribution in Corpus 1 is normal while the distribution in Corpus 2 is non-normal. It is important to mention here that the Shapiro-Wilk test is inexact for small samples (N < 60) but too rigorous for large samples (N > 200).
 
-One issue that we face now that we have confirmed that the distribution in Corpus 2 is non-normal relates to the description of the data. If data are non-normal, then the usual descriptive statistics (mena, median, stadard deviattion) are not really appropriate because they either assume normality (mena and standard deviation) or they are unfit to report non-normal structure). Therefore, when dealing with non-normal data, it is common to use alternative descriptive statistics.
+One issue that we face now that we have confirmed that the distribution in Corpus 2 is non-normal relates to the description of the data. If data are non-normal, then the usual descriptive statistics (mean, median, standard deviation) are not really appropriate because they either assume normality (mena and standard deviation) or they are unfit to report non-normal structure. Therefore, when dealing with non-normal data, it is common to use alternative descriptive statistics.
 
 ```{r summarizenromality, echo=F, eval = T, message=FALSE, warning=FALSE}
 summary(c2)                       # summary for non-normal data
@@ -762,10 +762,9 @@ par(mfrow=c(1,1))
 
 One way to deal with non-normal data is to transform the data. Here are selected rules of thumb for data transformations that are particularly useful when dealing with language data.
 
-* If the data is moderatly positively skewed, the best option is to take the square root of the dependent varianble: sqrt(DepVar). 
-* If the data is moderatly negatively skewed, the best option is to square the dependent varianble:   (DepVar)^2.
-* If the data is J shaped, the best option is to transform the depenedent variable in the follwoing way:
-1/(DepVar + 1).
+* If the data is moderately positively skewed, the best option is to take the square root of the dependent variable: sqrt(DepVar). 
+* If the data is moderately negatively skewed, the best option is to square the dependent variable: (DepVar)^2.
+* If the data is J shaped, the best option is to transform the dependent variable in the following way: 1/(DepVar + 1).
 
 ```{r testnonnormal, echo=F, eval = T, message=FALSE, warning=FALSE}
 
@@ -853,9 +852,9 @@ Bayes theorem is a different approach to statistics that does not rely on the no
 $P(A|B) = \frac{P(B|A) P(A)}{P(B)}$
 \end{equation}
 
-In prose, the equation reads something like this: The chance of something (for instance, the chance of a result of a test being correct) being the case is the the chance of a true positive results out of all positive results (true and wrong).
+In prose, the equation reads something like this: The chance of something (for instance, the chance of a result of a test being correct) being the case is the chance of a true positive results out of all positive results (true and wrong).
 
-To exemplify what that really and and also how Bayes theorem works, we will use a simple example. The example involves the probability of being diagnosed with cancer given the probability of the test being wrong.
+To exemplify what that really means and also how Bayes theorem works, we will use a simple example. The example involves the probability of being diagnosed with cancer given the probability of the test being wrong.
 
 Imagine the probability of having cancer is 1 percent. Among 1,000 people, 10 would actually have cancer. However, the test that is used to determine if a person has cancer has an error rate of 20 percent. This means that the test is wrong is 20 percent of cases. If 1000 people took the test, this means that 10 out of these 1000 people would be expected to have cancer but the test would inidcate that 200 people had cancer.
 
@@ -882,12 +881,12 @@ kable(bayestable, caption = "", align=c(rep('c',times=4)))
 The table above can be read as follows:
 
 * 1% of people have cancer
-* If the patient actually has cancer, the patient is in the first column. The test will detect cancer with a 80% accuracy, i.e. the test reports that the patient has cancer in 80% of cases. But in 20% of cases, the test will report "no cancer"" although the patient does, in fact, have cancer.
+* If the patient actually has cancer, the patient is in the first column. The test will detect cancer with a 80% accuracy, i.e. the test reports that the patient has cancer in 80% of cases. But in 20% of cases, the test will report "no cancer" even though the patient does, in fact, have cancer.
 * If the patient does not have cancer, the patient is in the second column. There’s a 9.6% chance that the test will report that you have cancer, and a 90.6% chance that the test will report a negative result.
 
 Imagine now, that the test reports that a patient has cancer. What is probability that the patient actually has cancer?
 
-Because the test reports cancer, the patient is in the top row of the table. However, it could be a true positive or a false positive. The chances of a true positive (the patient has in deed cancer and the tests reports it) are = 1% \times 80% = .008% (0.8%). The chances of a false positive (the patient does not have cancer but the test reports that the patient has cancer) are = 99% \times 9.6% = 0.09504 (9.5%). 
+Because the test reports cancer, the patient is in the top row of the table. However, it could be a true positive or a false positive. The chances of a true positive (the patient does indeed have cancer and the test reports it) are = 1% \times 80% = .008% (0.8%). The chances of a false positive (the patient does not have cancer but the test reports that the patient has cancer) are = 99% \times 9.6% = 0.09504 (9.5%). 
 
 
 # References
