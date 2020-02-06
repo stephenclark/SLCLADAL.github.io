@@ -1113,7 +1113,7 @@ The odds ratios show that internal students are 2.85 or 285 times as likely as n
 
 # Poisson Regression
 
-Poisson regressions are used to analyse data where the dependent variable represents counts. In particular counts that are based on observations of something that is measured in set intervals. For instances the number of pauses in two-minute-long conversations. Poisson regressions are particularly appealing when dealing with rare events, i.e. when something only occurs very infrequently. In such cases, normal linear regressions do not work because the instances that do occur are automatically considered outliers. Therefore, it is useful to check if the data conform to a Poisson distribution.
+Poisson regressions are used to analyse data where the dependent variable represents counts - in particular, counts that are based on observations of something that is measured in set intervals, e.g. the number of pauses in two-minute-long conversations. Poisson regressions are particularly appealing when dealing with rare events, i.e. when something only occurs very infrequently. In such cases, normal linear regressions do not work because the instances that do occur are automatically considered outliers. Therefore, it is useful to check if the data conform to a Poisson distribution.
 
 However, the tricky thing about Poisson regressions is that the data has to conform to the Poisson distribution which is, according to my experience, rarely the case, unfortunately. In contrast to the Gaussian Normal Distribution which is very flexible because it is defined by two parameters, the mean (mu, i.e. $\mu$) and the standard deviation (sigma, i.e. $\sigma$). This allows the normal distribution to take very different shapes (for example, very high and slim (compressed) or very wide and flat). In contrast, the Poisson is defined by only one parameter (lambda, i.e. $\lambda$) which mean that if we have a mean of 2, then the standard deviation is also 2 (actually we would have to say that the mean is $\lambda$ and the standard deviation is also  $\lambda$ or $\lambda$ = $\mu$ = $\sigma$). This is much trickier for natural data as this means that the Poisson distribution is very rigid.
 
@@ -1172,7 +1172,7 @@ gf = goodfit(poissondata$Pauses,type= "poisson",method= "ML")
 summary(gf)
 ```
 
-If the p-values is smaller than .05, then data is not Poisson distributed which means that it differs significantly from a Poisson distribution and is very likely over-dispersed. We will check the divergence from a Poisson distribution visually by plotting the observed counts against the expected counts if the data were Poisson distributed.
+If the p-value is smaller than .05, then data is not Poisson distributed which means that it differs significantly from a Poisson distribution and is very likely over-dispersed. We will check the divergence from a Poisson distribution visually by plotting the observed counts against the expected counts if the data were Poisson distributed.
 
 ```{r pr4, eval = T, echo=T, message=FALSE, warning=FALSE}
 plot(gf,main="Count data vs Poisson distribution")
@@ -1334,7 +1334,7 @@ asorted <- a[order(-AbsoluteStandardizedResiduals), ]
 asorted[1:10, ]
 ```
 
-As Cook's distance and the standardized residuals do have unaccepatble values, we re-calculate the linear model as a robust regression and inspect the results
+As Cook's distance and the standardized residuals do have unacceptable values, we re-calculate the linear model as a robust regression and inspect the results
 
 ```{r rr7, eval = T, echo=T, message=FALSE, warning=FALSE}
 # create robust regression model
@@ -1362,7 +1362,7 @@ p_attraction <- f.robftest(rmodel, var = 3)
 p_status; p_attraction
 ```
 
-The output shows that both status and attraction are significant but, as we have seen above, the effect that really matters is the interaction between status and attraction. This was, however, not the focus of this sections as this section meerly served to introduce the concept of weights and how they can be used in the context of a robust linear regression.
+The output shows that both status and attraction are significant but, as we have seen above, the effect that really matters is the interaction between status and attraction. This was, however, not the focus of this section as this section meerly served to introduce the concept of weights and how they can be used in the context of a robust linear regression.
 
 # References
 
