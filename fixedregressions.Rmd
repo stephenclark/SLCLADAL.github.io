@@ -534,9 +534,9 @@ Furthermore, the final minimal adequate regression model reports a highly signif
 
 # Multiple Binomial Logistic Regression
 
-Logistic regression is a multivariate analysis technique that builds on and is very similar in terms of its implementation to linear regression but logistic regressions take dependent variables that represent nominal rather than numeric scaling [@harrell2015regression]. The difference requires that the linear regression must be modified in certain ways to avoid producing non-sensical outcomes. The most fundamental difference between logistic and linear regressions is that logistic regression work on the probabilities of an outcome (the likelihood), rather than the outcome itself. In addition, the likelihoods on which the logistic regression works must be logged (logarithmized) in order to avoid produce predictions that produce values greater than 1 (instance occurs) and 0 (instance does not occur).
+Logistic regression is a multivariate analysis technique that builds on and is very similar in terms of its implementation to linear regression, but logistic regressions take dependent variables that represent nominal rather than numeric scaling [@harrell2015regression]. The difference requires that the linear regression must be modified in certain ways to avoid producing non-sensical outcomes. The most fundamental difference between logistic and linear regressions is that logistic regression works on the probabilities of an outcome (the likelihood), rather than the outcome itself. In addition, the likelihoods on which the logistic regression works must be logged (logarithmized) in order to avoid producing predictions that produce values greater than 1 (instance occurs) and 0 (instance does not occur).
 
-To understand what this mean, we will use a very simple example. In this example, we want to see whether the height of men affect their likelihood of being in a relationship. The data we use represents a data set consisting of two variables: height and relationship.
+To understand what this means, we will use a very simple example. In this example, we want to see whether the height of men affects their likelihood of being in a relationship. The data we use represents a data set consisting of two variables: height and relationship.
 
 ```{r blm1, eval = T, echo=F, message=FALSE, warning=FALSE}
 bodyheight=rnorm(20,175,20) # generates 20 values, with mean of 30 & s.d.=2
@@ -574,7 +574,7 @@ The left panel of the Figure above shows that a linear model would predict value
 
 ## Example 1: EH in Kiwi English
 
-To exemplify hot to implement a logistic regression in R [see @agresti1996introduction, @agresti2011categorical for very good and thorough introductions to this topic], we will analyse the use of the discourse particle *eh* in New Zealand English and test which factors correlate with its occurrence. The data set represents speech units in a corpus that were coded for the speaker who uttered a given speech unit, the gender, ethnicity, and age of that speaker and whether or not the speech unit contained an *eh*. To begin with, we clean the current work space, set option, install and activate relevant packages, load customized functions, and load the example data set.
+To exemplify how to implement a logistic regression in R [see @agresti1996introduction, @agresti2011categorical for very good and thorough introductions to this topic], we will analyse the use of the discourse particle *eh* in New Zealand English and test which factors correlate with its occurrence. The data set represents speech units in a corpus that were coded for the speaker who uttered a given speech unit, the gender, ethnicity, and age of that speaker and whether or not the speech unit contained an *eh*. To begin with, we clean the current work space, set option, install and activate relevant packages, load customized functions, and load the example data set.
 
 ```{r blm3, eval = T, echo=T, message=FALSE, warning=FALSE}
 # load data
@@ -617,7 +617,7 @@ ggplot(blrdata, aes(Age, EH, color = Gender)) +
   scale_color_manual(values = c("gray20", "gray70"))
 ```
 
-With respect to main effects, the Figure above indicates that men use *eh* more frequently than women, that young speakers sue it more frequently compared with old speakers, and that speakers that are descendants of European settlers (Pakeha) use *eh* more frequently compared with Maori (the native inhabitants of New Zealand).
+With respect to main effects, the Figure above indicates that men use *eh* more frequently than women, that young speakers use it more frequently than old speakers, and that speakers that are descendants of European settlers (Pakeha) use *eh* more frequently compared with Maori (the native inhabitants of New Zealand).
 
 The plots in the lower panels do not indicate significant interactions between use of *eh* and the Age, Gender, and Ethnicity of speakers. In a next step, we will start building the logistic regression model.
 
@@ -647,13 +647,13 @@ A few words on "glm" vs "lrm":   Baayen (2008:196-197) states that "lrm" should 
 
 ## Model fitting
 
-We will now start with the model fitting procedure. In the present case, we will use a manual step-wise step-up procedure during which predictors are added to the model if they significantly improve the model fit. In addition, we will perform diagnostics as we fit the model ateach step of the model fitting process rather than after the fitting.
+We will now start with the model fitting procedure. In the present case, we will use a manual step-wise step-up procedure during which predictors are added to the model if they significantly improve the model fit. In addition, we will perform diagnostics as we fit the model at each step of the model fitting process rather than after the fitting.
 
-We will test two things in particular: whether the data has incomplete information or complete separation and if the model suffers from multicollinearity. 
+We will test two things in particular: whether the data has incomplete information or complete separation, and if the model suffers from multicollinearity. 
 
-Incomplete information or complete separation means that the data does not contain all combinations of the predictor or the dependent variable. This is important because if the data does not contain cases of all combinations, the model will assume that it has found a perfect predictor. In such cases the model overestimates the effect of that that predictor and the results of that model are no longer reliable. For example, if "EH" was only used by young speakers in the data, the model would jump on that fact and say "Ha! If there is an old speaker, that means that that speaker will never ever and under no circumstances say "EH" - I can therefore ignore all other factors!" 
+Incomplete information or complete separation means that the data does not contain all combinations of the predictor or the dependent variable. This is important because if the data does not contain cases of all combinations, the model will assume that it has found a perfect predictor. In such cases the model overestimates the effect of that predictor and the results of the model are no longer reliable. For example, if "EH" was only used by young speakers in the data, the model would jump on that fact and say "Ha! If there is an old speaker, that means that that speaker will never ever and under no circumstances say "EH" - I can therefore ignore all other factors!" 
 
-Multicollinearity means that predictors correlate and have shared variance. This means that whichever predictor is included first will take all the variance that it can explain and the remaining part of the variable that is shared will not be attributed to the other predictor. This may lead to reporting that a factor is not significant because all of the variance it can explain is already accounted for. However, if the other predictor were included first, then the orginal predictor would be returned as insignificant. This means that- depending on the order in which predictors are added - the results of the regression can differ dramatically and the model is therefore not reliable. Multicollinearity is actually a very comon problem and theer are various ways to deal with it but it cannot be ignored (at least in regression analyses).
+Multicollinearity means that predictors correlate and have shared variance. This means that whichever predictor is included first will take all the variance that it can explain and the remaining part of the variable that is shared will not be attributed to the other predictor. This may lead to reporting that a factor is not significant because all of the variance it can explain is already accounted for. However, if the other predictor were included first, then the orginal predictor would be returned as insignificant. This means that- depending on the order in which predictors are added - the results of the regression can differ dramatically and the model is therefore not reliable. Multicollinearity is actually a very comon problem and there are various ways to deal with it but it cannot be ignored (at least in regression analyses).
 
 We will start by adding "Age" to the minimal adequate model.
 
@@ -668,9 +668,9 @@ ifelse(max(vif(m1.glm)) <= 3,  "vifs ok", "WARNING: high vifs!") # VIFs ok
 anova(m1.glm, m0.glm, test = "Chi")
 ```
 
-As the data does not contain incomplete information, the vif values are below 3, and adding "Age" has significantly imporved the mdel fit (the p-value of the anova is lower than .05). We therefore proceed with "Age" included.
+As the data does not contain incomplete information, the vif values are below 3, and adding "Age" has significantly imporved the model fit (the p-value of the anova is lower than .05). We therefore proceed with "Age" included.
 
-We continue by adding "Gender". We add a second ANOVA test to see if including Gender affects the significance of other predictors in the model. If this were the case - if adding Gender woudl cause Age to become insignificant - then we could change the ordering in which we include predictors into our model.
+We continue by adding "Gender". We add a second ANOVA test to see if including Gender affects the significance of other predictors in the model. If this were the case - if adding Gender would cause Age to become insignificant - then we could change the ordering in which we include predictors into our model.
 
 ```{r blm10, eval = T, echo=T, message=FALSE, warning=FALSE}
 ifelse(min(ftable(blrdata$Gender, blrdata$EH)) == 0, "not possible", "possible")
@@ -691,7 +691,7 @@ ifelse(max(vif(m3.glm)) <= 3,  "vifs ok", "WARNING: high vifs!") # VIFs ok
 anova(m3.glm, m2.glm, test = "Chi")
 ```
 
-Since adding "Ethnicity" does not significantly imporve the mdoel fit, we do not need to test if its inclusion affects the significance of other predictors. We continue without "Ethnicity" and include the interaction between "Age" and "Gender".
+Since adding "Ethnicity" does not significantly improve the mdoel fit, we do not need to test if its inclusion affects the significance of other predictors. We continue without "Ethnicity" and include the interaction between "Age" and "Gender".
 
 ```{r blm12, eval = T, echo=T, message=FALSE, warning=FALSE}
 ifelse(min(ftable(blrdata$Age, blrdata$Gender, blrdata$EH)) == 0, "not possible", "possible")
@@ -745,7 +745,7 @@ After fitting the model, we validate the model to avoid arriving at a final mini
 
 ## Model Validation
 
-To validate a model, you can apply the "validate" function and apply it to a saturated model. The output of the "validate" function shows how often predictors are retained if the sample is re-selected with the same size but with placing back drawn data points. The execution of the function requires some patience as it is rather computationally expensive and it is, tehrefore, commented out below.
+To validate a model, you can apply the "validate" function and apply it to a saturated model. The output of the "validate" function shows how often predictors are retained if the sample is re-selected with the same size but with placing back drawn data points. The execution of the function requires some patience as it is rather computationally expensive and it is, therefore, commented out below.
 
 ```{r blm18, eval = T, echo=T, message=FALSE, warning=FALSE}
 # model validation (remove # to activate: output too long for website)
@@ -759,7 +759,7 @@ The "validate" function shows that retaining two predictors (Age and Gender) is 
 pentrace(m2.lrm, seq(0, 0.8, by = 0.05)) # determine penalty
 ```
 
-The values are so similar  that a penalty is unnecessary. In a next step, we rename the final models.
+The values are so similar that a penalty is unnecessary. In a next step, we rename the final models.
 
 ```{r blm20, eval = T, echo=T, message=FALSE, warning=FALSE}
 lr.glm <- m2.glm  # rename final minimal adequate glm model
@@ -777,7 +777,7 @@ modelChi; chidf; chisq.prob
 
 The code above provides three values: a $\chi$^2^, the degrees of freedom, and a p-value. The p-value is lower than .05 and the results of the Model Likelihood Ratio Test therefore confirm that the final minimal adequate model performs significantly better than the initial minimal base-line model. Another way to extract the model likelihood test statistics is to use an ANOVA to compare the final minimal adequate model to the minimal base-line model.
 
-A handier way to get thses statistics is by performing an ANOVA on the final minimal model which, if used this way, is identical to a Model Likelihood Ratio test.
+A handier way to get these statistics is by performing an ANOVA on the final minimal model which, if used this way, is identical to a Model Likelihood Ratio test.
 
 ```{r blm22, eval = T, echo=T, message=FALSE, warning=FALSE}
 anova(m0.glm, lr.glm, test = "Chi") # Model Likelihood Ratio Test
@@ -820,7 +820,7 @@ Despite having low explanatory and predictive power, the age of speakers and the
 
 ## Effect Size
 
-In a next step, we compute odds ratios and their confidence intervals. Odds Ratios represent a common measure of effect size and can be used to compare effect sizes across models. Odds ratios rang between 0 and infinity. Values of 1 indicate that there is no effect. The further away the values are from 1, the stronger the effect. If the values are lower than 1, then the variable level correlates negatively with the occurrence of the outcome (the likelihood decreases) while values above 1 indicate a positive correlation and show that the variable level causes an increase in the likelihood of the outcome (the occurrence of EH).
+In a next step, we compute odds ratios and their confidence intervals. Odds Ratios represent a common measure of effect size and can be used to compare effect sizes across models. Odds ratios range between 0 and infinity. Values of 1 indicate that there is no effect. The further away the values are from 1, the stronger the effect. If the values are lower than 1, then the variable level correlates negatively with the occurrence of the outcome (the likelihood decreases) while values above 1 indicate a positive correlation and show that the variable level causes an increase in the likelihood of the outcome (the occurrence of EH).
 
 ```{r blm25, eval = T, echo=T, message=FALSE, warning=FALSE}
 exp(lr.glm$coefficients) # odds ratios
@@ -911,7 +911,7 @@ visreg(lr.glm, "Gender", xlab = "Gender",
        ylim = c(-3, 0)); par(mfrow = c(1, 1))
 ```
 
-A more intuitive way to visualze results id to plot the predicted values against the observed values.
+A more intuitive way to visualize results is to plot the predicted values against the observed values.
 
 ```{r blm32b, eval = T, echo=T, message=FALSE, warning=FALSE}
 # extract predicted probabilities
@@ -934,7 +934,7 @@ We are now in a position to perform model diagnostics and test if the model viol
 
 ### Multicollinearity
 
-To check whether the final minimal model contains predictors that correlate with each other, we extract variance inflation factors (VIF). If a model contains predictors that have variance inflation factors (VIF) > 10 the model is completely unreliable and cannot claim the multicollinearity is absent [@myers1990classical]. Predictors causing such VIFs should be removed. Indeed, predictors with VIF values greater than 4 are usually already problematic but, for large data sets, even VIFs greater than 2 can lead inflated standard errors (Jaeger 2013:http://wiki.bcs.rochester.edu/HlpLab/LSA2013Regression?action=AttachFile&do=view&target=LSA13-Lecture6-CommonIssuesAndSolutions.pdf). Also, VIFs of 2.5 can be problematic [@szmrecsanyi2006morphosyntactic 215] and [@zuur2010protocol] proposes that variables with VIFs exceeding 3 should be removed.
+To check whether the final minimal model contains predictors that correlate with each other, we extract variance inflation factors (VIF). If a model contains predictors that have variance inflation factors (VIF) > 10 the model is completely unreliable and cannot claim that multicollinearity is absent [@myers1990classical]. Predictors causing such VIFs should be removed. Indeed, predictors with VIF values greater than 4 are usually already problematic but, for large data sets, even VIFs greater than 2 can lead inflated standard errors (Jaeger 2013:http://wiki.bcs.rochester.edu/HlpLab/LSA2013Regression?action=AttachFile&do=view&target=LSA13-Lecture6-CommonIssuesAndSolutions.pdf). Also, VIFs of 2.5 can be problematic [@szmrecsanyi2006morphosyntactic 215] and [@zuur2010protocol] proposes that variables with VIFs exceeding 3 should be removed.
 
 ```{r blm33, eval = T, echo=T, message=FALSE, warning=FALSE}
 vif(lr.glm)
@@ -995,7 +995,7 @@ kable(blrsummary, caption = "Summary of the final minimal adequate binomial logi
 
 **R^2^ (Hosmer & Lemeshow)**
 
-Hosmer and Lemeshow's R^2^ "is the proportional reduction in the absolute value of the log-likelihood  measure and as such it is a measure of how much the badness of fit improves  as a result of the inclusion of the predictor variables. It can vary between 0 (indicating that the predictors are useless at predicting the outcome variable) and 1 (indicating that the model predicts the outcome variable perfectly)" [@field2012discovering 317].
+Hosmer and Lemeshow's R^2^ "is the proportional reduction in the absolute value of the log-likelihood measure and as such it is a measure of how much the badness of fit improves as a result of the inclusion of the predictor variables. It can vary between 0 (indicating that the predictors are useless at predicting the outcome variable) and 1 (indicating that the model predicts the outcome variable perfectly)" [@field2012discovering 317].
 
 **R^2^ (Cox & Snell)**
 
@@ -1021,7 +1021,7 @@ Hosmer and Lemeshow's R^2^ "is the proportional reduction in the absolute value 
 
 **Akaike information criteria (AIC)**
 
-Akaike information criteria (AlC = -2LL + 2k) provide a value that reflects a ratio between the number of predictors in the model and the variance that is explained by these predictors. Changes in AIC can serve as a measure of whether the inclusion of a variable leads to a significant increase in the amount of variance that is explained by the model. "You can think of this as the price you pay for something: you get a better value of R^2^, but you pay a higher price, and was that higher price worth it?  These information criteria help you to decide. The BIC is the same as the AIC but adjusts the penalty included in the AlC (i.e., 2k) by the number of cases: BlC = -2LL + 2k x log(n) in which n is the number of cases in the model" [@field2012discovering 318].
+Akaike information criteria (AlC = -2LL + 2k) provide a value that reflects a ratio between the number of predictors in the model and the variance that is explained by these predictors. Changes in AIC can serve as a measure of whether the inclusion of a variable leads to a significant increase in the amount of variance that is explained by the model. "You can think of this as the price you pay for something: you get a better value of R^2^, but you pay a higher price, and was that higher price worth it? These information criteria help you to decide. The BIC is the same as the AIC but adjusts the penalty included in the AlC (i.e., 2k) by the number of cases: BlC = -2LL + 2k x log(n) in which n is the number of cases in the model" [@field2012discovering 318].
 
 
 # Ordinal Regression
