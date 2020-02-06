@@ -7,7 +7,7 @@ output: html_document
 
 \pagebreak\section{Simple Graphs}
 \begin{abstract}
-\noindent This chapter discusses how data can and should be visualized and what needs to be kept in mind when visualizing data, e.g. axes labeling, and it exemplifies different types of graphs (scatter plot, line graphs, bar-charts, histograms, pie charts, box-plot) based on several different data sets. In addition, the pros and cons of different types of graphs are discussed and the steps and procedures to set up graphs are provided so that students can re-create the graphs at home. The graphs are plotted in R as it is a very flexible tool for visualization and offers more control over the distinct layers of plots.
+\noindent This chapter discusses how data can and should be visualized and what needs to be kept in mind when visualizing data, e.g. axes labeling, and it exemplifies different types of graphs (scatter plot, line graphs, bar-charts, histograms, pie charts, box-plot) based on several different data sets. In addition, the pros and cons of different types of graphs are discussed, and the steps and procedures to set up graphs are provided so that students can re-create the graphs at home. The graphs are plotted in R as it is a very flexible tool for visualization and offers more control over the distinct layers of plots.
 \end{abstract}
 
 There is a multitude of different ways to visualize data and thus we focus only on the most common in this chapter. Each type of plot is accompanied with the respective \verb!R! code so that you can follow what we are doing on your own machine.  
@@ -39,7 +39,7 @@ lines(lowess(wt,mpg), col="blue") # lowess line (x,y)
 \includegraphics[width=.8\linewidth]{images/scatterplot02.png}
 \end{center}
 
-Next,w e will create a line chart. Line charts are used when you have a series of points (e.g. mean values) for categorical variables.
+Next, we will create a line chart. Line charts are used when you have a series of points (e.g. mean values) for categorical variables.
 
 \begin{lstlisting}
 # Linechart
@@ -152,7 +152,7 @@ assoc(HairEyeColor, shade=TRUE)
 Word clouds visualize word frequencies of either single corpora or they visualize different corpora. Although word clouds are not really used in academic linguistics, they are a neat way to display the themes - which may be thought of as the semantic content - of corpora.
 To exemplify how to use word clouds, we are going to have a look at the election programs (Wahlkampfprogramme) of German political parties for the Bundestag elections 2013.
 
-Prepare data by removing all lists from the current work space and installing packages we need or which may be useful
+Prepare data by removing all lists from the current work space and installing packages we need or that may be useful
 \begin{lstlisting}
 rm(list=ls(all=T))
 
@@ -217,8 +217,8 @@ At first I thought that word clouds are simply a fancy but not very helpful way 
 
 The comparative word cloud shows that the \textbf{FDP} stresses concepts like "wettbewerb", "freiheit", "chancen", "liberal" thereby stressing their liberal outlook (they didn't make it and didn't deserve it by the way - just my opinion).
 \textbf{Die Grünen} support every nonsense as they are "für" everything and relied more on emphasizing "frauen", "zukunft", and "teilhabe" which is in line with their feel-good philosophy.
-\textbf{Die Linke} rallied on about what we has to be done ("müssen"), and used words like "sozial", "beschäftigten", and "öffentlich" a lot showing their emphasis on economic issues.
+\textbf{Die Linke} rallied on what has to be done ("müssen"), and used words like "sozial", "beschäftigten", and "öffentlich" a lot showing their emphasis on economic issues.
 The social democrats (\textbf{SPD}) addressed topics like "kommunen", "arbeit", "gesellschaft", "bildung", and "gerechtigkeit" - so they essentially used their typical buzz words (just sayin').
-Finally, the \textbf{CDU/CSU} mentioned "ländlich", "wohlstand", "unser*, "and "weiterhin" to suggest that they will just continue with whatever nothing that hve been doing over the past years.
+Finally, the \textbf{CDU/CSU} mentioned "ländlich", "wohlstand", "unser*, "and "weiterhin" to suggest that they will just continue with whatever nothing that have been doing over the past years.
 
 In conclusion, I honestly didn't think that I would get meaningful results but the comparative word cloud does a rather good job at that. So that was it on word clouds in R.
