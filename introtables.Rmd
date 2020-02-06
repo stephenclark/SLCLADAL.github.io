@@ -17,7 +17,7 @@ This tutorial introduces tables and shows how to tabulate data. The entire code 
 
 # Preparation and session set up
 
-As this tutorial uses "R", it is necessary to install "RStudio" (a programm which makes working with R particularly user-friendly). If "RStudio" is not already installed on your machine, please search for "RStudio" in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory). Once you have installed "RStudio", open it.
+As this tutorial uses "R", it is necessary to install "RStudio" (a program which makes working with R particularly user-friendly). If "RStudio" is not already installed on your machine, please search for "RStudio" in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory). Once you have installed "RStudio", open it.
 
 In addition, we prepare our session by clearing the workspace, setting options, and installing certain "libraries" or "packages" that we need in this tutorial. Thus, please install the libraries by running the code below this paragraph (simply copy and paste the code into the editor window of RStudio and select "Run" from the task bar above) - the installation may take some time (depending on the number and the nature of the libraries it may take a couple of minutes).
 
@@ -35,19 +35,19 @@ Once you have installed "R", "R-Studio", "Tinn-R", and have also initiated the s
 
 # Introduction
 
-Tables are one of the most common and important ways to process, handle, and describe data. This tutorial introduces different types of tables, how to load and save different types of tables, as well as how to modify and process tables and tabulalated data.
+Tables are one of the most common and important ways to process, handle, and describe data. This tutorial introduces different types of tables, how to load and save different types of tables, as well as how to modify and process tables and tabulated data.
 
 When working with R, there are different kinds or types of tables that have different characteristics. The most common types of tables in "R" are:
 
 * matrices
 * data frames
-* tibbels
+* tibbles
 
-Matrices can only contain one type of data and all data points will be converted to the type of scale with the lowest information value. For instance, if at least one variables in a table represents characters (or strings), then all other variables are also converted into characters (although they may be numbers). 
+Matrices can contain only one type of data and all data points will be converted to the type of scale with the lowest information value. For instance, if at least one variables in a table represents characters (or strings), then all other variables are also converted into characters (even though they may be numbers). 
 
 Data frames can contain different types of scales and variables are not converted automatically. In this sense, data frames are more flexible and are preferrable over matrices.
 
-Tibbles are the tidyverse equivalent of data frames which offer new functions and possibilities of handling and inspecting the data. . 
+Tibbles are the tidyverse equivalent of data frames which offer new functions and possibilities of handling and inspecting the data.
 
 # Loading tables into R
 
@@ -67,7 +67,7 @@ myothertable <- read.table("https://slcladal.github.io/data/mlrdata.txt", header
 head(myothertable)
 ```
 
-When a tables should be loaded from Excel, it is neccessary to load the "xlsx" library. The example below only works if you exchange the path with your own path to an xls or xlsx file. This is because if we want to load data from the LADAL server, loading the table becomes slightly more complex. You can try it out loading an xls or xlsx file with some xls or xlsx file on your own computer though.
+When a table should be loaded from Excel, it is neccessary to load the "xlsx" library. The example below only works if you exchange the path with your own path to an xls or xlsx file. This is because if we want to load data from the LADAL server, loading the table becomes slightly more complex. You can try it out loading an xls or xlsx file with some xls or xlsx file on your own computer though.
 
 ```{r lt3, echo=T, eval = F, message=FALSE, warning=FALSE}
 # load library
@@ -83,9 +83,9 @@ The following section shows how to access and manipulate tables.
 
 # Dealing with tables in the Tidyverse
 
-The tidyverse is a specific way of writing R code that builds on a family of libraries designed for efficient data science work flows which were developed initially by Hadley Wickham. This new way of writing R code buidls on a shared and underlying design philosophy and grammar. Due to its popularity and ease of use, the tidyverse way to write R code is becoming increasingly popular and we will use it in the following to handle and manipulate tabulated data. 
+The tidyverse is a specific way of writing R code that builds on a family of libraries designed for efficient data science work flows which were developed initially by Hadley Wickham. This new way of writing R code builds on a shared underlying design philosophy and grammar. Due to its popularity and ease of use, the tidyverse way to write R code is becoming increasingly popular and we will use it in the following to handle and manipulate tabulated data. 
 
-If you have already loaded data into R and now want to process the data, you typically have to modify the data in some form or another to get the information or format you need. The tidyverse offers very user-friendly, intuitive, and handy functions for processing the data to match the needs of your analysis. To have access to the tidyverse functions for data processing, we load the *dplyr* and *tidyr* libraries and load and inspect another set of data using the "read.delim" function. The new data is stored as a txt file and has 100 observations (rows) and 3 variables (status, attraction, and money). The data set represents how much money people have spend in someone they were interested in or not (attraction: Intersted versus NotInterested) and their own relationship status (status: Singel versus Relationship).
+If you have already loaded data into R and now want to process the data, you typically have to modify the data in some form or another to get the information or format you need. The tidyverse offers very user-friendly, intuitive, and handy functions for processing the data to match the needs of your analysis. To have access to the tidyverse functions for data processing, we load the *dplyr* and *tidyr* libraries and load and inspect another set of data using the "read.delim" function. The new data is stored as a txt file and has 100 observations (rows) and 3 variables (status, attraction, and money). The data set represents how much money people have spent on someone they were interested in or not (attraction: Interested versus NotInterested) and their own relationship status (status: Single versus Relationship).
 
 ```{r dp1, echo=T, eval = T, message=FALSE, warning=FALSE}
 # load libraries
@@ -97,7 +97,7 @@ newdata <- read.delim("data/mlrdata.txt", sep = "\t", header = T)
 nrow(newdata); str(newdata); table(newdata$attraction)
 ```
 
-The output shows that the table represents 3 variables (status, attraction, and money) and 100 rows which contain 50 people who are interested and 50 who are not interested. We will now check out different ways and fucntions to process data. 
+The output shows that the table represents 3 variables (status, attraction, and money) and 100 rows which contain 50 people who are interested and 50 who are not interested. We will now check out different ways and functions to process data. 
 
 ## Piping
 
@@ -118,7 +118,7 @@ pipeddata <- read.delim("data/mlrdata.txt", sep = "\t", header = T) %>%
 pipeddata
 ```
 
-The pipe has worked and we get the resulting summary which shows the mean of the money spend based on  Attraction and Status.
+The pipe has worked and we get the resulting summary which shows the mean of the money spend based on Attraction and Status.
 
 ## Selecting and filtering
 
@@ -135,7 +135,7 @@ reduceddata <- newdata %>%
 nrow(reduceddata); table(reduceddata$attraction)
 ```
 
-We have now reduced the data by excluding status (we have only selected attraction and money) and we have removed those 50 data rows of people who were not interested. The *select* function (like most other tyidyverse functions) can also be used together with a minus sign which cuases a column to be removed, thus ""dplyr::select(-money)" would remove the money column (see below).
+We have now reduced the data by excluding status (we have only selected attraction and money) and we have removed those 50 data rows of people who were not interested. The *select* function (like most other tyidyverse functions) can also be used together with a minus sign which causes a column to be removed, thus "dplyr::select(-money)" would remove the money column (see below).
 
 ```{r dp4, echo=T, eval = T, message=FALSE, warning=FALSE}
 # select and filter
@@ -146,11 +146,11 @@ datawithoutmoney <- newdata %>%
 head(datawithoutmoney)
 ```
 
-Selecting and filtering are extremely powerful functions that can also be combined with other functions. But before we discuss more complex issues, we will have alook at how we can change columns.
+Selecting and filtering are extremely powerful functions that can also be combined with other functions. But before we discuss more complex issues, we will have a look at how we can change columns.
 
 ## Changing data and adding columns
 
-Changing and adding data is done with the *mutate* function. The *mutate* functions requires that we specify a column name - if we use the same name as the column we are changing, then we change the column but if we specify another column mame, then a new column is created. 
+Changing and adding data is done with the *mutate* function. The *mutate* function requires that we specify a column name - if we use the same name as the column we are changing, then we change the column but if we specify another column mame, then a new column is created. 
 
 We will now create a new column (Spendalot) in which we encode if the person has spend a lot of money (100 AUD or more) on the present or not (less than 100 AUD).
 
@@ -166,7 +166,7 @@ The table now has a new column (Spendalot) because we have specified a column na
 
 ## Renaming columns
 
-Oftentimes, column names are not really meaningful or incoherent which makes it easier to wrap your head around what the values in a column refer to. The easiest way around this is rename columns which is, fortunately very simple in the tidyverse. While the column names of our example table are meaningful, I want to capitalize the first letter of each column name. This can be done as follows.
+Oftentimes, column names are not really meaningful or incoherent, which makes it hard to wrap your head around what the values in a column refer to. The easiest way around this is rename columns which is, fortunately, very simple in the tidyverse. While the column names of our example table are meaningful, I want to capitalize the first letter of each column name. This can be done as follows.
 
 ```{r dp6, echo=T, eval = T, message=FALSE, warning=FALSE}
 # renaming columns
@@ -177,13 +177,13 @@ head(newdata)
 ```
 
 
-The renaming was successful as all column names now bein with a capital letter.
+The renaming was successful as all column names now begin with a capital letter.
 
 ## Grouping and summarising
 
-In contrast to mutate, which retains the number of rows, summarizing creates new columns but collapses rows and only provides the summary value (or values if more than one summary is specified). Also, columns that are not  grouping variables are removed. 
+In contrast to mutate, which retains the number of rows, summarizing creates new columns but collapses rows and only provides the summary value (or values if more than one summary is specified). Also, columns that are not grouping variables are removed. 
 
-Summarizing is particularly useful when we want to get summaries of groups. We will modify the example from above and extract the mean and the standard deviation of the money spend on presents by relationship status and whether the giver was attracted to the givee. 
+Summarizing is particularly useful when we want to get summaries of groups. We will modify the example from above and extract the mean and the standard deviation of the money spent on presents by relationship status and whether the giver was attracted to the givee. 
 
 ```{r dp7, echo=T, eval = T, message=FALSE, warning=FALSE}
 #grouping and summarizing data 
@@ -196,7 +196,7 @@ datasummary
 
 ## Gathering and Spreading
 
-One very common problem is that data - or at least parts of it - have to be transformed from long to wide format or vice versa. In the tidyverse, this is doen using the *gather* and *spread* function. We will convert the summary table shown above into a wide format (we also remove the SD column as it is no longer needed) 
+One very common problem is that data - or at least parts of it - have to be transformed from long to wide format or vice versa. In the tidyverse, this is done using the *gather* and *spread* function. We will convert the summary table shown above into a wide format (we also remove the SD column as it is no longer needed) 
 
 ```{r dp8, echo=T, eval = T, message=FALSE, warning=FALSE}
 # converting data to wide format 
@@ -220,6 +220,6 @@ longdata <- widedata %>%
 longdata
 ```
 
-There are many more useful functions for processing, handling, and summarizing tables but this should suffice to get you started.
+There are many more useful functions for processing, handling, and summarizing tables. But this should suffice to get you started.
 
 
