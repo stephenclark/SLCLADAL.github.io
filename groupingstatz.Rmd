@@ -21,7 +21,7 @@ Classification methods are used to find groups or patterns in data or to predict
 
 As all calculations and visualizations in this tutorial rely on R, it is necessary to install R and RStudio. If these programs (or, in the case of R, environments) are not already installed on your machine, please search for them in your favourite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries by running the code below this paragraph. If you have already installed the libraries mentioned below, then you can skip ahead ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
+In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries by running the code below this paragraph. If you have already installed the libraries mentioned below, then you can skip ahead and ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -40,11 +40,11 @@ Once you have installed R, R-Studio, and have also initiated the session by exec
 
 # Cluster Analysis
 
-The most common method in linguistics that is sued to detect groups in data are cluster analyses. Cluster analyses are common in linguistics because they not only detect commonalities based on the frequency or occurrence of features but they also allow to visualize when splits between groups have occurred and are thus the method of choice in historical linguistics to determine and show genealogical relationships. 
+The most common method in linguistics that is used to detect groups in data are cluster analyses. Cluster analyses are common in linguistics because they not only detect commonalities based on the frequency or occurrence of features, but they also allow to visualize when splits between groups have occurred and are thus the method of choice in historical linguistics to determine and show genealogical relationships. 
 
 ## Underlying Concepts
 
-The next section focuses on the basic idea that underlies all cluster analyses. WE will have a look at some very basic examples to highlight and discuss the principles that cluster analyses rely on. 
+The next section focuses on the basic idea that underlies all cluster analyses. We will have a look at some very basic examples to highlight and discuss the principles that cluster analyses rely on. 
 
 The underlying idea of cluster analysis is very simple and rather intuitive as we ourselves perform cluster analyses every day in our lives. This is so because we group things together under certain labels and into concepts. The first example used to show this, deals with types of trees and how we group these types of trees based on their outward appearance. 
 
@@ -299,7 +299,7 @@ clusts <- as.matrix(clusts) # convert into matrix
 clust
 ```
 
-We now assess if data is clusterable by testing whether or not the data includes nonrandom structures. To means to determine whether the data contains nonrandomness, we calculate the Hopkins statistic which informs how similar the data is to a random distribution. If the values of the Hopkins statistic are higher than 0.5 then this indicates that the data is random and that there are no inherent clusters. However, if the Hopkins statistic is close to 0, then the data is clusterable. The "n" in the "get_clust_tendency" functions represents the maximum number of clusters to be tested which should be  number of predictors in the data. 
+We now assess if data is clusterable by testing whether or not the data includes nonrandom structures. To determine whether the data contains nonrandomness, we calculate the Hopkins statistic, which informs how similar the data is to a random distribution. If the values of the Hopkins statistic are higher than 0.5 then this indicates that the data is random and that there are no inherent clusters. However, if the Hopkins statistic is close to 0, then the data is clusterable. The "n" in the "get_clust_tendency" function represents the maximum number of clusters to be tested which should be the number of predictors in the data. 
 
 ```{r cl16, eval = T, echo=T, message=FALSE, warning=FALSE}
 library("factoextra")         # load library to extract cluster tendency
@@ -471,7 +471,7 @@ plot(res.pv,
 pvrect(res.pv)
 ```
 
-We can alsouse other libraries to customize the dendrograms. 
+We can also use other libraries to customize the dendrograms. 
 
 ```{r cl31, eval = T, echo =  T, results = 'asis', message=FALSE, warning=FALSE}
 library(ape)            # load package ape
@@ -494,7 +494,7 @@ plot(as.phylo(cd),      # plot cluster object
 
 ## Cluster Analysis: Nominal Data
 
-So far, all analyses were based on numeric data. However, especially when working with language data, the data is nominal or categorical rather than numeric. The following will thus show to implement a clustering method for nominal data.
+So far, all analyses were based on numeric data. However, especially when working with language data, the data is nominal or categorical rather than numeric. The following will thus show how to implement a clustering method for nominal data.
 
 In a first step, we will create a simple data set representing the presence and absence of features across varities of English.
 
@@ -580,7 +580,7 @@ To show how vector space models work, we will follow the procedure described in 
 4. The child was *awefully*~amplifier~ *loud*~adjective~.
 5. The festival was *so*~amplifier~ *amazing*~adjective~!
 
-The similarity among adjective amplifiers can then be used to find clusters or groups of amplifiers that "behave" similarly and are interchangeable. To elaborate, adjective amplifiers are interchangeable with some variants but not with others (consider 6. to 8.; the question mark signifies that the example is unlikely to be used or grammatically not acceptable by L1 speakers of English).
+The similarity among adjective amplifiers can then be used to find clusters or groups of amplifiers that "behave" similarly and are interchangeable. To elaborate, adjective amplifiers are interchangeable with some variants but not with others (consider 6. to 8.; the question mark signifies that the example is unlikely to be used or considered grammatically acceptable by L1 speakers of English).
 
 6. The *very*~amplifier~ *nice*~adjective~ man.
 7. The *really*~amplifier~ *nice*~adjective~ man.
@@ -612,7 +612,7 @@ colnames(tdm) <- amplifiers
 tdm[1:5, 1:5]
 ```
 
-Now that we have a term document matrix, we want to remove adjectives that were never amplified. Note however that if we were interested in classifying adjectives (rather than amplifiers) according to their co-occurrence with amplifiers, we would, of course, not do this, as not being amplified would be a relevant feature for adjectives. But since we are interested in classifying amplifiers, not amplified adjectives do not have any information value.
+Now that we have a term document matrix, we want to remove adjectives that were never amplified. Note however that if we were interested in classifying adjectives (rather than amplifiers) according to their co-occurrence with amplifiers, we would, of course, not do this, as not being amplified would be a relevant feature for adjectives. But since we are interested in classifying amplifiers, non-amplified adjectives do not have any information value.
 
 ```{r vsm3, eval = T, echo=T, message=FALSE, warning=FALSE}
 # convert frequencies greater than 1 into 1
@@ -625,7 +625,7 @@ tdm <- t(tdm)
 tdm[1:5, 1:5]
 ```
 
-In a next step, we extract the expected values of the co-occurrences if the amplifiers were distributed homogeneously and calculate the *Pointwise Mutual Information* (PMI) score and use that to then calculate the *Positive Pointwise Mutual Information* (PPMI) scores. According to @levshina2015linguistics 327 - referring to @bullinaria2007extracting - PPMI perform better than PMI as negative values are replaced with zeros. In a next step, we calculate the cosine similarity which will for the bases for the subsequent clustering.
+In a next step, we extract the expected values of the co-occurrences if the amplifiers were distributed homogeneously and calculate the *Pointwise Mutual Information* (PMI) score and use that to calculate the *Positive Pointwise Mutual Information* (PPMI) scores. According to @levshina2015linguistics 327 - referring to @bullinaria2007extracting - PPMI perform better than PMI as negative values are replaced with zeros. In a next step, we calculate the cosine similarity which will be the bases for the subsequent clustering.
 
 ```{r vsm4, eval = T, echo=T, message=FALSE, warning=FALSE}
 # compute expected values
@@ -641,7 +641,7 @@ cosinesimilarity <- cossim(PPMI)
 cosinesimilarity[1:5, 1:5]
 ```
 
-As we have now obtained a similarity measure, we can go ahead and perform a cluster analysis on these similarity values. However, as we have to extract the maximum values in the similarity matrix that is not 1 as we will use this to create a distance matrix. While we could also have simply subtracted the cosine similarity values from 1 to convert the similarity matrix into a distance matrix, we follow the procedure proposed by @levshina2015linguistics.
+As we have now obtained a similarity measure, we can go ahead and perform a cluster analysis on these similarity values. However, we have to extract the maximum values in the similarity matrix that is not 1 as we will use this to create a distance matrix. While we could also have simply subtracted the cosine similarity values from 1 to convert the similarity matrix into a distance matrix, we follow the procedure proposed by @levshina2015linguistics.
 
 ```{r vsm5, eval = T, echo=T, message=FALSE, warning=FALSE}
 # find max value that is not 1
@@ -653,7 +653,7 @@ amplifier.dist <- 1 - (cosinesimilarity/maxval)
 clustd <- as.dist(amplifier.dist)
 ```
 
-In a next step, we want to determine the optimal number of clusters. This has two reasons: firstly, we need to establish that we have reason to assume that the data is not homogeneous (this would occur if the optimal number of clusters were 1), and, secondly, we want check how many meaningful clusters there are in our data.
+In a next step, we want to determine the optimal number of clusters. This is for two reasons: firstly, we need to establish that we have reason to assume that the data is not homogeneous (this would occur if the optimal number of clusters were 1), and, secondly, we want check how many meaningful clusters there are in our data.
 
 
 ```{r vsm6, eval = T, echo=T, message=FALSE, warning=FALSE}
