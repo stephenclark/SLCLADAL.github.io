@@ -1080,7 +1080,7 @@ ggplot(p1d, aes(Language, Shots, color = Language, fill = Language)) +
 
 The violin plots show that the English speakers drank more shots than speakers of other languages with Mandarin speakers drinking the fewest shots.
 
-In the present case, we will a Boruta variable selection procedure to streamline the model fitting process. Thus, before fitting the model, we will test which variables have any kind of relationship with the dependent variable and therefore deserve to be evaluated in the regression modelling. As this is just an example, we will only consider variables which are deemed important and disregard both unimportant and tentative variables. We start the Boruta analysis by setting a seed and running an initial Boruta analysis.
+In the present case, we will use a Boruta variable selection procedure to streamline the model fitting process. Thus, before fitting the model, we will test which variables have any kind of relationship with the dependent variable and therefore deserve to be evaluated in the regression modelling. As this is just an example, we will only consider variables which are deemed important and disregard both unimportant and tentative variables. We start the Boruta analysis by setting a seed and running an initial Boruta analysis.
 
 ```{r pmm4, eval = T, echo=T, message=FALSE, warning=FALSE}
 # perform variable selection
@@ -1147,7 +1147,7 @@ Overdispersion <- sum(PearsonResiduals^2) / (Cases-NumberOfPredictors)
 Overdispersion
 ```
 
-The data is slightly over-dispersed. It would also be advisable to plot the Cook's distance (which should not show data points with values > 1). If there are data points with high Cook's D values, we could exclude them which would, very likely reduce the overdispersion [see @zuur2013beginner 22]. We ignore this, for now, and use diagnostic plots to check if the plots indicate problems.
+The data is slightly over-dispersed. It would also be advisable to plot the Cook's distance (which should not show data points with values > 1). If there are data points with high Cook's D values, we could exclude them which would, very likely, reduce the overdispersion [see @zuur2013beginner 22]. We ignore this, for now, and use diagnostic plots to check if the plots indicate problems.
 
 ```{r pmm10, eval = T, echo=T, message=FALSE, warning=FALSE}
 # extract fitted values
@@ -1318,7 +1318,7 @@ boxplot(PearsonResiduals ~ Language, data = countdata,
 abline(h = 0, lty = 2)
 ```
 
-The diagnostics show patterning similar to the one we saw with the Poisson model which suggest that the negative binomial model is also not an optimal model for our data. We continue by plotting the predicted values and, subsequently, summarize the analysis. To create a nice effects plot, we have to extract the means and standard errors of the observed and predicted values for *uhm* for each number of shots in the data and combine the observed and predicted means and standard errors in a data frame.
+The diagnostics show patterning similar to the one we saw with the Poisson model, which suggests that the negative binomial model is also not an optimal model for our data. We continue by plotting the predicted values and, subsequently, summarize the analysis. To create a nice effects plot, we have to extract the means and standard errors of the observed and predicted values for *uhm* for each number of shots in the data and combine the observed and predicted means and standard errors in a data frame.
 
 ```{r nbmm5, eval = T, echo=T, message=FALSE, warning=FALSE}
 # create table with predicted values for uhms by shots
@@ -1364,7 +1364,7 @@ ggplot(tbd, aes(Shots, fit, color = Type)) +
 
 The effect plot shows that the predicted number of shots increases linearly with each shot. For nine and more shots, the model substantially overestimates the number of *uhms* which shows a bad model fit. It should be noted though that the observed number of *uhms* also becomes somewhat volatile and shows fluctuations after eight shots. We will now summarize the results as if the violations had NOT occurred(!) - again: this is only because we are practicing here - this would be absolutely unacceptable in a proper write-up of an analysis!
 
-A mixed-effect negative binomial regression model which contained the language in which the conversation took place as random effect was fit to the data. Prior to the regression modelling, a Boruta analysis was applied to determine whether any of the predictors had a meaningful relationship with the dependent variable (instances of *uhm*). Since the Boruta analysis indicated that only the number of shots a speaker had was important, only "Shots" was tested during model fitting. The final minimal adequate model showed that the number of *uhm* as fillers increases significantly, and near-linearly with the number of shots speakers had ($\chi$^2^(1):83.0, p <.0001, $\beta$: 0.2782). An inspection of the random effect structure conveyed that there was almost no variability between languages and language did not contribute meaningfully to the model fit.
+A mixed-effect negative binomial regression model which contained the language in which the conversation took place as random effect was fit to the data. Prior to the regression modelling, a Boruta analysis was applied to determine whether any of the predictors had a meaningful relationship with the dependent variable (instances of *uhm*). Since the Boruta analysis indicated that only the number of shots a speaker had was important, only "Shots" was tested during model fitting. The final minimal adequate model showed that the number of *uhm* as fillers increases significantly, and near-linearly, with the number of shots the speakers had ($\chi$^2^(1):83.0, p <.0001, $\beta$: 0.2782). An inspection of the random effect structure conveyed that there was almost no variability between languages and language did not contribute meaningfully to the model fit.
 
 # References
 
