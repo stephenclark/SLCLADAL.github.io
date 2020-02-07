@@ -17,9 +17,9 @@ This tutorial introduces linear regressions with R. The entire code for the sect
 
 # Preparation
 
-As all caluculations and visualizations in this tutorial rely on R, it is necessary to install R and RStudio. If these programms (or, in the case of R, environments) are not installed yet, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
+As all calculations and visualizations in this tutorial rely on R, it is necessary to install R and RStudio. If these programs (or, in the case of R, environments) are not installed yet, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the packages by running the code below this paragraph. If you have already installed the packages mentioned below, then you can skip ahead ignore this section. To install the necessary packages, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
+In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the packages by running the code below this paragraph. If you have already installed the packages mentioned below, then you can skip ahead and ignore this section. To install the necessary packages, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -39,7 +39,7 @@ This section focuses on a very widely used statistical method which is called re
 
 ## Introduction
 
-Although the basic logic underlying regressions is identical to the conceptual underpinnings of *analysis of variance* (ANOVA), a related method, sociolinguistists have traditionally favoured regression analysis in their studies while ANOVAs have been the method of choice in psycholinguistics. The preference for either method is grounded in historical happenstances and the culture of these subdisciplines rather than in methodological reasoning.
+Although the basic logic underlying regressions is identical to the conceptual underpinnings of *analysis of variance* (ANOVA), a related method, sociolinguistists have traditionally favoured regression analysis in their studies, while ANOVAs have been the method of choice in psycholinguistics. The preference for either method is grounded in historical happenstances and the culture of these subdisciplines rather than in methodological reasoning.
 
 A minor difference between regressions and ANOVA lies in the fact that regressions are based on the $t$-distribution while ANOVAs use the $F$-distribution (however, the $F$-value is simply the value of $t$ squared or t^2^). Both  $t$- and $F$-values report on the ratio between explained and unexplained variance.
 
@@ -47,7 +47,7 @@ The idea behind regression analysis is expressed formally in the equation below 
 
 $f_{(x)} = \alpha + \beta_{1}x_{i} + \epsilon$
 
-In other words, to estimate how much some weights who is 180cm tall, we would multiply the coefficent (slope of the line) with 180 ($x$) and add the value of the intercept (point where line crosses the $y$-axis). 
+In other words, to estimate how much someone who is 180cm tall weighs, we would multiply the coefficent (slope of the line) with 180 ($x$) and add the value of the intercept (point where line crosses the $y$-axis). 
 
 However, the idea behind regressions can best be described graphically: imagine a cloud of points (like the points in the scatterplot below). Regressions aim to find that line which has the minimal summed distance between points and the line (like the line in the right panel). Technically speaking, the aim of a regression is to find the line with the minimal deviance (or the line with the minimal sum of residuals). Residuals are the distance between the line and the points (the red lines) and it is also called *variance*. 
 
@@ -101,7 +101,7 @@ A word about standard errors (SE) is in order here because most commonly used st
 
 # Example 1: Preposition Use across Real-Time
 
-We will now turn to our first example. In this example, we will investigate whether the frequency of prepositions has changed from Middle English to Late Modern English. The reasoning behind this example is that Old English was highly synthetic compared with Present-Day English which comparatively analytic. In other words, while Old English speakers used case to indicate syntactic relations, speakers of Present-Day English use word order and prepositions to indicate syntactic relationships. This means that the loss of case had to be compensated by different strategies and maybe these strategies continued to develop and increase in frequency even after the change from synthetic to analytic had been mostly accomplished. And this prolonged change in compensatory strategies is what this example will focus on. 
+We will now turn to our first example. In this example, we will investigate whether the frequency of prepositions has changed from Middle English to Late Modern English. The reasoning behind this example is that Old English was highly synthetic compared with Present-Day English, which is comparatively analytic. In other words, while Old English speakers used case to indicate syntactic relations, speakers of Present-Day English use word order and prepositions to indicate syntactic relationships. This means that the loss of case had to be compensated by different strategies, and maybe these strategies continued to develop and increase in frequency even after the change from synthetic to analytic had been mostly accomplished. And this prolonged change in compensatory strategies is what this example will focus on. 
 
 The analysis is based on data extracted from the *Penn Corpora of Historical English* (see http://www.ling.upenn.edu/hist-corpora/), that consists of 603 texts written between 1125 and 1900. In preparation of this example, all elements that were part-of-speech tagged as prepositions were extracted from the PennCorpora. 
 
@@ -159,7 +159,7 @@ ggplot(slrdata, aes(Date, Prepositions)) +
   geom_smooth(method = "lm") # with linear model smoothing!
 ```
 
-Before beginning with the regression analysis, we will scale the year. We scale by subtracting each value from the mean of year. This can be useful when dealing with numeric variables because if we did not scale year, we would get estimated values for year 0 (a year when English did not even exist yet). If a variable is scaled, the regression provides estimates of the model refer to the mean of that numeric variable. In other words, scaling can eb very helpful, especially with respect to the interpretation of the results that regression models report.
+Before beginning with the regression analysis, we will scale the year. We scale by subtracting each value from the mean of year. This can be useful when dealing with numeric variables because if we did not scale year, we would get estimated values for year 0 (a year when English did not even exist yet). If a variable is scaled, the regression provides estimates of the model refer to the mean of that numeric variable. In other words, scaling can be very helpful, especially with respect to the interpretation of the results that regression models report.
 
 
 ```{r slr7, eval = T, echo=T, message=FALSE, warning=FALSE}
@@ -167,7 +167,7 @@ Before beginning with the regression analysis, we will scale the year. We scale 
 slrdata$Date <- slrdata$Date - mean(slrdata$Date) 
 ```
 
-We will now begin the regression analysis by generating a first regression model. and inspect its results. 
+We will now begin the regression analysis by generating a first regression model and inspect its results. 
 
 ```{r slr8, eval = T, echo=T, message=FALSE, warning=FALSE}
 # create initial model
@@ -176,7 +176,7 @@ m1.lm <- lm(Prepositions ~ Date, data = slrdata)
 summary(m1.lm)
 ```
 
-The summary output starts by repeating the regression equation. Then, the model provides the distribution of the residuals. The residuals should be sitributed normally with the Min and Max as well as the 1Q (first quartile) and 3Q (third quartile) being similar or ideally identical. In our case, the values are very similar which suggests that the residuals are distributed evenly and follow a normal distribution. The next part of the repost is the coefficients table. The Estimate for the intercept is the value where the regression line crosses the y-axis. The estimate for Date represents the slope of the regression line and tells us that with each year, the predicted frequency of prepositions incerase by .01732 prepositions. The t-value is the Estimate divided by the standard error (Std. Error). Based on the t-value, the p-value can be calculated manually as shown below.
+The summary output starts by repeating the regression equation. Then, the model provides the distribution of the residuals. The residuals should be distributed normally with the Min and Max as well as the 1Q (first quartile) and 3Q (third quartile) being similar or ideally identical. In our case, the values are very similar which suggests that the residuals are distributed evenly and follow a normal distribution. The next part of the repost is the coefficients table. The Estimate for the intercept is the value where the regression line crosses the y-axis. The estimate for Date represents the slope of the regression line and tells us that with each year, the predicted frequency of prepositions incerase by .01732 prepositions. The t-value is the Estimate divided by the standard error (Std. Error). Based on the t-value, the p-value can be calculated manually as shown below.
 
 ```{r slr8a, eval = T, echo=T, message=FALSE, warning=FALSE}
 # use pt function (which uses t-values and the degrees of freedom)
@@ -184,9 +184,9 @@ The summary output starts by repeating the regression equation. Then, the model 
 
 ```
 
-The R^2^-values tell us how much variance is explained by our model compared to the overall variance (0.0105 means that our model explains only 1.05 percent of the variance - which is a tiny amount). The adjusted R^2^-value tell  us how much variance the model would explain if we applied the model to new data of the same nature (which data points taken from the same population). Or, to be more precise, the adjusted R^2^ takes the number of predictors into account: if a model contains predictors that do not explain much variance, then the adjusted R^2^ will be lower than the multiple R^2^ as the former penalizes models for having superfluous predictors. If there is a big difference between the two R^2^-values, then the model is overfitted which is not good. The F-statistic and the associated p-value tell us that the model, despite explaining almost no variance, is still significantly better than an intercept-only base-line model (or using the overall mean to predict the frequency of prepositions per text).
+The R^2^-values tell us how much variance is explained by our model compared to the overall variance (0.0105 means that our model explains only 1.05 percent of the variance - which is a tiny amount). The adjusted R^2^-value tells us how much variance the model would explain if we applied the model to new data of the same nature (data points taken from the same population). Or, to be more precise, the adjusted R^2^ takes the number of predictors into account: if a model contains predictors that do not explain much variance, then the adjusted R^2^ will be lower than the multiple R^2^, as the former penalizes models for having superfluous predictors. If there is a big difference between the two R^2^-values, then the model is overfitted which is not good. The F-statistic and the associated p-value tell us that the model, despite explaining almost no variance, is still significantly better than an intercept-only base-line model (or using the overall mean to predict the frequency of prepositions per text).
 
-We can test this and also see where the F-values comes from by comparing the 
+We can test this and also see where the F-values comes from by comparing the base-line and the more saturated model.
  
 ```{r slr8b, eval = T, echo=T, message=FALSE, warning=FALSE}
 # create intercept-only base-line model
@@ -195,10 +195,10 @@ m0.lm <- lm(Prepositions ~ 1, data = slrdata)
 anova(m1.lm, m0.lm, test = "F")
 ```
 
-The F- and p-values are exactly those reported by the summary which shows where the F-values comes from and what it means; namely it denote the difference between the base-line and the more saturated model.
+The F- and p-values are exactly those reported by the summary which shows where the F-values comes from and what it means; namely it denotes the difference between the base-line and the more saturated model.
 
 
-The degrees of freedom associated with the residual standard error are the number of cases in the model minus the number of predictors (including the intercept). The residual standard error is square root of the sum of the squared residuals of the model divided by the degrees of freedom. Have a look at he following to clear this up:
+The degrees of freedom associated with the residual standard error are the number of cases in the model minus the number of predictors (including the intercept). The residual standard error is square root of the sum of the squared residuals of the model divided by the degrees of freedom. Have a look at the following to clear this up:
 
 ```{r slr8c, eval = T, echo=T, message=FALSE, warning=FALSE}
 # DF = N - number of predictors (including intercept)
@@ -222,11 +222,11 @@ plot(rstudent(m1.lm)); par(mfrow = c(1, 1)) # restore default parameters
 The left graph shows the residuals of the model (i.e., the differences between the observed and the values predicted by the regression model). The problem with this plot is that the residuals are not standardized and so they cannot be compared to the residuals of other models. To remedy this deficiency, residuals are normalized by dividing the residuals by their standard deviation. Then, the normalized residuals can be plotted against the observed values (centre panel). In this way, not only are standardized residuals obtained, but the values of the residuals are transformed into z-values, and one can use the z-distribution to find problematic data points. There are three rules of thumb regarding finding problematic data points through standardized residuals [@field2012discovering 268-269]:
 
 * Points with values higher than 3.29 should be removed from the data.
-*  If more than 1% of the data points have values higher than 2.58, then the error rate of our model is too high.
-*  If more than 5% of the data points have values greater than 1.96, then the error rate of our model is too high.
+* If more than 1% of the data points have values higher than 2.58, then the error rate of our model is too high.
+* If more than 5% of the data points have values greater than 1.96, then the error rate of our model is too high.
 
 
-The right panel shows the * studentized residuals* (adjusted predicted values: each data point is divided by the standard error of the residuals). In this way, it is possible to use Student's t-distribution to diagnose our model.
+The right panel shows the *studentized residuals* (adjusted predicted values: each data point is divided by the standard error of the residuals). In this way, it is possible to use Student's t-distribution to diagnose our model.
 
 Adjusted predicted values are residuals of a special kind: the model is calculated without a data point and then used to predict this data point. The difference between the observed data point and its predicted value is then called the adjusted predicted value. In summary, studentized residuals are very useful because they allow us to identify influential data points.
 
@@ -281,7 +281,7 @@ Typically, the results of regression analyses are presented in such tables as th
 
 In addition, the results of simple linear regressions should be summarized in writing. An example of how the results of a regression analysis can be written up is provided below.
 
-A simple linear regression has been fitted to the data. A visual assessment of the model diagnostic graphics did not indicate any problematic or disproportionately influential data points (outliers) and performed significantly better compared to an intercept-only base line model but only explained .87 percent of the vraiance (Adjusted R^2^: .0087, F-statistic (1, 535): 5,68, p-value: 0.0175\*). The final minimal adequate linear regression model is based on 537 data points and confirms a significant and positive correlation between the year in which the text was written and the relative frequency of prepositions (coefficient estimate: .02, SE: 0.01, t-value: 2.38, p-value: .0175\*).
+A simple linear regression has been fitted to the data. A visual assessment of the model diagnostic graphics did not indicate any problematic or disproportionately influential data points (outliers) and performed significantly better compared to an intercept-only base line model, but only explained .87 percent of the variance (Adjusted R^2^: .0087, F-statistic (1, 535): 5,68, p-value: 0.0175\*). The final minimal adequate linear regression model is based on 537 data points and confirms a significant and positive correlation between the year in which the text was written and the relative frequency of prepositions (coefficient estimate: .02, SE: 0.01, t-value: 2.38, p-value: .0175\*).
 
 # Example 2: Teaching Styles
 
@@ -289,7 +289,7 @@ In the previous example, we dealt with two numeric variables, while the followin
 
 In this example, we are dealing with two groups of students that have been randomly assigned to be exposed to different teaching methods. Both groups undergo a language learning test after the lesson with a maximum score of 20 points. 
 
-The question that we will try to answer is whether the students in group A have performed significantly better than those in group B which would indicate that the teaching method to which group A was exposed works better than the teaching method to which group B was exposed.
+The question that we will try to answer is whether the students in group A have performed significantly better than those in group B, which would indicate that the teaching method to which group A was exposed works better than the teaching method to which group B was exposed.
 
 Let's move on to implementing the regression in "R". In a first step, we load the data set and inspect its structure.
 
@@ -328,7 +328,7 @@ m2.lm <- lm(Score ~ Group, data = slrdata2)
 summary(m2.lm)                             
 ```
 
-The model summary reports that Groups B performed significantly (Pr(>|t|) is smaller than .001 as indicated by the three \* after the p-values) comapred with Groups A (the Estmate is negative). We will now create the diagnostic graphics.
+The model summary reports that Group B performed significantly worse (Pr(>|t|) is smaller than .001, as indicated by the three \* after the p-values) compared with Group A (the Estimate is negative). We will now create the diagnostic graphics.
 
 ```{r slr16, eval = T, echo=T, message=FALSE, warning=FALSE}
 par(mfrow = c(1, 3))        # plot window: 1 plot/row, 3 plots/column
@@ -365,7 +365,7 @@ kable(slrresults2, caption = "Results of the regression model.")
 
 The results of this second simple linear regressions can be summarized as follows: 
 
-A simple linear regression was fitted to the data. A visual assessment of the model diagnostics did not indicate any problematic or disproportionately influential data points (outliers). The final linear regression model is based on 60 data points, performed significantly better than an intercept-only base line model (F (1, 58): 17.55, p-value <. 001\*\*\*), and reported that the model explained 21.9 percent of variance whichconfirmed a good model fit. According to this final model, group A scored significantly better on the language learning test than group B (coefficient: -3.17, SE: 0.48, t-value: -4.19, p-value <. 001 \*\*\*).
+A simple linear regression was fitted to the data. A visual assessment of the model diagnostics did not indicate any problematic or disproportionately influential data points (outliers). The final linear regression model is based on 60 data points, performed significantly better than an intercept-only base line model (F (1, 58): 17.55, p-value <. 001\*\*\*), and reported that the model explained 21.9 percent of variance which confirmed a good model fit. According to this final model, group A scored significantly better on the language learning test than group B (coefficient: -3.17, SE: 0.48, t-value: -4.19, p-value <. 001 \*\*\*).
 
 # References
 
