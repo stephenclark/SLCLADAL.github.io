@@ -17,9 +17,9 @@ This tutorial introduces the $\chi$^2^ family of tests. The entire code for the 
 
 # Preparation
 
-As all caluculations and visualizations in this tutorial rely on "R", it is necessary to install "R", "RStudio", and "Tinn-R". If these programms (or, in the case of "R", environments) are not installed yet, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
+As all calculations and visualizations in this tutorial rely on "R", it is necessary to install "R", "RStudio", and "Tinn-R". If these programs (or, in the case of "R", environments) are not installed yet, please search for them in your favorite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain "libraries" need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries needed for running the code below. If you have already installed the libraries mentioned below, then you can skip ahead ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
+In addition, certain "libraries" need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the libraries needed for running the code below. If you have already installed the libraries mentioned below, then you can skip ahead and ignore this section. To install the necessary libraries, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -36,15 +36,15 @@ Once you have installed "R", "R-Studio", "Tinn-R", and have also initiated the s
 
 This tutorial focuses on the most frequently used statistical test in linguistics: the $\chi$^2^ test (or Pearsons's chi-square test, chi-squared test, or chi-square test). We will use a simple, practical example to explore how this test works. In this example, we will test whether speakers of American English (AmE) and speakers of British English (BrE) differ in their use of the near-synonyms *sort of* and *kind of* as in "*He's sort of stupid*" and "*He's kind of stupid*". As a first step, we formulate the hypothesis that we want to test (H~1~) and its Nullhypothesis (H~0~). The Alternative- or Test Hypothesis reads:
 
-H~1~: Speakers of AmE and BrE differ with respect to their preference for *sort of* und *kind of*.
+H~1~: Speakers of AmE and BrE differ with respect to their preference for *sort of* and *kind of*.
 
-while the Null Hypothesis (H~0~) states 
+While the Null Hypothesis (H~0~) states: 
 
 H~0~: Speakers of AmE and BrE do not differ with respect to their preference for *sort of* und *kind of*.
 
 The H~0~ claims the non-existence of something (which is the more conservative position) and in our example the non-existence of a correlation between variety of English and the use of *sort of* und *kind of*. The question now arises what has to be the case in order to reject the H~0~ in favour of the H~1~.
 
-To answer this question, we require information about the probability of error, i.e. the probability that the H~0~ does indeed hold for the entire population. Before performing the chi-square test, we follow the convention that the required significance level is 5 percent. In other words, we will reject the H~0~ if the likelihood for the H$_{0}$ being true is less than 5 percent given the distribution of the data. In that case, i.e. in case that the likelihood for the H~0~ being true is less than 5 percent, we consider the result of the  chi-square test as  statistically significant. This means that the observed distribution makes it very unlikely that there is no correlation between the variety of English and the use of *sort of* and *kind of*.
+To answer this question, we require information about the probability of error, i.e. the probability that the H~0~ does indeed hold for the entire population. Before performing the chi-square test, we follow the convention that the required significance level is 5 percent. In other words, we will reject the H~0~ if the likelihood for the H$_{0}$ being true is less than 5 percent given the distribution of the data. In that case, i.e. in case that the likelihood for the H~0~ being true is less than 5 percent, we consider the result of the  chi-square test as statistically significant. This means that the observed distribution makes it very unlikely that there is no correlation between the variety of English and the use of *sort of* and *kind of*.
 
 Let us now assume that we have performed a search for *sort of* and *kind of* in two corpora representing American and British English and that we have obtained the following frequencies:
 
@@ -68,7 +68,7 @@ rownames(chidata_extended) <- c("kindof", "sortof", "Total")
 kable(chidata_extended, caption = "Observed frequencies of *sort of* and *kind of* in American and British English with row and column totals")
 ```
 
-Next, we calculate, the values that would have expected if there was no correlation between variety of English and the use of *sort of* and *kind of*. In order to get these "expected" frequencies, we apply the equation below to all cells in our table.
+Next, we calculate the values that we would have expected if there was no correlation between variety of English and the use of *sort of* and *kind of*. In order to get these "expected" frequencies, we apply the equation below to all cells in our table.
 
 $\frac{Column total*Row total}{Overall total}$
 
@@ -126,14 +126,14 @@ kable(critval, caption = "Critical chi values for 1 to 5 degrees of freedom")
 ```
 
 
-Since the $\chi$^2^ value that we have calculated is much higher than the critical value provided for p<.05, we can reject the H~0~ and may now claim that speakers of AmE and BrE differ with respect to their preference for *sort of* und *kind of*.
+Since the $\chi$^2^ value that we have calculated is much higher than the critical value provided for p<.05, we can reject the H~0~ and may now claim that speakers of AmE and BrE differ with respect to their preference for *sort of* and *kind of*.
 
 
 Before we summarize the results, we will calculate the effect size which is a measure for how strong the correlations are.
 
 ## Effect Sizes in Chi-Square 
 
-Effect sizes are important because they correlations may be highly significant but the effect between variables can be extremely weak. The effect size is therefore a measure how strong the correlation or the explanatory and predictive power between variables is.
+Effect sizes are important because the correlations may be highly significant but the effect between variables can be extremely weak. The effect size is therefore a measure how strong the correlation or the explanatory and predictive power between variables is.
 
 The effect size measure for $\chi$^2^ tests can be either the $\phi$-coefficient (phi-coefficient) or Cramer's $\phi$ (Cramer's phi). The $\phi$-coefficient is used when dealing with 2x2 tables while Cramer's $\phi$ is used when dealing with tables with more than 4 cells. The $\phi$ coefficient can be calculated by using the equation below (N = overall sample size).
 
@@ -143,7 +143,7 @@ In our case, this means:
 
 $\phi = \sqrt{\frac{220.7339}{1080}} = \sqrt{0.2043832} = 0.4520876$
 
-The $\phi$ coefficient varies between 0 (no effect) and 1 (perfect correlation). For the division into weak, moderate and strong effects one can follow the division for $\omega$ (small omega), so that with values beginning with .1 represent weak, values between 0.3 and .5 represent moderate and values above .5 represent strong effects [@buehner2009statistik, pp. 266]. So, in this example we are dealing with a medium-sized effect/correlation.
+The $\phi$ coefficient varies between 0 (no effect) and 1 (perfect correlation). For the division into weak, moderate and strong effects one can follow the division for $\omega$ (small omega), so that with values beginning with 0.1 represent weak, values between 0.3 and 0.5 represent moderate and values above 0.5 represent strong effects [@buehner2009statistik, pp. 266]. So, in this example we are dealing with a medium-sized effect/correlation.
 
 ## Chi-Square in R
 
@@ -218,7 +218,7 @@ kable(critval, caption = "Observed frequency with row- and column totals for the
 
 # Extensions of Chi-Square
 
-In the following, we will have a look at tests and methods that can be used if the requirements for ordinary (Pearson's) chi-square tests are violated and their use would be inappropriate
+In the following, we will have a look at tests and methods that can be used if the requirements for ordinary (Pearson's) chi-square tests are violated and their use would be inappropriate.
 
 ## The Yates-Correction
 
@@ -302,7 +302,7 @@ The comparison shows that, in this example, the results of the two tests are ver
 
 ## Chi-Square within z*k Tables
 
-Another application in which the $\chi$^2^ test is often applied incorrectly is when ordinary Parsons’s $\chi$^2^ tests are used to test portions of tables with more than two rows and more than two columns, that is z*k tables (z: row, k: column). An example is discussed by @gries2014frequency who also wrote the `R` Script for the correct version of the $\chi$^2^ test.
+Another application in which the $\chi$^2^ test is often applied incorrectly is when ordinary Parsons’s $\chi$^2^ tests are used to test portions of tables with more than two rows and more than two columns, that is z\*k tables (z: row, k: column). An example is discussed by @gries2014frequency who also wrote the `R` Script for the correct version of the $\chi$^2^ test.
 
 Let's first load the data discussed in the example of @gries2014frequency 9. The example deals with metaphors across registers. Based on a larger table, a $\chi$^2^ confirmed that registers differ with respect to the frequency of EMOTION metaphors. The more refined question is whether the use of the metaphors EMOTION IS LIGHT and EMOTION IS A FORCE OF NATURE differs between spoken conversation and fiction.
 
