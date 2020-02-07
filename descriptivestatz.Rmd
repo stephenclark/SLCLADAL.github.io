@@ -23,7 +23,7 @@ Before delving deeper into what descriptive statistics is, it is useful to have 
 
 As all calculations and visualizations in the following section rely on R, it is necessary to install R and RStudio. If these programs (or, in the case of R, environments) are not installed yet, please search for them in your favourite search engine and add the term "download". Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).
 
-In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the packages needed for running the code below. If you have already installed the packages mentioned below, then you can skip ahead ignore this section. To install the necessary packages, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the packages so you do not need to worry if it takes some time).
+In addition, certain *packages* need to be installed from an R *library* so that the scripts shown below are executed without errors. Before turning to the code below, please install the packages needed for running the code below. If you have already installed the packages mentioned below, then you can skip ahead and ignore this section. To install the necessary packages, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the packages so you do not need to worry if it takes some time).
 
 ```{r prep1, echo=T, eval = F, message=FALSE, warning=FALSE}
 # clean current workspace
@@ -52,7 +52,7 @@ Once you have installed R, R-Studio, and have also initiated the session by exec
 
 # Measures of Centrality
 
-In linguistics three measures of centrality or measures of central tendency are of particular relevance: the *mean*, the *median* and the *mode* [@gaddis1990introduction]. In addition, there are two more measures of central tendency, the geometric and the harmonic mean which we will only briefly discuss as they are not that relevant for language research. What measure is appropriate depends on the type of variable scaling, the distribution of the data, and what is the intended aim of the data summary.
+In linguistics three measures of centrality or measures of central tendency are of particular relevance: the *mean*, the *median* and the *mode* [@gaddis1990introduction]. In addition, there are two more measures of central tendency, the geometric and the harmonic mean (which we will only briefly discuss, as they are not that relevant for language research). What measure is appropriate depends on the type of variable scaling, the distribution of the data, and what is the intended aim of the data summary.
 
 ```{r echo=F, message=FALSE, warning=FALSE, }
 Means <- c("(Arithmetic) mean (average)", "Median (middle value)", "Mode (most frequent value)", "Geometric mean (average factor)", "Harmonic mean (average rate)")
@@ -197,7 +197,7 @@ mtext("Mode", 3, 1, at =(.7+8*1.2))
 par(mfrow=c(1,1))
 ```
 
-Here is an example to illustrate the mode. Consider you are interested where most speakers in the private dialogue section of the Irish component of the *International Corpus of English* are currently residing and you get the following distribution.
+Here is an example to illustrate the mode. Consider you are interested in where most speakers in the private dialogue section of the Irish component of the *International Corpus of English* are currently residing and you get the following distribution.
 
 ```{r echo = F, results = 'asis'}
 CurrentResidence <- c("Belfast", "Down", "Dublin (city)", "Limerick", "Tipperary")
@@ -217,7 +217,7 @@ text(seq(.7, 5.5, 1.2), df$Speakers +10, df$Speakers)
 box()
 ```
 
-The tabulated and visualized data show that the mode is *"Dublin (City)"*, because the largest group (110 speakers) of speakers in the corpus are speakers from the city of Dublin. This means that the "average" speaker in in the private dialogue section of the Irish component of the *International Corpus of English* (ICE) is from Dublin city.
+The tabulated and visualized data show that the mode is *"Dublin (City)"*, because the largest group (110 speakers) of speakers in the corpus are speakers from the city of Dublin. This means that the "average" speaker in the private dialogue section of the Irish component of the *International Corpus of English* (ICE) is from Dublin city.
 
 In R the *mode* is calculated as shown below:
 
@@ -273,7 +273,7 @@ The harmonic mean is a measure of central tendency that provides us with the ave
 \frac{n}{\frac{1}{x_i} + \frac{1}{x_{i+1}} + \frac{1}{x_{i+\dots}} + \frac{1}{x_n}}
 \end{equation}
 
-Let's use an example to see what the harmonic mean describes. Imagine you assign group projects to students and you are interested in the average time it takes them to finalize the projects. The cruial thing is that the end state is the same: the finished project.
+Let's use an example to see what the harmonic mean describes. Imagine you assign group projects to students and you are interested in the average time it takes them to finalize the projects. The crucial thing is that the end state is the same: the finished project.
 
 Let us say there are two groups, group A and group B. It takes group A 30 hours and group B 60 hours to finish their project. What is the average rate at which these two groups have finished their projects? If we used the arithmetic mean, we would say it takes them on average 45 hours to finish their projects but this is not appropriate in the present case.
 
@@ -288,7 +288,7 @@ The reason why using the arithmetic mean is inappropriate in such cases is the f
 
 ## Notes on Measures of Centrality
 
-You may ask yourself why there are three different types to calculate the central tendency of a why this is necessary. To answer these questions, consider the following example: Imagine you are interested whether the use of discourse particles differs across two corpora that represent the speech of the same five speakers but different registers. In a first step, you calculate the relative frequency of discourse particle use and both corpora have a mean of 13.4 particles per 1,000 words. Given the mean, the two corpora do not seem to differ. However, when tabulating and plotting the use of particles by speaker across these two corpora we will become immediately aware of the fact that the mean is not the appropriate measure of the central tendency in situations where distributions are very dissimilar.  
+You may ask yourself why there are three different ways to calculate the central tendency and why this is necessary. To answer these questions, consider the following example: Imagine you are interested whether the use of discourse particles differs across two corpora that represent the speech of the same five speakers but different registers. In a first step, you calculate the relative frequency of discourse particle use and both corpora have a mean of 13.4 particles per 1,000 words. Given the mean, the two corpora do not seem to differ. However, when tabulating and plotting the use of particles by speaker across these two corpora we will become immediately aware of the fact that the mean is not the appropriate measure of the central tendency in situations where distributions are very dissimilar.  
 
 
 ```{r echo=F, eval=T, warning=F, message=F}
@@ -394,7 +394,7 @@ In the following, we will discuss and calculate different measures of variabilit
 
 ## Range
 
-The range is the simples measure of variability and reports the lowest and highest value of a distribution. That is, the range provides minimum and maximum of a vector to show the span of values within a distribution.
+The range is the simplest measure of variability and reports the lowest and highest value of a distribution. That is, the range provides minimum and maximum of a vector to show the span of values within a distribution.
 
 In R, the *range* is extracted as shown below.
 
@@ -579,7 +579,7 @@ MeanCI(wordstb$Frequency, method="boot", type="norm", R=1000)
 
 ## Confidence Intervals for Grouped Data
 
-To extract the confidence intervals for grouped data, we can sue the "summarySE" function from the "Rmisc" package.
+To extract the confidence intervals for grouped data, we can use the "summarySE" function from the "Rmisc" package.
 
 ```{r MeanCIboot2, echo = T, message=FALSE, warning=FALSE}
 # apply summarySE function to data
@@ -594,7 +594,7 @@ summarySE(data=wordstb,
 ```  
 
 
-Confidence intervals for mean by bootstrap with boot package
+Confidence intervals for means by bootstrap with boot package
 
 ```{r boot, echo = T, message=FALSE, warning=FALSE}
 # function to extract values
@@ -612,7 +612,7 @@ mean(Bootstrapped$t[,1])
 boot.ci(Bootstrapped, conf=0.95)                           
 ```  
 
-The advantage of using bootstrapping method lies in the fact that the data is (frequently) not distributed normally which is not an issue for the bootstrapping and it will thus provide more reliable results as it does not rely on distributional assumptions about the data. 
+The advantage of using the bootstrapping method lies in the fact that the data is (frequently) not distributed normally which is not an issue for the bootstrapping and it will thus provide more reliable results as it does not rely on distributional assumptions about the data. 
 
 
 ## Confidence Intervals for Nominal Data
@@ -670,7 +670,7 @@ Other methods: "wilson", "wald", "agresti-coull", "jeffreys", "modified wilson",
 
 ## Confidence Intervals for Multinomial Data
 
-We use the "MultinomCI" function to extract the confidence intervals form multinominal data.
+We use the "MultinomCI" function to extract the confidence intervals from multinominal data.
 
 ```{r multinominal, echo = T, message=FALSE, warning=FALSE}
 observed = c(35,74,22,69)       # define multinominal vector
