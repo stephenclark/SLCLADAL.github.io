@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="UQ SLC Digital Team" />
+<meta name="author" content="Martin Scweinberger" />
 
-<meta name="date" content="2020-04-15" />
+<meta name="date" content="2020-09-29" />
 
 <title>Text Analysis and Distant Reading using R</title>
 
@@ -28,8 +27,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -239,6 +236,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -351,127 +349,112 @@ div.tocify {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="dropdown">
+        <li>
+  <a href="people.html">OUR PEOPLE</a>
+</li>
+<li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-play-circle"></span>
-     
-    Basics
+    NEWS
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Basics</li>
     <li>
-      <a href="introcomputer.html">General Tips on Computering</a>
+      <a href="news.html">News &amp; Announcements</a>
+    </li>
+    <li>
+      <a href="conferences.html">Events &amp; Presentations</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    DATA SCIENCE BASICS
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Introduction to Data Science</li>
+    <li>
+      <a href="introcomputer.html">Working with Computers: Tips and Tricks</a>
+    </li>
+    <li>
+      <a href="reproducibility.html">Data Management, Version Control, and Reproducibility</a>
     </li>
     <li class="divider"></li>
+    <li class="dropdown-header">Quantitative Research</li>
     <li>
-      <a href="introquant.html">Introduction To Quantitative Reasoning</a>
+      <a href="introquant.html">Introduction to Quantitative Reasoning</a>
     </li>
     <li>
-      <a href="basicquant.html">Basic Concepts In Quantitative Reasoning</a>
+      <a href="basicquant.html">Basic Concepts in Quantitative Research</a>
     </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
-     
-    Data Processing
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Data Processing</li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Introduction to R</li>
     <li>
-      <a href="intror.html">Basics: Getting started with R</a>
+      <a href="IntroR_workshop.html">Getting started</a>
     </li>
     <li>
-      <a href="introloading.html">Loading and saving data</a>
+      <a href="stringprocessing.html">String Processing</a>
     </li>
     <li>
-      <a href="stringprocessing.html">String processing</a>
+      <a href="regularexpressions.html">Regular Expressions</a>
     </li>
     <li>
-      <a href="regularexpressions.html">Regular expressions</a>
+      <a href="introtables.html">Working with Tables</a>
     </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bar-chart"></span>
-     
-    Visualization
+    TUTORIALS
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Visualization</li>
+    <li class="dropdown-header">Data Visualization</li>
     <li>
-      <a href="basicgraphs.html">Visualizing Data with R</a>
+      <a href="introviz.html">Introduction to Data Viz</a>
     </li>
     <li>
-      <a href="maps.html">Geo-Spatial Data Visualization in R</a>
+      <a href="basicgraphs.html">Common Visualization Types</a>
     </li>
     <li>
-      <a href="motion.html">Motion Charts in R</a>
+      <a href="basicgraphs.html">Advanced Visualization Methods</a>
     </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-eye"></span>
-     
-    Statistics
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="maps.html">Displaying Geo-Spatial Data</a>
+    </li>
+    <li>
+      <a href="motion.html">Interactive Charts</a>
+    </li>
+    <li class="divider"></li>
     <li class="dropdown-header">Statistics</li>
     <li>
       <a href="descriptivestatz.html">Descriptive Statistics</a>
     </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Basic Interential Statistics</li>
     <li>
-      <a href="basicstatz.html">Basic Inferential Tests</a>
+      <a href="basicstatz.html">Basic Inferential Statistics</a>
     </li>
     <li>
-      <a href="basicstatzchi.html">The Chi-Square Family</a>
-    </li>
-    <li>
-      <a href="basicstatzregression.html">Simple Linear Regression</a>
-    </li>
-    <li class="divider"></li>
-    <li class="dropdown-header">Advanced Interential Statistics</li>
-    <li>
-      <a href="fixedregressions.html">Fixed-Effects Regression Models</a>
-    </li>
-    <li>
-      <a href="mixedregressions.html">Mixed-Effects Regression Models</a>
+      <a href="regression.html">Regression Analysis</a>
     </li>
     <li>
       <a href="advancedstatztrees.html">Tree-Based Models</a>
     </li>
     <li>
-      <a href="groupingstatz.html">Classification</a>
+      <a href="groupingstatz.html">Cluster and Correspondence Analysis</a>
     </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bars"></span>
-     
-    Text Analytics
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="svm.html">Semantic Vector Space Models</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Text Analytics</li>
     <li>
       <a href="textanalysis.html">Text Analysis and Distant Reading</a>
     </li>
     <li>
-      <a href="webcrawling.html">Web Crawling</a>
+      <a href="kwics.html">Concordancing (keywords-in-context)</a>
     </li>
     <li>
       <a href="basicnetwork.html">Network Analysis</a>
@@ -483,25 +466,46 @@ div.tocify {
       <a href="topicmodels.html">Topic Modeling</a>
     </li>
     <li>
-      <a href="classification.html">Classification</a>
+      <a href="sentiment.html">Sentiment Analysis</a>
     </li>
     <li>
       <a href="tagging.html">Tagging and Parsing</a>
     </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    FOCUS &amp; CASE STUDIES
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="corplingr.html">Corpus Linguistics</a>
+      <a href="lex.html">Lexicography with R: Generating Dictionaries</a>
+    </li>
+    <li>
+      <a href="surveys.html">Questionnaires and Surveys: Analyses with R</a>
+    </li>
+    <li>
+      <a href="corplingr.html">Corpus Linguistics with R: Swearing in Irish English</a>
+    </li>
+    <li>
+      <a href="convertpdf2txt.html">Converting PDFs to txt</a>
+    </li>
+    <li>
+      <a href="webcrawling.html">Web Crawling using R</a>
+    </li>
+    <li>
+      <a href="vc.html">Creating Vowel Charts with Praat and R</a>
     </li>
   </ul>
 </li>
+<li>
+  <a href="services.html">SERVICES &amp; CONTACT</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="about.html">
-    <span class="fa fa-info"></span>
-     
-    Contact
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -512,48 +516,38 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Text Analysis and Distant Reading using R</h1>
-<h4 class="author">UQ SLC Digital Team</h4>
-<h4 class="date">2020-04-15</h4>
+<h4 class="author">Martin Scweinberger</h4>
+<h4 class="date">2020-09-29</h4>
 
 </div>
 
 
 <p><img src="images/uq1.jpg" width="100%" /></p>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
-<p>This tutorial introduces Text Analysis, i.e. computer-based analysis of language data or the (semi-)automated extraction of information from text. The entire code for the sections below can be downloaded <a href="https://slcladal.github.io/rscripts/textanalysisrscript.r">here</a>.</p>
+<div id="introduction" class="section level1 unnumbered">
+<h1>Introduction</h1>
+<p>This tutorial introduces Text Analysis <span class="citation">(see Bernard and Ryan <a href="#ref-bernard1998text" role="doc-biblioref">1998</a>; Kabanoff <a href="#ref-kabanoff1997introduction" role="doc-biblioref">1997</a>; Popping <a href="#ref-popping2000computer" role="doc-biblioref">2000</a>)</span>, i.e. computer-based analysis of language data or the (semi-)automated extraction of information from text. The entire code for the sections below can be downloaded <a href="https://slcladal.github.io/textanalysis.Rmd">here</a>.</p>
 <p>Since Text Analysis extracts and analyses information from language data, it can be considered a derivative of computational linguistics or an application of <em>Natural Language Processing</em> (NLP) to HASS research. As such, Text Analysis represents the application of computational methods in the humanities.</p>
 <p>The advantage of Text Analysis over manual or traditional techniques (close reading) lies in the fact that Text Analysis allows the extraction of information from large sets of textual data and in a replicable manner. Other terms that are more or less synonymous with Text Analysis are Text Mining, Text Analytics, and Distant Reading. In some cases, Text Analysis is considered more qualitative while Text Analytics is considered to be quantitative. This distinction is not taken up here as Text Analysis, while allowing for qualitative analysis, builds upon quantitative information, i.e. information about frequencies or conditional probabilities.</p>
-<div class="figure">
-<img src="textanalysis_files/figure-html/Fig1-1.png" alt="\label{fig:Fig1} Google N-Gram Viewer results for “ communist “,” terror “,” democratic “,” liberal “, and “ terror “ from 1820 to 2008." width="576" />
-<p class="caption">
- Google N-Gram Viewer results for “ communist “,” terror “,” democratic “,” liberal “, and “ terror “ from 1820 to 2008.
-</p>
-</div>
+<p><img src="images/GoogleNgram.png" width="35%" style="float:right; padding:10px" /></p>
 <p>Distant Reading is a cover term for applications of Text Analysis that allow to investigate literary and cultural trends using text data. Distant Reading contrasts with close reading, i.e. reading texts in the traditional sense whereas Distant Reading refers to the analysis of large amounts of text. Text Analysis and distant reading are similar with respect to the methods that are used but different with respect to their outlook. The outlook of distant reading is to extract information from text without close reading, i.e. reading the document(s) itself but rather focusing on emerging patterns in the language that is used.</p>
 <p>Text Analysis or Distant Reading are rapidly growing in use and gaining popularity in the humanities because textual data is readily available and because computational methods can be applied to a huge variety of research questions. The attractiveness of computational text analysis is thus based on the availability of (large amounts of) digitally available texts and in their capability to provide insights that cannot be derived from close reading techniques.</p>
-<div class="figure">
-<img src="textanalysis_files/figure-html/Fig2-1.png" alt="\label{fig:Fig1} Comparative network graph for personas in William Shakespeare's King Lear, Macbeth, and Orthello. (from http://www.martingrandjean.ch/network-visualization-shakespeare/." width="576" />
-<p class="caption">
- Comparative network graph for personas in William Shakespeare’s King Lear, Macbeth, and Orthello. (from <a href="http://www.martingrandjean.ch/network-visualization-shakespeare/" class="uri">http://www.martingrandjean.ch/network-visualization-shakespeare/</a>.
-</p>
-</div>
+<p><img src="images/ShakespeareKingLearNwtwork.png" width="60%" style="float:right; padding:10px" /></p>
 <p>While rapidly growing as a valid approach to analysing textual data, Text Analysis is <a href="https://www.chronicle.com/article/The-Digital-Humanities-Debacle/245986">critizised</a> for lack of "quantitative rigor and because its findings are either banal or, if interesting, not statistically robust (see <a href="https://www.chronicle.com/article/The-Digital-Humanities-Debacle/245986">here</a>. This criticism is correct in that most of the analysis that performed in <em>Computational Literary Studies</em> (CLS) are not yet as rigorous as analyses in fields that have a longer history of computational based, quantitative research, such as, for instance, corpus linguistics. However, the practices and methods used in CLS will be refined, adapted and show a rapid increase in quality if more research is devoted to these approaches. Also, Text Analysis simply offers an alternative way to analyse texts that is not in competition to traditional techniques but rather complements them.</p>
 <p>Given it relatively recent emergence, so far, most of the applications of Text Analysis are based upon a relatively limited number of key procedures or concepts (e.g. concordancing, word frequencies, annotation or tagging, parsing, collocation, text classification, Sentiment Analysis, Entity Extraction, Topic Modelling, etc.). In the following, we will explore these procedures and introduce some basic tools that help you perform the introduced tasks.</p>
-</div>
-<div id="text-analysis-at-uq" class="section level1">
-<h1><span class="header-section-number">2</span> Text Analysis at UQ</h1>
+<div id="text-analysis-at-uq" class="section level2 unnumbered">
+<h2>Text Analysis at UQ</h2>
 <p>The <a href="https://www.library.uq.edu.au/">UQ Library</a> offers a very handy and attractive summary of <a href="https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/introduction">resources, concepts, and tools</a> that can be used by researchers interested in Text Analysis and Distant Reading. Also, the UQ library site offers short video introductions and addresses issues that are not discussed here such as <a href="https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/considerations">copyright issues</a>, <a href="https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/sources-of-text-data">data sources available at the UQ library</a>, as well as <a href="https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/sources-of-text-data">social media</a> and <a href="https://guides.library.uq.edu.au/research-techniques/text-mining-analysis/web-scraping">web scaping</a>.</p>
 <p>In contrast to the UQ library site, the focus of this introduction lies on the practical how-to of text analysis. this means that the following concentrates on how to perform analyses rather than discussing their underlying concepts or evaluating their scientific merits.</p>
 </div>
-<div id="tools-versus-scripts" class="section level1">
-<h1><span class="header-section-number">3</span> Tools versus Scripts</h1>
+<div id="tools-versus-scripts" class="section level2 unnumbered">
+<h2>Tools versus Scripts</h2>
 <p>It is perfectly fine to use tools for the analyses exemplified below. However, the aim here is not primarily to show how to perform text analyses but how to perfrom text analyses in a way that complies with practices that guarantee sustainable, transparent, reproducible research. As R code can be readily shared and optimally contains all the data extraction, processing, vizualization, and analysis steps, using scripts is preferable over using (commercial) software.</p>
 <p>In addition to being not as transparent and hindering reproduction of research, using tools can also lead to dependencies on third parties which does not arise when using open source software.</p>
 <p>Finally, the widespread use of “R” particularly among data scientists, engineers, and analysts reduces the risk of software errors as a very active community corrects flawed functions typically quite rapidly.</p>
-<p><strong>Preparation and session set up</strong></p>
-<p>As all calculations and visualizations in this tutorial rely on <em>R</em>, it is necessary to install <em>R</em> and <em>RStudio</em>. If these programs (or, in the case of <em>R</em>, environments) are not already installed on your machine, please search for them in your favorite search engine and add the term <em>download</em>. Open any of the first few links and follow the installation instructions (they are easy to follow, do not require any specifications, and are pretty much self-explanatory).</p>
-<p>In addition, certain <em>packages</em> need to be installed so that the scripts shown below are executed without errors. Before turning to the code below, please install the packages by running the code below this paragraph. If you have already installed the packages mentioned below, then you can skip ahead ignore this section. To install the necessary packages, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the packages so you do not need to worry if it takes some time).</p>
+</div>
+<div id="preparation-and-session-set-up" class="section level2 unnumbered">
+<h2>Preparation and session set up</h2>
+<p>This tutorial is based on R. If you have not installed R or are new to it, you will find an introduction to and more information how to use R <a href="https://slcladal.github.io/IntroR_workshop.html">here</a>. For this tutorials, we need to install certain <em>packages</em> from an R <em>library</em> so that the scripts shown below are executed without errors. Before turning to the code below, please install the packages by running the code below this paragraph. If you have already installed the packages mentioned below, then you can skip ahead ignore this section. To install the necessary packages, simply run the following code - it may take some time (between 1 and 5 minutes to install all of the libraries so you do not need to worry if it takes some time).</p>
 <pre class="r"><code># clean current workspace
 rm(list=ls(all=T))
 # set options
@@ -565,19 +559,17 @@ install.packages(c(&quot;class&quot;, &quot;cluster&quot;, &quot;dplyr&quot;, &q
                    &quot;NLP&quot;, &quot;openNLP&quot;, &quot;openNLPmodels.en&quot;, &quot;png&quot;, 
                    &quot;stringr&quot;, &quot;syuzhet&quot;, &quot;tidyr&quot;, &quot;tidytext&quot;, 
                    &quot;tm&quot;, &quot;topicmodels&quot;, &quot;wordcloud&quot;, &quot;xtable&quot;))</code></pre>
-<p>Once you have installed <em>R</em> and <em>R-Studio</em>, and have also initiated the session by executing the code shown above, you are good to go.</p>
+<p>Once you have installed R Studio and initiated the session by executing the code shown above, you are good to go.</p>
+</div>
 </div>
 <div id="concordancing" class="section level1">
-<h1><span class="header-section-number">4</span> Concordancing</h1>
-<p>In Text Analysis, concordancing refers to the extraction of words from a given text or texts. Commonly, concordances are displayed in the form of KWIC displays (Key Word in Context) where the search term is shown with some preceding and following context.</p>
-<div class="figure">
-<img src="textanalysis_files/figure-html/Fig3-1.png" alt="\label{fig:Fig2} KWIC display of the search term language extracted from the BROWN corpus in the program AntConc." width="768" />
-<p class="caption">
- KWIC display of the search term language extracted from the BROWN corpus in the program AntConc.
-</p>
-</div>
+<h1><span class="header-section-number">1</span> Concordancing</h1>
+<p>In Text Analysis, concordancing refers to the extraction of words from a given text or texts <span class="citation">(Lindquist <a href="#ref-lindquist2009corpus" role="doc-biblioref">2009</a>)</span>. Commonly, concordances are displayed in the form of key-word in contexts (KWIC)) where the search term is shown with some preceding and following context. Thus, such displays are referred to as key word in context concordances. A more elaborate tutorial on how to perform concordancing with R is available <a href="https://slcladal.github.io/kwics.html">here</a>.</p>
+<p><br></p>
+<p><img src="images/AntConcConcordance.png" width="60%" style="float:right; padding:10px" /></p>
+<p><br></p>
 <p>Concordancing is helpful for inspecting how often a given word occurs in a text or a collection of texts, for seeing how the term is used in the data, for extracting examples, and it also represents a basic procedure and often the first step in more sophisticated analyses of language data.</p>
-<p>In the follwoing, we will use “R” to create a KWIC display. More precisely, we will load Charles Darwin’s “On the origin of species” and investigate his use of the term “natural selection” in across chapters.</p>
+<p>In the following, we will use R to create a KWIC display. More precisely, we will load Charles Darwin’s <em>On the origin of species by means of natural selection</em> and investigate his use of the phrase <em>natural selection</em> in across chapters.</p>
 <pre class="r"><code># load libraries
 library(dplyr)
 library(stringr)
@@ -592,7 +584,7 @@ darwin &lt;- readLines(&quot;https://slcladal.github.io/data/origindarwin.txt&qu
 nchar(darwin)</code></pre>
 <pre><code>##  [1]  10133  76155  40735  37418 121497  75187  95601 102879  83597  81774
 ## [11]  72427  70938  74510  53292 114321  70663</code></pre>
-<p>Now that we have the subsections of the data that we aim to investigate, we can perform the concordancing. To create a KWIC display, we load the function “ConcR” from a script called “ConcR_2.3_loadedfiles.R”. Then we define a pattern that we want to look for (the pattern can be a simple word or it contain regular expressions). Then, we define the amount of context that we want to have displayed (in our case 50 characters). Finally, we run the concordance function “ConcR” with the arguments “darwin” the text elements that we want to inspect, the search pattern, and the context.</p>
+<p>Now that we have the subsections of the data that we aim to investigate, we can perform the concordancing. To create a KWIC display, we load the function <code>ConcR</code> from a script called <code>ConcR_2.3_loadedfiles.R</code>. Then we define a pattern that we want to look for (the pattern can be a simple word or it contain regular expressions). Then, we define the amount of context that we want to have displayed (in our case 50 characters). Finally, we run the concordance function <code>ConcR</code> with the arguments <code>darwin</code> (the text elements that we want to inspect), the <code>search pattern</code>, and the <code>context</code>.</p>
 <pre class="r"><code># load function for concordancing
 source(&quot;https://slcladal.github.io/rscripts/ConcR_2.5_LoadedFiles.R&quot;)
 # start concordancing
@@ -637,7 +629,7 @@ head(darwinorganism)</code></pre>
 <p>Now, the KWIC display is finished and we could go about investigating how Darwin has used the term “organism”.</p>
 </div>
 <div id="word-frequency" class="section level1">
-<h1><span class="header-section-number">5</span> Word Frequency</h1>
+<h1><span class="header-section-number">2</span> Word Frequency</h1>
 <p>One basic aspect of Text Analysis consists in extracting word frequency lists, i.e. determining how often word forms occur in a given text or collection of texts. In fact, frequency information lies at the very core of Text Analysis.</p>
 <p>To exemplify how frequency information can help us in an analysis, we will continue working with the KWIC display that we have created above.</p>
 <p>In the following, we want to find out about changes in the frequency with which the term “organism” has been used across chapters in Darwin’s “Origin”.</p>
@@ -769,19 +761,19 @@ comparison.cloud(tdm, random.order=FALSE,
 <table>
 <thead>
 <tr class="header">
-<th></th>
+<th align="center"></th>
 <th align="center">Private dialogues</th>
 <th align="center">Scripted monologues</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>you, your</td>
+<td align="center">you, your</td>
 <td align="center">6761</td>
 <td align="center">659</td>
 </tr>
 <tr class="even">
-<td>Other words</td>
+<td align="center">Other words</td>
 <td align="center">259625</td>
 <td align="center">105295</td>
 </tr>
@@ -791,24 +783,24 @@ comparison.cloud(tdm, random.order=FALSE,
 <table>
 <thead>
 <tr class="header">
-<th></th>
+<th align="center"></th>
 <th align="center">Private dialogues</th>
 <th align="center">Scripted monologues</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>you, your</td>
+<td align="center">you, your</td>
 <td align="center">6761</td>
 <td align="center">659</td>
 </tr>
 <tr class="even">
-<td>Other words</td>
+<td align="center">Other words</td>
 <td align="center">259625</td>
 <td align="center">105295</td>
 </tr>
 <tr class="odd">
-<td>Percent</td>
+<td align="center">Percent</td>
 <td align="center">2.60</td>
 <td align="center">0.63</td>
 </tr>
@@ -823,7 +815,7 @@ assocplot(d)</code></pre>
 <p>Bars above the dashed line indicate relative overuse while bars below the line suggest relative underuse. Therefore, the association plot indicates underuse of “you/your” and overuse of “other words” in monologues while the opposite trends holds true for dialogues, i.e. overuse of “you/your” and underuse of “Other words”.</p>
 </div>
 <div id="collocations-and-n-grams" class="section level1">
-<h1><span class="header-section-number">6</span> Collocations and N-grams</h1>
+<h1><span class="header-section-number">3</span> Collocations and N-grams</h1>
 <p>Collocation refers to the co-occurrence of words. A typical example of a collocation is “Merry Christmas” because the words merry and Christmas occur together more frequently together than would be expected by chance, if words were just randomly stringed together.</p>
 <p>N-grams are related to collocates in that they represent words that occur together (bi-grams are two words that occur together, tri-grams three words and so on). Fortunately, creating N-gram lists is very easy. We will use the “Origin” to create a bi-gram list. As a first step, we load the data and split it into individual words.</p>
 <pre class="r"><code># load libraries
@@ -875,304 +867,22 @@ head(darwin2gramsdf)</code></pre>
 ## 48173    on the       744
 ## 30694 have been       624</code></pre>
 <p>Both N-grams and collocations are not only an important concept in language teaching but they are also fundamental in Text Analysis and many other research areas working with language data. Unfortunately, words that collocate do not have to be immediately adjacent but can also encompass several slots. This is unfortunate because it makes retrieval of collocates substantially more difficult compared with a situation in which we only need to extract words that occur right next to each other.</p>
-<p>In the following, we will extract collocations from Darwin’s “Origin”. In a first step, we will split the Origin into smaller chunks.</p>
-<pre class="r"><code># read in text
-darwinsentences &lt;- readLines(&quot;https://slcladal.github.io/data/origindarwin.txt&quot;) %&gt;%
-  paste(sep = &quot; &quot;, collapse = &quot; &quot;) %&gt;%
-  str_replace_all(&quot; {2,}&quot;, &quot; &quot;) %&gt;%
-  str_replace_all(&quot;([A-Z]{2,} [A-Z]{2,}) ([A-Z][a-z]{1,} )&quot;, &quot;\\1 qwertz\\2&quot;) %&gt;%
-  str_replace_all(&quot;([a-z]{2,}\\.) ([A-Z] {0,1}[a-z]{0,30})&quot;, &quot;\\1qwertz\\2&quot;) %&gt;%
-    str_replace_all(&quot;([a-z]{2,}\\?) ([A-Z] {0,1}[a-z]{0,30})&quot;, &quot;\\1qwertz\\2&quot;) %&gt;%
-  strsplit(&quot;qwertz&quot;)%&gt;%
-  unlist()
-# inspect data
-head(darwinsentences)</code></pre>
-<pre><code>## [1] &quot;THE ORIGIN OF SPECIES BY CHARLES DARWIN AN HISTORICAL SKETCH OF THE PROGRESS OF OPINION ON THE ORIGIN OF SPECIES INTRODUCTION &quot;                                                                                                                                                
-## [2] &quot;When on board H.M.S. &#39;Beagle,&#39; as naturalist, I was much struck with certain facts in the distribution of the organic beings in- habiting South America, and in the geological relations of the present to the past inhabitants of that continent.&quot;                            
-## [3] &quot;These facts, as will be seen in the latter chapters of this volume, seemed to throw some light on the origin of species — that mystery of mysteries, as it has been called by one of our greatest philosophers.&quot;                                                               
-## [4] &quot;On my return home, it occurred to me, in 1837, that something might perhaps be made out on this question by patiently accumulating and reflecting on all sorts of facts which could possibly have any bearing on it.&quot;                                                          
-## [5] &quot;After five years&#39; work I allowed myself to specu- late on the subject, and drew up some short notes; these I enlarged in 1844 into a sketch of the conclusions, which then seemed to me probable; from that period to the present day I have steadily pursued the same object.&quot;
-## [6] &quot;I hope that I may be excused for entering on these personal details, as I give them to show that I have not been hasty in coming to a decision.&quot;</code></pre>
-<p>In a next step, we will create a matrix that shows cooccurrence of words.</p>
-<pre class="r"><code># convert into corpus
-darwincorpus &lt;- Corpus(VectorSource(darwinsentences))
-# create vector with words to remove
-extrawords &lt;- c(&quot;the&quot;, &quot;can&quot;, &quot;get&quot;, &quot;got&quot;, &quot;can&quot;, &quot;one&quot;, 
-                &quot;dont&quot;, &quot;even&quot;, &quot;may&quot;, &quot;but&quot;, &quot;will&quot;, 
-                &quot;much&quot;, &quot;first&quot;, &quot;but&quot;, &quot;see&quot;, &quot;new&quot;, 
-                &quot;many&quot;, &quot;less&quot;, &quot;now&quot;, &quot;well&quot;, &quot;like&quot;, 
-                &quot;often&quot;, &quot;every&quot;, &quot;said&quot;, &quot;two&quot;)
-# clean corpus
-darwincorpusclean &lt;- darwincorpus %&gt;%
-  tm_map(removePunctuation) %&gt;%
-  tm_map(tolower) %&gt;%
-  tm_map(removeWords, stopwords(kind = &quot;en&quot;)) %&gt;%
-  tm_map(removeWords, extrawords)
-# create document term matrix
-darwindtm &lt;- DocumentTermMatrix(darwincorpusclean, control=list(bounds = list(global=c(1, Inf)), weighting = weightBin))
-# load library
-library(Matrix)
-# convert dtm into sparse matrix
-darwinsdtm &lt;- sparseMatrix(i = darwindtm$i, j = darwindtm$j, 
-                           x = darwindtm$v, 
-                           dims = c(darwindtm$nrow, darwindtm$ncol),
-                           dimnames = dimnames(darwindtm))
-# calculate cooccurrence counts
-coocurrences &lt;- t(darwinsdtm) %*% darwinsdtm
-# convert into matrix
-collocates &lt;- as.matrix(coocurrences)
-# inspect results
-collocates[1:8, 1:5]</code></pre>
-<pre><code>##              charles darwin historical introduction opinion
-## charles            9      1          1            1       1
-## darwin             1      1          1            1       1
-## historical         1      1          4            1       1
-## introduction       1      1          1            7       1
-## opinion            1      1          1            1      10
-## origin             1      1          2            2       1
-## progress           1      1          1            1       1
-## sketch             1      1          1            1       1</code></pre>
-<pre class="r"><code># inspect size of matrix
-ncol(collocates)</code></pre>
-<pre><code>## [1] 10548</code></pre>
-<pre class="r"><code>summary(rowSums(collocates))</code></pre>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##       1      23      45     191     124   25722</code></pre>
-<pre class="r"><code># remove terms that do not collocate with other terms
-noncoll &lt;- colnames(collocates)[which(rowSums(collocates) &lt; 5000)]
-# remove non-collocating terms
-collocates &lt;- collocates[!rownames(collocates) %in% noncoll, ]
-collocates &lt;- collocates[, !colnames(collocates) %in% noncoll]
-# create distance matrix
-distmtx &lt;- dist(collocates)
-# activate library
-library(&quot;cluster&quot;)         # activate library
-clustertexts &lt;- hclust(    # hierarchical cluster object
-  distmtx,                 # use data diststudents
-  method=&quot;ward.D2&quot;)         # ward.D as linkage method
-plot(clustertexts,         # plot result as dendrogram
-     hang = .25,           # labels at split
-     main = &quot;&quot;)            # no title</code></pre>
-<p><img src="textanalysis_files/figure-html/coll7-1.png" width="672" /></p>
-<p>An alternative way to display cooccurrence patterns are bi-plots. Biplots are commonly used to display, for instance, the results of Correspondence Analyses.</p>
-<pre class="r"><code># load library
-library(&quot;FactoMineR&quot;)
-library(&quot;factoextra&quot;)
-# perform correspondence analysis
-res.ca &lt;- CA(collocates, graph = FALSE)
-# plot results
-plot(res.ca, shadow = T, cex = 1, selectRow = &quot;cos2 0.1&quot;, selectCol = &quot;cos2 0.9&quot;, col.row = &quot;gray50&quot;, title = &quot;&quot;)</code></pre>
-<p><img src="textanalysis_files/figure-html/coll8-1.png" width="672" /></p>
-<p>The bi-plot shows that “natural” and “selection” collocate, as do “animals” and “plants”, “period”, “long”, and “time” as well as “conditions” and “life”. Other words with lower collocation strength are masked from the bi-plot.</p>
-<p>We will now use an example of one individual word to show, how collocation strength for individual terms is calculated and displayed as a network.</p>
-<pre class="r"><code># load function for co-occurrence calculation
-source(&quot;https://slcladal.github.io/rscripts/calculateCoocStatistics.R&quot;)
-# define minimum number of cooccurences
-numberOfCoocs &lt;- 10
-# define term
-coocTerm &lt;- &quot;selection&quot;
-# calculate cooccurence statistics
-coocs &lt;- calculateCoocStatistics(coocTerm, darwinsdtm, measure=&quot;LOGLIK&quot;)
-# show strenght of cooccurence
-print(coocs[1:numberOfCoocs])</code></pre>
-<pre><code>##       natural        theory    variations       effects          acts 
-##    1476.38620     121.48373     112.17318      66.45145      51.64986 
-## modifications        sexual         power        slight        disuse 
-##      45.69396      44.95857      43.80820      42.97196      41.69089</code></pre>
-<p>Now, we can visualize the collocation network for our example term. Unfortunately, creating a graph object is rather complex.</p>
-<pre class="r"><code># create graph object
-resultGraph &lt;- data.frame(from = character(), to = character(), sig = numeric(0))
-# create data frame
-tmpGraph &lt;- data.frame(from = character(), to = character(), sig = numeric(0))
-# fill data frame to produce the correct number of lines
-tmpGraph[1:numberOfCoocs, 3] &lt;- coocs[1:numberOfCoocs]
-# enter search word into the first column in all lines
-tmpGraph[, 1] &lt;- coocTerm
-# enter co-occurrences into second column
-tmpGraph[, 2] &lt;- names(coocs)[1:numberOfCoocs]
-# enter collocation strength
-tmpGraph[, 3] &lt;- coocs[1:numberOfCoocs]
-# attach data frame to resultGraph
-resultGraph &lt;- rbind(resultGraph, tmpGraph)</code></pre>
-<p>Calculate cooccurence statistics and add them to the graph object.</p>
-<pre class="r"><code># iterate over most significant numberOfCoocs co-occurrences
-for (i in 1:numberOfCoocs){
-  # calculate co-occurrence strength for term i
-  newCoocTerm &lt;- names(coocs)[i]
-  coocs2 &lt;- calculateCoocStatistics(newCoocTerm, darwinsdtm, measure=&quot;LOGLIK&quot;)
-  # fill temporary graph object
-  tmpGraph &lt;- data.frame(from = character(), to = character(), sig = numeric(0))
-  tmpGraph[1:numberOfCoocs, 3] &lt;- coocs2[1:numberOfCoocs]
-  tmpGraph[, 1] &lt;- newCoocTerm
-  tmpGraph[, 2] &lt;- names(coocs2)[1:numberOfCoocs]
-  tmpGraph[, 3] &lt;- coocs2[1:numberOfCoocs]
-  # append results to the result graph data frame
-  resultGraph &lt;- rbind(resultGraph, tmpGraph[2:length(tmpGraph[, 1]), ])
-}</code></pre>
-<p>Now, we can create a network graph object.</p>
-<pre class="r"><code># load packages
-library(igraph)
-# define graph and type (&quot;F&quot; means &quot;Force Directed&quot;)
-graphNetwork &lt;- graph.data.frame(resultGraph, directed = F)
-# identify nodes with fewer than 2 edges
-graphVs &lt;- V(graphNetwork)[degree(graphNetwork) &lt; 2]
-# removed these edges from graph
-graphNetwork &lt;- delete.vertices(graphNetwork, graphVs) 
-# sssign colors to edges and nodes (searchterm blue, rest orange)
-V(graphNetwork)$color &lt;- ifelse(V(graphNetwork)$name == coocTerm, &#39;cornflowerblue&#39;, &#39;orange&#39;) 
-# Edges with a significance of at least 50% of the maximum significance in the graph are drawn in orange
-halfMaxSig &lt;- max(E(graphNetwork)$sig) * 0.5
-E(graphNetwork)$color &lt;- ifelse(E(graphNetwork)$sig &gt; halfMaxSig, &quot;coral&quot;, &quot;azure3&quot;)
-# disable edges with radius
-E(graphNetwork)$curved &lt;- 0 
-# size the nodes by their degree of networking
-V(graphNetwork)$size &lt;- log(degree(graphNetwork)) * 5
-# all nodes must be assigned a standard minimum-size
-V(graphNetwork)$size[V(graphNetwork)$size &lt; 5] &lt;- 3 
-# edge thickness
-E(graphNetwork)$width &lt;- 1.5</code></pre>
-<p>And finally, we can visualize the network.</p>
-<pre class="r"><code># Define the frame and spacing for the plot
-par(mai=c(0,0,1,0)) 
-# Finaler Plot
-plot(graphNetwork,              
-     layout = layout.fruchterman.reingold,  # Force Directed Layout 
-     main = paste(&quot;Cooccurrence network for&quot;, &quot; \&quot;&quot;, coocTerm, &quot;\&quot;&quot;),
-     vertex.label.family = &quot;sans&quot;,
-     vertex.label.cex = .75,
-     vertex.shape = &quot;circle&quot;,
-     vertex.label.dist = 2,           # Labels of the nodes moved slightly
-     vertex.frame.color = &#39;darkolivegreen&#39;,
-     vertex.label.color = &#39;black&#39;,      # Color of node names
-     vertex.label.font = 2,         # Font of node names
-     vertex.label = V(graphNetwork)$name,       # node names
-     vertex.label.cex = .75 # font size of node names 
-)</code></pre>
-<p><img src="textanalysis_files/figure-html/coll14-1.png" width="672" /></p>
-</div>
-<div id="tagging-and-annotation" class="section level1">
-<h1><span class="header-section-number">7</span> Tagging and Annotation</h1>
-<p>Tagging or annotation refers to a process in which information is added to existing text. The annotation can be very different depending on the task at hand. The most common type of annotation when it comes to language data is part-of-speech tagging where the word class is determined for each word in a text and the word class is then added to the word as a tag. However, there are many different ways to tag or annotate texts. Sentiment Analysis, for instance, also annotates texts or words with respect to its or their emotional value or polarity. In fact, annotation is required in many machine-learning contexts because annotated texts represent a training set on which an algorithm is trained that then predicts for unknown items what values they would most likely be assigned if the annotation were done manually.</p>
-<div id="part-of-speech-tagging-pos-tagging" class="section level2">
-<h2><span class="header-section-number">7.1</span> Part-of-speech tagging (pos tagging)</h2>
-<p>For many analyses that use language data it is useful or even important to differentiate between different parts of speech. In order to determine the word class of a certain word, we use a procedure which is called part-of-speech tagging or pos-tagging for short. Part-of-speech tagging is offered by many online services (e.g. (here)[<a href="http://www.infogistics.com/posdemo.htm" class="uri">http://www.infogistics.com/posdemo.htm</a>] or (here)[<a href="https://linguakit.com/en/part-of-speech-tagging" class="uri">https://linguakit.com/en/part-of-speech-tagging</a>]).</p>
-<pre class="r"><code># load corpus data
-text &lt;- readLines(&quot;https://slcladal.github.io/data/text2.txt&quot;, skipNul = T)
-# clean data
-text &lt;- text[5] %&gt;%
-  removeNumbers() %&gt;%
-  stripWhitespace() %&gt;%
-  str_replace_all(&quot;\&quot;&quot;, &quot;&quot;)  %&gt;%
-  str_replace_all(&quot;When Harry.*&quot;, &quot;&quot;)  %&gt;%
-  strsplit(&quot;qwertz&quot;) %&gt;%
-  unlist() %&gt;%
-  stripWhitespace() 
-# inspect data
-str(text)</code></pre>
-<pre><code>##  chr &quot;By chance, Harry encounters the man who gave him the book, just as the man has attended a funeral. He inquires &quot;| __truncated__</code></pre>
-<p>Now that the text data has been read into “R”, we can proceed with the part-of-speech tagging. To perform the pos-tagging, we load the function for pos-tagging, load the NLP and open NLP libraries and detach packages that would cause conflicts (because these packages contain functions that have identical names to the openNLP package).</p>
-<blockquote>
-<p>A word of warnung is in order here. The openNLP library is written is Java and may require a re-installation of Java as well as re-setting the path variable to Java. A short video on how to set the path variable can be found (here)[<a href="https://www.youtube.com/watch?v=yrRmLOcB9fg" class="uri">https://www.youtube.com/watch?v=yrRmLOcB9fg</a>].</p>
-</blockquote>
-<pre class="r"><code># load function
-source(&quot;https://slcladal.github.io/rscripts/POStagObject.r&quot;) # for pos-tagging objects in R
-# load libraries
-library(NLP)
-library(openNLP)
-library(openNLPmodels.en)
-# detach ggplot2 library becuase function &quot;annotate&quot; 
-# would be taken from ggplot2 rather than NLP
-#detach(&quot;package:ggraph&quot;, unload=TRUE)
-detach(&quot;package:factoextra&quot;, unload=TRUE)
-detach(&quot;package:ggplot2&quot;, unload=TRUE)
-# pos tagging data
-textpos &lt;- POStag(object = text)
-textpos</code></pre>
-<pre><code>## [[1]]
-## [1] &quot;By/IN chance/NN ,/, Harry/NNP encounters/VBZ the/DT man/NN who/WP gave/VBD him/PRP the/DT book/NN ,/, just/RB as/IN the/DT man/NN has/VBZ attended/VBN a/DT funeral/NN ./. He/PRP inquires/VBZ about/IN the/DT magic/JJ theater/NN ,/, to/TO which/WDT the/DT man/NN replies/VBZ ,/, Not/RB for/IN everybody/NN ./.&quot;</code></pre>
-<p>The resulting vector contains the part-of-speech tagged text.</p>
-</div>
-<div id="syntactic-parsing" class="section level2">
-<h2><span class="header-section-number">7.2</span> Syntactic Parsing</h2>
-<p>Parsing refers to another type of annotation in which either structural information (as in the case of XML documents) or syntactic relations are added to text. As syntactic parsing is commonly more relevant in the language sciences, the following will focus only on syntactic parsing. syntactic parsing builds on PoS-tagging and allows drawing syntactic trees or dependencies. Unfortunately, syntactic parsing still has relatively high error rates when dealing with language that is not very formal. However, syntactic parsing is very reliable when dealing with written language.</p>
-<pre class="r"><code># extract text
-text &lt;- gsub(&quot;He inquires.*&quot;, &quot;&quot;, text)
-# convert character to string
-s &lt;- as.String(text)
-# define sentence and word token annotator
-sent_token_annotator &lt;- Maxent_Sent_Token_Annotator()
-word_token_annotator &lt;- Maxent_Word_Token_Annotator()
-# apply sentence and word annotatior
-a2 &lt;- annotate(s, list(sent_token_annotator, word_token_annotator))
-# define syntactic parsing annotator
-parse_annotator &lt;- Parse_Annotator()
-# apply parser
-p &lt;- parse_annotator(s, a2)
-# extract parsed information
-ptexts &lt;- sapply(p$features, &#39;[[&#39;, &quot;parse&quot;)
-ptexts</code></pre>
-<pre><code>## [1] &quot;(TOP (S (PP (IN By) (NP (NN chance)))(, ,) (NP (NNP Harry)) (VP (VBD encounters) (NP (NP (DT the) (NN man)) (SBAR (WHNP (WP who)) (S (VP (VBD gave) (NP (PRP him)) (NP (DT the) (NN book))(, ,) (SBAR (RB just) (IN as) (S (NP (DT the) (NN man)) (VP (VBZ has) (VP (VBN attended) (NP (DT a) (NN funeral)))))))))))(. .)))&quot;</code></pre>
-<pre class="r"><code># read into NLP Tree objects.
-ptrees &lt;- lapply(ptexts, Tree_parse)
-# show frist tree
-ptrees[[1]]</code></pre>
-<pre><code>## (TOP
-##   (S
-##     (PP (IN By) (NP (NN chance)))
-##     (, ,)
-##     (NP (NNP Harry))
-##     (VP
-##       (VBD encounters)
-##       (NP
-##         (NP (DT the) (NN man))
-##         (SBAR
-##           (WHNP (WP who))
-##           (S
-##             (VP
-##               (VBD gave)
-##               (NP (PRP him))
-##               (NP (DT the) (NN book))
-##               (, ,)
-##               (SBAR
-##                 (RB just)
-##                 (IN as)
-##                 (S
-##                   (NP (DT the) (NN man))
-##                   (VP
-##                     (VBZ has)
-##                     (VP (VBN attended) (NP (DT a) (NN funeral)))))))))))
-##     (. .)))</code></pre>
-<p>These trees can, of course, also be shown visually, for instance, in the form of a syntax trees (or tree dendrogram).</p>
-<pre class="r"><code># remove punctuation
-ptexts[1] &lt;- gsub(&quot;\\(\\. \\.\\)&quot;, &quot;&quot;, ptexts[1])
-ptexts[1] &lt;- gsub(&quot;\\(\\, \\,\\)&quot;, &quot;&quot;, ptexts[1])
-# load library
-library(igraph)
-source(&quot;https://slcladal.github.io/rscripts/parsetgraph.R&quot;)
-parse2graph(ptexts[1], title = &quot;&quot;, margin=-0.2, vertex.color=NA,
-            vertex.frame.color=NA, vertex.label.font=2,
-            vertex.label.cex=.75, vertex.label.color=&quot;black&quot;, asp=.5,
-            edge.width=1, edge.color=&#39;red&#39;, edge.arrow.size=0)</code></pre>
-<p><img src="textanalysis_files/figure-html/pars3-1.png" width="672" /></p>
-<p>Syntax trees are very handy because the allow us to check how reliable the parser performed. In the example above, the sentence was, in fact, parsed erroneously: the clause containing the string <just as the man has attended a funeral> is dependent on the relative clause <who gave him the book> although the first clause would correctly be dependent on the clause <By chance Harry encountered the man>. However, other constituents are parsed correctly.</p>
-</div>
 </div>
 <div id="text-classification" class="section level1">
-<h1><span class="header-section-number">8</span> Text Classification</h1>
+<h1><span class="header-section-number">4</span> Text Classification</h1>
 <p>Text classification refers to methods that allow to classify a given text to a predefined set of languages, genres, authors, or the like. Such classifications are typically based on the relative frequency of word classes, key words, phonemes, or other linguistic features such as average sentence length, words per line, etc.</p>
 <p>As with most other methods that are used in text analysis, text classification typically builds upon a training set that is already annotated with the required tags. Training sets and the features that are derived from these training sets can be created by oneself or one can use build in training sets that are provided in the respective software packages or tools.</p>
 <p>In the following, we will use the frequency of phonemes to classify a text. In a first step, we read in a German text, and split it into phonemes.</p>
 <pre class="r"><code># read in German text
-German &lt;- readLines(&quot;https://slcladal.github.io/data/phonemictext1.txt&quot;)
-# clean text
-German &lt;- gsub(&quot; &quot;, &quot;&quot;, German)
-# split text into phonemes
-German &lt;- strsplit(German, &quot;&quot;)
-# unlist and convert into vector
-German &lt;- as.vector(unlist(German))
+German &lt;- readLines(&quot;https://slcladal.github.io/data/phonemictext1.txt&quot;) %&gt;%
+  str_replace_all(&quot; &quot;, &quot;&quot;) %&gt;%
+  str_split(&quot;&quot;) %&gt;%
+  unlist() %&gt;%
+  as.vector()
 # inspect data
-head(German)</code></pre>
-<pre><code>## [1] &quot;?&quot; &quot;a&quot; &quot;l&quot; &quot;s&quot; &quot;h&quot; &quot;E&quot;</code></pre>
+head(German, 20)</code></pre>
+<pre><code>##  [1] &quot;?&quot; &quot;a&quot; &quot;l&quot; &quot;s&quot; &quot;h&quot; &quot;E&quot; &quot;s&quot; &quot;@&quot; &quot;d&quot; &quot;e&quot; &quot;:&quot; &quot;n&quot; &quot;S&quot; &quot;t&quot; &quot;E&quot; &quot;p&quot; &quot;@&quot; &quot;n&quot; &quot;v&quot;
+## [20] &quot;O&quot;</code></pre>
 <p>We now do the same for three other texts - an English and a Spanish text as well as one text in a language that we will determine using classification.</p>
 <pre class="r"><code># read in texts
 English &lt;- readLines(&quot;https://slcladal.github.io/data/phonemictext2.txt&quot;)
@@ -1183,8 +893,9 @@ English &lt;- as.vector(unlist(strsplit(gsub(&quot; &quot;, &quot;&quot;, Englis
 Spanish &lt;- as.vector(unlist(strsplit(gsub(&quot; &quot;, &quot;&quot;, Spanish), &quot;&quot;)))
 Unknown &lt;- as.vector(unlist(strsplit(gsub(&quot; &quot;, &quot;&quot;, Unknown), &quot;&quot;)))
 # inspect data
-head(English, 10)</code></pre>
-<pre><code>##  [1] &quot;D&quot;  &quot;@&quot;  &quot;b&quot;  &quot;U&quot;  &quot;k&quot;  &quot;I&quot;  &quot;z&quot;  &quot;p&quot;  &quot;r&quot;  &quot;\\&quot;</code></pre>
+head(English, 20)</code></pre>
+<pre><code>##  [1] &quot;D&quot;  &quot;@&quot;  &quot;b&quot;  &quot;U&quot;  &quot;k&quot;  &quot;I&quot;  &quot;z&quot;  &quot;p&quot;  &quot;r&quot;  &quot;\\&quot; &quot;@&quot;  &quot;z&quot;  &quot;E&quot;  &quot;n&quot;  &quot;t&quot; 
+## [16] &quot;@&quot;  &quot;d&quot;  &quot;{&quot;  &quot;z&quot;  &quot;@&quot;</code></pre>
 <p>We will now create a table that represents the phonemes and their frequencies in each of the 4 texts. In addition, we will add the language and simply the column names.</p>
 <pre class="r"><code># create data tables
 German &lt;- data.frame(names(table(German)), as.vector(table(German)))
@@ -1213,37 +924,48 @@ head(classdata)</code></pre>
 ## 5       ¼         6   German
 ## 6       2         6   German</code></pre>
 <p>Now, we group the data so that we see, how often each phoneme is used in each language.</p>
-<pre class="r"><code># set options
-options(stringsAsFactors = F)
-# create wide format
-classdatanew &lt;- reshape(classdata, idvar = &quot;Language&quot;, timevar = &quot;Phoneme&quot;,direction = &quot;wide&quot;)
-classdw &lt;- t(apply(classdatanew, 1, function(x){ 
-  x &lt;- ifelse(is.na(x) == T, 0, x)}))
-# simplify column names
-colnames(classdw) &lt;- gsub(&quot;Frequency.&quot;, &quot;&quot;, colnames(classdw))
-# convert into data frame
-classdw &lt;- as.data.frame(classdw)
+<pre class="r"><code># activate package
+library(tidyr)
+# convert into wide format
+classdw &lt;- classdata %&gt;%
+  spread(Phoneme, Frequency) %&gt;%
+  replace(is.na(.), 0)
 # inspect data
-classdw[, 1:6]</code></pre>
-<pre><code>##     Language  -   :   ?   @  ¼
-## 1     German  6 569 556 565  6
-## 63   English  8 176   0 309  0
-## 118  Spanish  5   0   0   0  0
-## 168  Unknown 12 286   0 468  0</code></pre>
+head(classdw)</code></pre>
+<pre><code>##   Language  &#39;  -   :   ?   @  \\   {   }  = © ¼  1 2  3  4  5   6 7  8  9   a
+## 1  English  7  8 176   0 309 103 123  77 38 0 0  0 0 19  0 43   0 0  0  0 273
+## 2   German  0  6 569 556 565   0   0   0  0 0 6  0 6 31 67  1 402 0 32 37 926
+## 3  Spanish  0  5   0   0   0   0   0   0  0 1 0 13 0 23  0  0   0 0  0  9 631
+## 4  Unknown 12 12 286   0 468 121 125 138 46 0 0  0 0 45  0 73   0 1  0  1 394
+##    A Ã   b  B   c   C   d   D    e   E   f   F   g  G   h  H   i   I  j  J   k
+## 1 52 0  92  2  93   0 205  74  442  99 127   1  76  2 281 33 390 154 20  0  88
+## 2 27 6 242 28 204 165 577  34 1522 326 399 107 347 28 424 70 835 533 26  6 417
+## 3  7 1  42 45 103   2 189  56  681  33  66  28  35 18  11 22 326   0 59  0  91
+## 4 77 0 148 15 120   5 466 101  630 166 150   3 110  1 376 13 532 200 31 26 135
+##    K   l  L   m  M    n  N   o   O   p  P  q   r  R    s   S    t  T   u   U
+## 1  0 204  0 169  3  412 23 250  64 100  2  5 316  1  369  33  450 25  84  12
+## 2 21 658 22 383 34 1545 60 232  99 147 10  0 753 12 1026 142 1001 14 353 205
+## 3  0 284 16 119  2  393  5 414   0 149  2 17 379  1  374  62  290 49 175   2
+## 4  1 324 18 194  9  696 40 408 126 165  2  2 410  3  507  70  679 19 123  10
+##     v  V   w  W   x  y  Y   z  Z
+## 1  68 28  95  3   8 67  0 124 14
+## 2 157 15  86 21 233 14 28 245 11
+## 3  31  0  23  1  80 21  0  12  1
+## 4 126 45 137  8  14 67  0 177 47</code></pre>
 <p>Now, we need to transform the data again, so that we have the frequency of each phoneme by language as the classifier will use “Language” as the dependent variable and the phoneme frequencies as predictors.</p>
 <pre class="r"><code>numvar &lt;- colnames(classdw)[2:length(colnames(classdw))]
 classdw[numvar] &lt;- lapply(classdw[numvar], as.numeric)
 # function for normalizing numeric variables
-normalize &lt;- function(x) { (x -min(x))/(max(x)-min(x))   }
+normalize &lt;- function(x) { (x-min(x))/(max(x)-min(x))   }
 # apply normalization
  classdw[numvar] &lt;- as.data.frame(lapply(classdw[numvar], normalize))
  # inspect data
 classdw[, 1:5]</code></pre>
-<pre><code>##     Language         -         : ?         @
-## 1     German 0.1428571 1.0000000 1 1.0000000
-## 63   English 0.4285714 0.3093146 0 0.5469027
-## 118  Spanish 0.0000000 0.0000000 0 0.0000000
-## 168  Unknown 1.0000000 0.5026362 0 0.8283186</code></pre>
+<pre><code>##   Language         &#39;         -         : ?
+## 1  English 0.5833333 0.4285714 0.3093146 0
+## 2   German 0.0000000 0.1428571 1.0000000 1
+## 3  Spanish 0.0000000 0.0000000 0.0000000 0
+## 4  Unknown 1.0000000 1.0000000 0.5026362 0</code></pre>
 <p>Before turning to the actual classification, we will use a cluster analysis to see which texts the unknown text is most similar with.</p>
 <pre class="r"><code># remove language column
 textm &lt;- classdw[,2:ncol(classdw)]
@@ -1268,28 +990,47 @@ library(dplyr)
 train &lt;- classdw %&gt;%
   filter(Language != &quot;Unknown&quot;)
 # increase training set size
-train &lt;- rbind(train, train, train, train, train, train, train, train)
+#train &lt;- rbind(train, train, train, train, train, train, train, train)
 # create test set
 test &lt;- classdw %&gt;%
   filter(Language == &quot;Unknown&quot;)
 # convert variables
-train$Language &lt;- as.factor(train$Language)
-train$Language &lt;- as.factor(train$Language)
+#train$Language &lt;- as.factor(train$Language)
+#train$Language &lt;- as.factor(train$Language)
 # inspect data
-train[1:10, 1:3]; test[, 1:3]</code></pre>
-<pre><code>##    Language         -         :
-## 1    German 0.1428571 1.0000000
-## 2   English 0.4285714 0.3093146
-## 3   Spanish 0.0000000 0.0000000
-## 4    German 0.1428571 1.0000000
-## 5   English 0.4285714 0.3093146
-## 6   Spanish 0.0000000 0.0000000
-## 7    German 0.1428571 1.0000000
-## 8   English 0.4285714 0.3093146
-## 9   Spanish 0.0000000 0.0000000
-## 10   German 0.1428571 1.0000000</code></pre>
-<pre><code>##   Language -         :
-## 1  Unknown 1 0.5026362</code></pre>
+train</code></pre>
+<pre><code>##   Language         &#39;         -         : ?         @        \\     {        }
+## 1  English 0.5833333 0.4285714 0.3093146 0 0.5469027 0.8512397 0.984 0.557971
+## 2   German 0.0000000 0.1428571 1.0000000 1 1.0000000 0.0000000 0.000 0.000000
+## 3  Spanish 0.0000000 0.0000000 0.0000000 0 0.0000000 0.0000000 0.000 0.000000
+##          = © ¼ 1 2         3 4          5 6 7 8         9         a         A
+## 1 0.826087 0 0 0 0 0.0000000 0 0.58904110 0 0 0 0.0000000 0.0000000 0.6428571
+## 2 0.000000 0 1 0 1 0.4615385 1 0.01369863 1 0 1 1.0000000 1.0000000 0.2857143
+## 3 0.000000 1 0 1 0 0.1538462 0 0.00000000 0 0 0 0.2432432 0.5482389 0.0000000
+##           Ã    b         B          c          C          d         D         e
+## 1 0.0000000 0.25 0.0000000 0.00000000 0.00000000 0.04123711 0.5970149 0.0000000
+## 2 1.0000000 1.00 0.6046512 1.00000000 1.00000000 1.00000000 0.0000000 1.0000000
+## 3 0.1666667 0.00 1.0000000 0.09009009 0.01212121 0.00000000 0.3283582 0.2212963
+##          E         f        F         g          G        h         H         i
+## 1 0.225256 0.1831832 0.000000 0.1314103 0.03703704 0.653753 0.3508772 0.1257367
+## 2 1.000000 1.0000000 1.000000 1.0000000 1.00000000 1.000000 1.0000000 1.0000000
+## 3 0.000000 0.0000000 0.254717 0.0000000 0.62962963 0.000000 0.1578947 0.0000000
+##           I         j         J           k K         l         L         m
+## 1 0.2889306 0.0000000 0.0000000 0.000000000 0 0.0000000 0.0000000 0.1893939
+## 2 1.0000000 0.1538462 0.2307692 1.000000000 1 1.0000000 1.0000000 1.0000000
+## 3 0.0000000 1.0000000 0.0000000 0.009118541 0 0.1762115 0.7272727 0.0000000
+##         M          n         N         o         O         p P         q
+## 1 0.03125 0.01649306 0.3272727 0.0989011 0.5079365 0.0000000 0 0.2941176
+## 2 1.00000 1.00000000 1.0000000 0.0000000 0.7857143 0.7230769 1 0.0000000
+## 3 0.00000 0.00000000 0.0000000 1.0000000 0.0000000 0.7538462 0 1.0000000
+##           r R          s        S         t         T       u          U
+## 1 0.0000000 0 0.00000000 0.000000 0.2250352 0.3142857 0.00000 0.04926108
+## 2 1.0000000 1 1.00000000 1.000000 1.0000000 0.0000000 1.00000 1.00000000
+## 3 0.1441648 0 0.00761035 0.266055 0.0000000 1.0000000 0.33829 0.00000000
+##           v         V         w   W    x         y Y         z         Z
+## 1 0.2936508 0.6222222 0.6315789 0.1 0.00 1.0000000 0 0.4806867 0.2826087
+## 2 1.0000000 0.3333333 0.5526316 1.0 1.00 0.0000000 1 1.0000000 0.2173913
+## 3 0.0000000 0.0000000 0.0000000 0.0 0.32 0.1320755 0 0.0000000 0.0000000</code></pre>
 <p>Finally, we can apply our classifier to our data. The classifier we use is a k-nearest neighbour classifier as the underlying function will classify an unknown element given its proximity to the clusters in the training set.</p>
 <pre class="r"><code># activate library
 library(&quot;class&quot;)
@@ -1297,122 +1038,18 @@ library(&quot;class&quot;)
 prediction &lt;- class::knn(train[,2:ncol(train)], test[,2:ncol(test)], cl = train[, 1], k = 3)
 # inspect the result
 prediction</code></pre>
-<pre><code>## [1] English
+<pre><code>## [1] German
 ## Levels: English German Spanish</code></pre>
-<p>Based on the frequencies of phonemes in the unknown text, the knn-classifier predicts that the unknown text is English. This is in fact true as the text is a subsection of the Wikipedia article for Aldous Huxley’s “Brave New World”. The training texts were German, English, and Spanish translations of a subsection of Wikipedia’s article for Hermann Hesse’s “Steppenwolf”.</p>
-</div>
-<div id="sentiment-analysis" class="section level1">
-<h1><span class="header-section-number">9</span> Sentiment Analysis</h1>
-<p>Sentiment Analysis is a cover term for approaches which extract information on emotion or opinion from natural language. Sentiment analyses have been successfully applied to analysis of language data in a wide range of disciplines such as psychology, economics, education, as well as political and social sciences. Commonly sentiment analyses are used to determine the stance of a larger group of speakers towards a given phenomenon such as political candidates or parties, product lines or situations. Crucially, sentiment analyses are employed in these domains because they have advantages compared to alternative methods investigating the verbal expression of emotion. One advantage of sentiment analyses is that the emotion coding of sentiment analysis is fully replicable.</p>
-<p>Typically, Sentiment Analysis represents a type of classifier only provide information about positive or negative polarity, e.g. whether a tweet is “positive” or “negative”. Therefore, Sentiment Analysis is often regarded as rather coarse-grained and, thus, rather irrelevant for the types of research questions in linguistics.</p>
-<p>In the language sciences, Sentiment Analysis can also be a very helpful tool if the type of Sentiment Analysis provides more fine-grained information. In the following, we will perform such a information-rich Sentiment Analysis. The Sentiment Analysis used here does not only provide information about polarity but it will also provide association values for eight core emotions.</p>
-<p>The more fine-grained output is made possible by relying on the Word-Emotion Association Lexicon (Mohammad &amp; Turney 2013), which comprises 10,170 terms, and in which lexical elements are assigned scores based on ratings gathered through the crowd-sourced Amazon Mechanical Turk service. For the Word-Emotion Association Lexicon raters were asked whether a given word was associated with one of eight emotions. The resulting associations between terms and emotions are based on 38,726 ratings from 2,216 raters who answered a sequence of questions for each word which were then fed into the emotion association rating (see <span class="citation">Mohammad and Turney (<a href="#ref-mohammad2013crowdsourcing" role="doc-biblioref">2013</a>)</span>). Each term was rated 5 times. For 85 percent of words, at least 4 raters provided identical ratings. For instance, the word <em>cry</em> or <em>tragedy</em> are more readily associated with SADNESS while words such as <em>happy</em> or <em>beautiful</em> are indicative of JOY and words like <em>fit</em> or <em>burst</em> may indicate ANGER. This means that the sentiment analysis here allows us to investigate the expression of certain core emotions rather than merely classifying statements along the lines of a crude positive-negative distinction.</p>
-<p>In the following, we will perform a sentiment analysis to investigate the emotionality of five different novels. We will start with the first example and load five pieces of literature.</p>
-<pre class="r"><code># read in texts
-darwin &lt;- readLines(&quot;https://slcladal.github.io/data/origindarwin.txt&quot;)
-twain &lt;- readLines(&quot;https://slcladal.github.io/data/twainhuckfinn.txt&quot;)
-orwell &lt;- readLines(&quot;https://slcladal.github.io/data/orwell.txt&quot;)
-lovecraft &lt;- readLines(&quot;https://slcladal.github.io/data/lovecraftcolor.txt&quot;)
-husband &lt;- readLines(&quot;https://slcladal.github.io/data/husbandsregret.txt&quot;)</code></pre>
-<p>In a next step, we clean the data, convert it to lower case, and split it into individual words.</p>
-<pre class="r"><code># clean and split files into words 
-darwin &lt;- tolower(as.vector(unlist(strsplit(paste(gsub(&quot; {2,}&quot;, &quot; &quot;, darwin), sep = &quot; &quot;), &quot; &quot;))))
-twain &lt;- tolower(as.vector(unlist(strsplit(paste(gsub(&quot; {2,}&quot;, &quot; &quot;, twain), sep = &quot; &quot;), &quot; &quot;))))
-orwell &lt;- tolower(as.vector(unlist(strsplit(paste(gsub(&quot; {2,}&quot;, &quot; &quot;, orwell), sep = &quot; &quot;), &quot; &quot;))))
-lovecraft &lt;- tolower(as.vector(unlist(strsplit(paste(gsub(&quot; {2,}&quot;, &quot; &quot;, lovecraft), sep = &quot; &quot;), &quot; &quot;))))
-husband &lt;- tolower(as.vector(unlist(strsplit(paste(gsub(&quot; {2,}&quot;, &quot; &quot;, husband), sep = &quot; &quot;), &quot; &quot;))))</code></pre>
-<p>Now, we extract samples from each data set.</p>
-<pre class="r"><code>darwin &lt;- sample(darwin, 5000, replace = F)
-twain &lt;- sample(twain, 5000, replace = F)
-orwell &lt;- sample(orwell, 5000, replace = F)
-lovecraft &lt;- sample(lovecraft, 5000, replace = F)
-husband &lt;- sample(husband, 5000, replace = F)</code></pre>
-<p>We now load the “syuzhet” package and apply the “get_nrc_sentiment” function to the data which performs the Sentiment Analysis.</p>
-<pre class="r"><code># load library
-library(syuzhet)
-# perform sentiment analysis
-darwinemo &lt;- get_nrc_sentiment(darwin)
-twainemo &lt;- get_nrc_sentiment(twain)
-orwellemo &lt;- get_nrc_sentiment(orwell)
-lovecraftemo &lt;- get_nrc_sentiment(lovecraft)
-husbandemo &lt;- get_nrc_sentiment(husband)
-# inspect data
-head(darwinemo)</code></pre>
-<pre><code>##   anger anticipation disgust fear joy sadness surprise trust negative positive
-## 1     0            1       0    1   1       0        1     0        1        1
-## 2     0            0       0    0   0       0        0     0        0        0
-## 3     0            0       0    0   0       0        0     1        0        1
-## 4     0            0       0    0   0       0        0     0        0        0
-## 5     0            0       0    0   0       0        0     0        0        0
-## 6     0            0       0    0   0       0        0     0        0        0</code></pre>
-<p>After performing the Sentiment Analysis, we prepare the data for visualizations</p>
-<pre class="r"><code># extract percentages of emotional words
-darwinemos &lt;- colSums(darwinemo)/50
-twainemos &lt;- colSums(twainemo)/50
-orwellemos &lt;- colSums(orwellemo)/50
-lovecraftemos &lt;- colSums(lovecraftemo)/50
-husbandemos &lt;- colSums(husbandemo)/50
-# collapse into a single table
-emolit &lt;- data.frame(darwinemos, twainemos, orwellemos, lovecraftemos, husbandemos)
-# transpose data
-emo &lt;- t(emolit)
-# clean row names
-rownames(emo) &lt;- gsub(&quot;emos&quot;, &quot;&quot;, rownames(emo))
-# inspect data
-head(emo)</code></pre>
-<pre><code>##           anger anticipation disgust fear  joy sadness surprise trust negative
-## darwin     0.52         1.66    0.38 1.22 0.90    0.90     0.76  2.38     2.18
-## twain      1.20         2.30    0.86 1.34 1.70    1.22     1.42  2.16     2.76
-## orwell     1.90         1.96    1.44 2.28 1.64    1.96     0.92  2.38     4.04
-## lovecraft  1.88         2.18    1.56 2.70 1.24    2.30     1.14  1.98     4.88
-## husband    2.06         2.38    1.14 2.30 2.20    2.30     1.22  2.36     4.42
-##           positive
-## darwin        4.02
-## twain         3.14
-## orwell        3.82
-## lovecraft     3.04
-## husband       4.48</code></pre>
-<pre class="r"><code>#convert into data frame
-emo &lt;- as.data.frame(emo)
-# add author column
-emo$Author &lt;- c(&quot;Darwin&quot;, &quot;Twain&quot;, &quot;Orwell&quot;, &quot;Lovecraft&quot;, &quot;Husband&quot;)
-# load library
-library(tidyr)
-# convert data from wide to long
-emol &lt;- gather(emo, Emotion, Score, anger:positive, factor_key=TRUE)
-# inspect data
-head(emol)</code></pre>
-<pre><code>##      Author      Emotion Score
-## 1    Darwin        anger  0.52
-## 2     Twain        anger  1.20
-## 3    Orwell        anger  1.90
-## 4 Lovecraft        anger  1.88
-## 5   Husband        anger  2.06
-## 6    Darwin anticipation  1.66</code></pre>
-<p>Based on this table, we can now visualise the relative emotion scores for each book.</p>
-<pre class="r"><code># load library
-library(ggplot2)
-# extract subset
-emol2 &lt;- emol %&gt;%
-  filter(Emotion != &quot;positive&quot;) %&gt;%
-  filter(Emotion != &quot;negative&quot;)
-# start plot
-ggplot(emol2,                   # plot barplotdatagg1
-       aes(Emotion, Score,      # define x- and y-axis
-           fill = Author)) +    # define grouping variable
-  geom_bar(stat=&quot;identity&quot;,     # determine type of plot
-           position=position_dodge()) +  # determine grouping
-  scale_fill_manual(values=c(&quot;goldenrod2&quot;, &quot;gray70&quot;, &quot;indianred4&quot;, &quot;grey30&quot;, &quot;lightblue&quot;)) +                 # define colours
-  theme_bw()                    # define theme (black and white)</code></pre>
-<p><img src="textanalysis_files/figure-html/sa7-1.png" width="672" /></p>
+<p>Based on the frequencies of phonemes in the unknown text, the knn-classifier predicts that the unknown text is English. This is in fact true as the text is a subsection of the Wikipedia article for Aldous Huxley’s <em>Brave New World</em>. The training texts were German, English, and Spanish translations of a subsection of Wikipedia’s article for Hermann Hesse’s <em>Steppenwolf</em>.</p>
 </div>
 <div id="entity-extraction" class="section level1">
-<h1><span class="header-section-number">10</span> Entity Extraction</h1>
+<h1><span class="header-section-number">5</span> Entity Extraction</h1>
 <p>Entity Extraction is a process during which textual elements which have characteristics that are common to proper nouns (locations, people, organizations, etc.) rather than other parts of speech, e.g. non-sentence initial capitalization, are extracted from texts. Retrieving entities is common in automated summarization and in Topic Modelling. Entity extraction can be achieved by simple feature extraction (e.g. extract all non-sentence initial capitalized words) or with the help of training sets. Using training sets, i.e. texts that are annotated for entities and non-entities, achieves better results when dealing with unknown data and data with inconsistent capitalization.</p>
 <pre class="r"><code># load libraries
 library(NLP)
 library(openNLP)
-library(openNLPmodels.en)
+#library(openNLPmodels.en)
+library(openNLPdata)
 # load text
 orwell &lt;- readLines(&quot;https://slcladal.github.io/data/orwell.txt&quot;)
 orwell &lt;- orwell  %&gt;%
@@ -1447,291 +1084,70 @@ orwellpeople</code></pre>
 ## [22] &quot;Tom&quot;                 &quot;Winston&quot;             &quot;Winston Smith&quot;      
 ## [25] &quot;Withers&quot;</code></pre>
 </div>
-<div id="topic-modelling" class="section level1">
-<h1><span class="header-section-number">11</span> Topic Modelling</h1>
-<p>Topic Modelling is a procedure that allows to extract clusters of key words. These key word clusters can represent topics and the extraction and detection of such key word clusters builds on word frequencies and correlations between word frequencies.</p>
-<pre class="r"><code># load data
-darwin &lt;- readLines(&quot;https://slcladal.github.io/data/origindarwin.txt&quot;)
-twain &lt;- readLines(&quot;https://slcladal.github.io/data/twainhuckfinn.txt&quot;)
-orwell &lt;- readLines(&quot;https://slcladal.github.io/data/orwell.txt&quot;)
-# clean files 
-darwin &lt;- paste(gsub(&quot; {2,}&quot;, &quot; &quot;, darwin), sep = &quot; &quot;, collapse = &quot; &quot;)
-twain &lt;- paste(gsub(&quot; {2,}&quot;, &quot;  &quot;, twain), sep = &quot; &quot;, collapse = &quot; &quot;)
-orwell &lt;- paste(gsub(&quot; {2,}&quot;, &quot; &quot;, orwell), sep = &quot; &quot;, collapse = &quot; &quot;)
-# inspect data
-str(orwell)</code></pre>
-<pre><code>##  chr &quot;1984 George Orwell Part 1, Chapter 1 It was a bright cold day in April, and the clocks were striking thirteen. &quot;| __truncated__</code></pre>
-<p>Now, we create a corpus object and clean the corpus.</p>
-<pre class="r"><code># load library
-library(tm)
-# create corpus object
-texts &lt;- Corpus(VectorSource(c(darwin, twain, orwell)))
-# create vector with words to remove
-extrawords &lt;- c(&quot;the&quot;, &quot;can&quot;, &quot;get&quot;, &quot;got&quot;, &quot;can&quot;, &quot;one&quot;, 
-                &quot;dont&quot;, &quot;even&quot;, &quot;may&quot;, &quot;but&quot;, &quot;will&quot;, 
-                &quot;much&quot;, &quot;first&quot;, &quot;but&quot;, &quot;see&quot;, &quot;new&quot;, 
-                &quot;many&quot;, &quot;less&quot;, &quot;now&quot;, &quot;well&quot;, &quot;like&quot;, 
-                &quot;often&quot;, &quot;every&quot;, &quot;said&quot;, &quot;two&quot;)
-# load libraries
-library(dplyr)
-library(stringr)
-# clean corpus
-textsclean &lt;- texts %&gt;%
-  tm_map(removePunctuation) %&gt;%
-  tm_map(removeNumbers) %&gt;% 
-  tm_map(tolower) %&gt;%
-  tm_map(removeWords, stopwords(kind = &quot;en&quot;)) %&gt;%
-  tm_map(removeWords, extrawords)</code></pre>
-<p>We now create a document term matrix and perform a Linear Discriminant Analysis (LDA). An LDA is a type of classification procedure that is commonly used in machine learning (similar to KNN-Clustering or other classification methods). To obtain even better results, dimensionality reduction procedures such as Principal Component Analysis (PCA) or Multidimensional Scaling (MDS) could be performed prior to applying the LDA ( <a href="https://towardsdatascience.com/linear-discriminant-analysis-lda-101-using-r-6a97217a55a6">see here for an example</a>). We will not perform any dimension reduction here fro the sake of brevity though.</p>
-<pre class="r"><code># create DTM
-textsdtm &lt;- DocumentTermMatrix(textsclean)
-# load library
-library(topicmodels)
-# perform LDA
-textslda &lt;- LDA(textsdtm, k = 3, control = list(seed = 20190712))
-textslda</code></pre>
-<pre><code>## A LDA_VEM topic model with 3 topics.</code></pre>
-<p>We can now inspect which words are particularly associated with which topic.</p>
-<pre class="r"><code># load library
-library(tidytext)
-# convert data into tidy format
-textstopics &lt;- tidy(textslda, matrix = &quot;beta&quot;)
-textstopics</code></pre>
-<pre><code>## # A tibble: 61,596 x 3
-##    topic term            beta
-##    &lt;int&gt; &lt;chr&gt;          &lt;dbl&gt;
-##  1     1 abdomen    4.99e-108
-##  2     2 abdomen    2.19e-  5
-##  3     3 abdomen    5.34e-163
-##  4     1 aberrant   9.46e-108
-##  5     2 aberrant   7.66e-  5
-##  6     3 aberrant   7.53e-163
-##  7     1 aberration 2.96e-108
-##  8     2 aberration 2.19e-  5
-##  9     3 aberration 5.88e-163
-## 10     1 abhorrent  2.18e-108
-## # ... with 61,586 more rows</code></pre>
-<p>The beta values show how strongly a given term correlates with one of the topics. For example, the term “abdomen”, is very unlikely associated with topic 1 or 3 as the beta values are very low (4.988e-108 and 5.344e-163). In contrast, the beta value for topic 2 is 2.189e-5 and thus much higher than the beta values for topic 1 and 3. Therefore, the term “abdomen” is most likely indicative of or associated with topic 2.</p>
-<p>In a next step, we visualize the keyterms for each topic to check if the topics happen to reflect the monograph themes.</p>
-<pre class="r"><code># load libraries
-library(ggplot2)
-library(dplyr)
-# extract top words
-textstopicstop &lt;- textstopics %&gt;%
-  group_by(topic) %&gt;%
-  top_n(15, beta) %&gt;%
-  ungroup() %&gt;%
-  arrange(term, -beta)
-# create plots
-textstopicstop %&gt;%
-  mutate(term = reorder(term, beta)) %&gt;%
-  ggplot(aes(term, beta, fill = factor(topic))) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ topic, scales = &quot;free&quot;) +
-  coord_flip()</code></pre>
-<p><img src="textanalysis_files/figure-html/tm5-1.png" width="672" /></p>
-<p>The topic modelling does, in fact, reflect the narrative topics of the three monographs with the first topic representing Orwell’s “1984”, the second topic representing Darwin’s “On the origin of species”, and the third topic representing Twain’s “Adventures of Huckleberry Finn”.</p>
-<p>Topic Models can be refined and made more meaningful in various ways. For instance, the topic model shown here could be improved by splitting the monographs into chapters and running the analysis on the individual chapters rather than the entire monograph. Also, a very interesting application of Topic Models would be to investigate changes in topics over time which is dealt with in the tutorial that delves deeper into topic modelling.</p>
-</div>
-<div id="network-analysis" class="section level1">
-<h1><span class="header-section-number">12</span> Network Analysis</h1>
-<p>Network analysis is not really a type of analysis but rather a method for visualization that can be used to represent various types of data. However, because network analyses are widely used and a very useful procedure, we will introduce the basics of network analysis here.</p>
-<p>The issue we want to investigate here relates to networks of personas in Shakespeare’s “Romeo and Juliet”.</p>
-<pre class="r"><code># load libraries
-library(gutenbergr)
-library(dplyr)
-# load data
-romeo &lt;- gutenberg_works(title == &quot;Romeo and Juliet&quot;) %&gt;%
-  gutenberg_download(meta_fields = &quot;title&quot;)
-# inspect data
-romeo</code></pre>
-<pre><code>## # A tibble: 5,268 x 3
-##    gutenberg_id text                       title           
-##           &lt;int&gt; &lt;chr&gt;                      &lt;chr&gt;           
-##  1         1513 ROMEO AND JULIET           Romeo and Juliet
-##  2         1513 &quot;&quot;                         Romeo and Juliet
-##  3         1513 by William Shakespeare     Romeo and Juliet
-##  4         1513 &quot;&quot;                         Romeo and Juliet
-##  5         1513 &quot;&quot;                         Romeo and Juliet
-##  6         1513 &quot;&quot;                         Romeo and Juliet
-##  7         1513 &quot;&quot;                         Romeo and Juliet
-##  8         1513 PERSONS REPRESENTED        Romeo and Juliet
-##  9         1513 &quot;&quot;                         Romeo and Juliet
-## 10         1513 Escalus, Prince of Verona. Romeo and Juliet
-## # ... with 5,258 more rows</code></pre>
-<p>Now that we have loaded the data, we need to split the data into scenes. Scenes during which personas leave or enter will have to be split too so that we arrive at a table that contains the personas that are present during a subscene.</p>
-<pre class="r"><code># load library
-library(stringr)
-# load split
-romeoscenes &lt;- romeo %&gt;%
-  select(text) %&gt;%
-  as.vector() %&gt;%
-  str_replace_all(fixed(&quot;\&quot;&quot;), &quot;&quot;) %&gt;%
-  str_replace_all(fixed(&quot;\n&quot;), &quot;&quot;) %&gt;%
-  paste(collapse = &quot; &quot;) %&gt;%
-  str_replace_all(&quot;(Scene )&quot;, &quot;qwertz\\1&quot;) %&gt;%
-  strsplit(&quot;qwertz&quot;) %&gt;%
-  unlist()
-# inspect data
-str(romeoscenes[2])</code></pre>
-<pre><code>##  chr &quot;Scene I. A public place., , [Enter Sampson and Gregory armed with swords and bucklers.], , Sampson., Gregory, o&quot;| __truncated__</code></pre>
-<p>Now we extract the persons that are present in each scene.</p>
-<pre class="r"><code># load library
-library(stringr)
-# extract persons
-romeopersonas &lt;- romeoscenes %&gt;%
-  str_match_all(&quot; , [A-Z][a-z]{2,} {0,1}[A-Z]{0,1}[a-z]{0,}\\.&quot;)
-# inspect data
-str(romeopersonas[1:5])</code></pre>
-<pre><code>## List of 5
-##  $ : chr [1, 1] &quot; , Chor.&quot;
-##  $ : chr [1:93, 1] &quot; , Sampson.&quot; &quot; , Gregory.&quot; &quot; , Sampson.&quot; &quot; , Gregory.&quot; ...
-##  $ : chr [1:29, 1] &quot; , Capulet.&quot; &quot; , Paris.&quot; &quot; , Capulet.&quot; &quot; , Paris.&quot; ...
-##  $ : chr [1:29, 1] &quot; , Lady Capulet.&quot; &quot; , Nurse.&quot; &quot; , Juliet.&quot; &quot; , Nurse.&quot; ...
-##  $ : chr [1:28, 1] &quot; , Romeo.&quot; &quot; , Benvolio.&quot; &quot; , Romeo.&quot; &quot; , Mercutio.&quot; ...</code></pre>
-<p>We now clean and vectorize the data.</p>
-<pre class="r"><code># extract personas per scene
-personas &lt;- sapply(romeopersonas, function(x){
-  x &lt;- unlist(x)
-  x &lt;- gsub(&quot;,&quot;, &quot;&quot;, x)
-  x &lt;- gsub(&quot;\\.&quot;, &quot;&quot;, x)
-  x &lt;- gsub(&quot; &quot;, &quot;&quot;, x)
-  x &lt;- unique(x)
-  x &lt;- as.vector(x)
-  x &lt;- paste(x, collapse = &quot; &quot;)
-  x &lt;- gsub(&quot; ActV&quot;, &quot;&quot;, x)
-  x &lt;- gsub(&quot; Page&quot;, &quot;&quot;, x)
-})
-# inspect data
-personas</code></pre>
-<pre><code>##  [1] &quot;Chor&quot;                                                                                          
-##  [2] &quot;Sampson Gregory Abraham Benvolio Tybalt Capulet LadyCapulet Montague Prince LadyMontague Romeo&quot;
-##  [3] &quot;Capulet Paris Servant Benvolio Romeo&quot;                                                          
-##  [4] &quot;LadyCapulet Nurse Juliet Servant&quot;                                                              
-##  [5] &quot;Romeo Benvolio Mercutio&quot;                                                                       
-##  [6] &quot;Capulet Romeo Servant Tybalt Juliet Nurse Benvolio Chorus&quot;                                     
-##  [7] &quot;Romeo Benvolio Mercutio&quot;                                                                       
-##  [8] &quot;Romeo Juliet Nurse&quot;                                                                            
-##  [9] &quot;Friar Romeo&quot;                                                                                   
-## [10] &quot;Mercutio Benvolio Romeo Nurse Peter&quot;                                                           
-## [11] &quot;Juliet Nurse&quot;                                                                                  
-## [12] &quot;Friar Romeo Juliet&quot;                                                                            
-## [13] &quot;Benvolio Mercutio Tybalt Romeo Prince LadyCapulet Montague&quot;                                    
-## [14] &quot;Juliet Nurse&quot;                                                                                  
-## [15] &quot;Friar Romeo Nurse&quot;                                                                             
-## [16] &quot;Capulet Paris LadyCapulet&quot;                                                                     
-## [17] &quot;Juliet Romeo Nurse LadyCapulet Capulet&quot;                                                        
-## [18] &quot;Friar Paris Juliet&quot;                                                                            
-## [19] &quot;Capulet Nurse Juliet LadyCapulet&quot;                                                              
-## [20] &quot;Juliet LadyCapulet&quot;                                                                            
-## [21] &quot;LadyCapulet Nurse Capulet&quot;                                                                     
-## [22] &quot;Nurse LadyCapulet Capulet Friar Paris Peter&quot;                                                   
-## [23] &quot;Romeo Balthasar Apothecary&quot;                                                                    
-## [24] &quot;FriarJohn FriarLawrence&quot;                                                                       
-## [25] &quot;Paris Romeo Balthasar Friar Juliet Prince Capulet LadyCapulet Montague Boy&quot;</code></pre>
-<p>We will edlete the first element as it only contains the chor but none of the main personas.</p>
-<pre class="r"><code># remove first elements
-personas &lt;- personas[2:length(personas)]
-str(personas)</code></pre>
-<pre><code>##  chr [1:24] &quot;Sampson Gregory Abraham Benvolio Tybalt Capulet LadyCapulet Montague Prince LadyMontague Romeo&quot; ...</code></pre>
-<p>The vectors must now be transformed into a sparse matrix.</p>
-<pre class="r"><code># load library
-library(tm)
-# create corpus
-corpus &lt;- Corpus(VectorSource(personas))
-# create document term matrix
-scenepersonas &lt;- DocumentTermMatrix(corpus) 
-# load library
-library(Matrix)
-# convert dtm into sparse matrix
-rnjdtm &lt;- sparseMatrix(i = scenepersonas$i, j = scenepersonas$j, 
-                           x = scenepersonas$v, 
-                           dims = c(scenepersonas$nrow,
-                                    scenepersonas$ncol),
-                           dimnames = dimnames(scenepersonas))
-# calculate cooccurrence counts
-coocurrence &lt;- t(rnjdtm) %*% rnjdtm
-# convert into matrix
-romeom &lt;- as.matrix(coocurrence)
-# inspect data
-head(romeom)</code></pre>
-<pre><code>##              abraham benvolio capulet gregory ladycapulet ladymontague montague
-## abraham            1        1       1       1           1            1        1
-## benvolio           1        7       3       1           2            1        2
-## capulet            1        3       9       1           7            1        2
-## gregory            1        1       1       1           1            1        1
-## ladycapulet        1        2       7       1          10            1        3
-## ladymontague       1        1       1       1           1            1        1
-##              prince romeo sampson tybalt paris servant juliet nurse mercutio
-## abraham           1     1       1      1     0       0      0     0        0
-## benvolio          2     7       1      3     1       2      1     2        4
-## capulet           2     5       1      2     4       2      4     5        0
-## gregory           1     1       1      1     0       0      0     0        0
-## ladycapulet       3     4       1      2     3       1      5     5        1
-## ladymontague      1     1       1      1     0       0      0     0        0
-##              chorus friar peter apothecary balthasar friarjohn friarlawrence
-## abraham           0     0     0          0         0         0             0
-## benvolio          1     0     1          0         0         0             0
-## capulet           1     2     1          0         1         0             0
-## gregory           0     0     0          0         0         0             0
-## ladycapulet       0     2     1          0         1         0             0
-## ladymontague      0     0     0          0         0         0             0
-##              boy
-## abraham        0
-## benvolio       0
-## capulet        1
-## gregory        0
-## ladycapulet    1
-## ladymontague   0</code></pre>
-<p>In order to represent the data as a network, the matrix has to be transformed into a data frame that contains the characters, the perosonas they co-occur with, and the frequency of these co-occurrences as seperate columns.</p>
-<pre class="r"><code># create cooccurence table
-persona1 &lt;- rep(colnames(romeom), each = nrow(romeom))
-persona2 &lt;- rep(rownames(romeom), ncol(romeom))
-freq &lt;- as.vector(unlist(romeom))
-# combine into data frame
-dc &lt;- data.frame(persona1, persona2, freq)
-# remove cooccurence with oneself
-df &lt;- dc %&gt;%
-  filter(persona1 != persona2)
-# inspect data
-head(df)</code></pre>
-<pre><code>##   persona1     persona2 freq
-## 1  abraham     benvolio    1
-## 2  abraham      capulet    1
-## 3  abraham      gregory    1
-## 4  abraham  ladycapulet    1
-## 5  abraham ladymontague    1
-## 6  abraham     montague    1</code></pre>
-<p>Now, that the data is present in a sparse matrix format, it can be displayed as a network.</p>
-<pre class="r"><code># load library 
-library(igraph)
-# remove infrequent cooccurences and create graph object
-bigram_graph &lt;- df %&gt;%
-  graph_from_data_frame()
-# load library
-library(ggraph)
-library(grid)
-# define arrow type
-a &lt;- grid::arrow(type = &quot;closed&quot;, length = unit(.05, &quot;cm&quot;))
-# create plot
-ggraph(bigram_graph, layout = &quot;auto&quot;) +
-  geom_edge_link(aes(edge_alpha = freq), show.legend = FALSE,
-                 arrow = a, end_cap = circle(3, &#39;inches&#39;)) +
-  geom_node_point(color = &quot;lightblue&quot;, size = 3) +
-  geom_node_text(aes(label = name), vjust = 1, hjust = 1) +
-  theme_void()</code></pre>
-<p><img src="textanalysis_files/figure-html/na9-1.png" width="672" /></p>
-<p>Such network graphs can be modified to highlight certain aspects of the interactions, e.g. we could have the size of lightblue dots represent the frequency that a given character occurs. A more in-depth example of a network analysis is shown in the tutorial on “Network Analysis”.</p>
-</div>
-<div id="how-to-cite-this-tutorial" class="section level1 unnumbered">
-<h1>How to cite this tutorial</h1>
-<p>Schweinberger, Martin. 2020. <em>Text Analysis and Distant Reading using R</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/textanalysis.html" class="uri">https://slcladal.github.io/textanalysis.html</a>.</p>
+<div id="citation-session-info" class="section level1 unnumbered">
+<h1>Citation &amp; Session Info</h1>
+<p>Schweinberger, Martin. 2020. <em>Text Analysis and Distant Reading using R</em>. Brisbane: The University of Queensland. url: <a href="https://slcladal.github.io/textanalysis.html" class="uri">https://slcladal.github.io/textanalysis.html</a> (Version 2020.09.27).</p>
+<pre><code>@manual{schweinberger2020ta,
+  author = {Schweinberger, Martin},
+  title = {Text Analysis and Distant Reading using R},
+  note = {https://slcladal.github.io/textanalysis.html},
+  year = {2020},
+  organization = &quot;The University of Queensland, Australia. School of Languages and Cultures},
+  address = {Brisbane},
+  edition = {2020/09/27}
+}</code></pre>
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>## R version 4.0.2 (2020-06-22)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 18362)
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=German_Germany.1252  LC_CTYPE=German_Germany.1252   
+## [3] LC_MONETARY=German_Germany.1252 LC_NUMERIC=C                   
+## [5] LC_TIME=German_Germany.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] openNLPdata_1.5.3-4 openNLP_0.2-7       class_7.3-17       
+##  [4] cluster_2.1.0       tidyr_1.1.2         knitr_1.30         
+##  [7] xtable_1.8-4        wordcloud_2.6       RColorBrewer_1.1-2 
+## [10] tm_0.7-7            NLP_0.2-0           ggplot2_3.3.2      
+## [13] plyr_1.8.6          stringr_1.4.0       dplyr_1.0.2        
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_1.0.5       highr_0.8        pillar_1.4.6     compiler_4.0.2  
+##  [5] tools_4.0.2      digest_0.6.25    evaluate_0.14    lifecycle_0.2.0 
+##  [9] tibble_3.0.3     gtable_0.3.0     nlme_3.1-148     lattice_0.20-41 
+## [13] mgcv_1.8-31      pkgconfig_2.0.3  rlang_0.4.7      Matrix_1.2-18   
+## [17] parallel_4.0.2   yaml_2.2.1       xfun_0.16        rJava_0.9-13    
+## [21] xml2_1.3.2       withr_2.3.0      generics_0.0.2   vctrs_0.3.4     
+## [25] grid_4.0.2       tidyselect_1.1.0 glue_1.4.2       R6_2.4.1        
+## [29] rmarkdown_2.3    purrr_0.3.4      farver_2.0.3     magrittr_1.5    
+## [33] scales_1.1.1     ellipsis_0.3.1   htmltools_0.5.0  splines_4.0.2   
+## [37] colorspace_1.4-1 labeling_0.3     stringi_1.5.3    munsell_0.5.0   
+## [41] slam_0.1-47      crayon_1.3.4</code></pre>
+<hr />
+<p><a href="https://slcladal.github.io/index.html">Main page</a></p>
+<hr />
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
-<div id="ref-mohammad2013crowdsourcing">
-<p>Mohammad, Saif M, and Peter D Turney. 2013. “Crowdsourcing a Word-Emotion Association Lexicon.” <em>Computational Intelligence</em> 29 (3): 436–65.</p>
+<div id="ref-bernard1998text">
+<p>Bernard, H Russell, and Gery Ryan. 1998. “Text Analysis.” <em>Handbook of Methods in Cultural Anthropology</em> 613.</p>
+</div>
+<div id="ref-kabanoff1997introduction">
+<p>Kabanoff, Boris. 1997. “Introduction: Computers Can Read as Well as Count: Computer-Aided Text Analysis in Organizational Research.” <em>Journal of Organizational Behavior</em>, 507–11.</p>
+</div>
+<div id="ref-lindquist2009corpus">
+<p>Lindquist, Hans. 2009. <em>Corpus Linguistics and the Description of English</em>. Edinburgh: Edinburgh University Press.</p>
+</div>
+<div id="ref-popping2000computer">
+<p>Popping, Roel. 2000. <em>Computer-Assisted Text Analysis</em>. Sage.</p>
 </div>
 </div>
 </div>
@@ -1786,7 +1202,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

@@ -2,126 +2,100 @@ name: "my-website"
 navbar:
   title: "LADAL"
   left:
-#    - text: "Home"
-#      icon: fa-home
-#      href: index.html
-    - text: "Basics"
-      icon: fa-play-circle
+    - text: "OUR PEOPLE"
+      href: people.html
+    - text: "NEWS"
       menu:
-        - text: "Basics"
-        - text: "General Tips on Computering"
-          href: introcomputer.html
-        - text: "--------------------"
-        - text: "Introduction To Quantitative Reasoning"
-          href: introquant.html
-        - text: "Basic Concepts In Quantitative Research"
-          href: basicquant.html
-#        - text: "--------------------"
-#        - text: "Research Designs"
-#        - text: "Overview"
-#          href: researchdesigns.html
-#        - text: "Corpus Linguistics"
-#          href: corpling.html
-#        - text: "Experimental Designs"
-#          href: experiments.html
-#        - text: "Conversation Analysis"
-#          href: ca.html
-#        - text: "Acoustic Analysis"
-#          href: acoustic.html
-#        - text: "--------------------"
-#        - text: "Data Collection"
-#        - text: "Introduction"
-#          href: introdatacollection.html
-#        - text: "Field Work"
-#          href: fieldwork.html
-#        - text: "Interviews"
-#          href: interviews.html
-#        - text: "Questionnaires and Surveys"
-#          href: questionnaires.html
-    - text: "Data Processing"
-      icon: fa-gear
+      - text: "Announcements"
+        href: news.html
+      - text: "Events"
+        href: conferences.html
+    - text: "DATA SCIENCE BASICS"
       menu:
-        - text: "Data Processing"
-        - text: "Basics: Getting started with R"
-          href: intror.html
-        - text: "Loading and saving data"
-          href: introloading.html
-        - text: "String processing"
-          href: stringprocessing.html
-        - text: "Regular expressions"
-          href: regularexpressions.html
-#        - text: "Tabulating data"
-#          href: introtables.html
-#        - text: "--------------------"
-#        - text: "Data Processing with Excel"
-#          href: dataprocessingexcel.html          
-    - text: "Visualization"
-      icon: fa-bar-chart
+      - text: "Introduction to Data Science"
+      - text: "Working with Computers: Tips and Tricks"
+        href: introcomputer.html
+      - text: "Data Management, Version Control, and Reproducibility"
+        href: reproducibility.html
+      - text: "--------------------"
+      - text: "Quantitative Research"
+      - text: "Introduction to Quantitative Reasoning"
+        href: introquant.html
+      - text: "Basic Concepts in Quantitative Research"
+        href: basicquant.html
+      - text: "--------------------"
+      - text: "Introduction to R"
+      - text: "Getting started"
+        href: IntroR_workshop.html
+      - text: "String Processing"
+        href: stringprocessing.html
+      - text: "Regular Expressions"
+        href: regularexpressions.html
+      - text: "Working with Tables"
+        href: introtables.html
+    - text: "TUTORIALS"
       menu:
-        - text: "Visualization"
-        - text: "Visualizing Data with R"
-          href: basicgraphs.html
-        - text: "Creating maps using R"
-          href: maps.html
-        - text: "Motion Charts in R"
-          href: motion.html
-#        - text: "Basic Visualization with Excel"
-#          href: advancedgraphs.html
-    - text: "Statistics"
-      icon: fa-eye
+      - text: "Data Visualization"
+      - text: "Introduction to Data Viz"
+        href: introviz.html
+      - text: "Common Visualization Types"
+        href: basicgraphs.html
+      - text: "Advanced Visualization Methods"
+        href: advancedgraphs.html
+      - text: "Displaying Geo-Spatial Data"
+        href: maps.html
+      - text: "Interactive Charts"
+        href: motion.html
+      - text: "--------------------"
+      - text: "Statistics"
+      - text: "Descriptive Statistics"
+        href: descriptivestatz.html
+      - text: "Basic Inferential Statistics"  
+        href: basicstatz.html
+      - text: "Regression Analysis"
+        href: regression.html
+      - text: "Tree-Based Models"
+        href: advancedstatztrees.html  
+      - text: "Cluster and Correspondence Analysis"
+        href: groupingstatz.html
+      - text: "Semantic Vector Space Models"
+        href: svm.html
+      - text: "--------------------"
+      - text: "Text Analytics"
+      - text: "Text Analysis and Distant Reading"
+        href: textanalysis.html
+      - text: "Concordancing (keywords-in-context)"
+        href: kwics.html
+      - text: "Network Analysis"
+        href: basicnetwork.html
+      - text: "Co-occurrence and Collocation Analysis"
+        href: collocations.html
+      - text: "Topic Modeling"
+        href: topicmodels.html
+      - text: "Sentiment Analysis"
+        href: sentiment.html
+      - text: "Tagging and Parsing"
+        href: tagging.html
+    - text: "FOCUS & CASE STUDIES"
       menu:
-        - text: "Statistics"
-        - text: "Descriptive Statistics"
-          href: descriptivestatz.html
-        - text: "--------------------"
-        - text: "Basic Interential Statistics"
-        - text: "Basic Inferential Tests"  
-          href: basicstatz.html
-        - text: "The Chi-Square Family"  
-          href: basicstatzchi.html
-        - text: "Simple Linear Regression"  
-          href: basicstatzregression.html
-        - text: "--------------------"
-        - text: "Advanced Interential Statistics"
-        - text: "Fixed-Effects Regression Models"
-          href: fixedregressions.html
-        - text: "Mixed-Effects Regression Models"
-          href: mixedregressions.html
-        - text: "Tree-Based Models"
-          href: advancedstatztrees.html  
-        - text: "Classification"
-          href: groupingstatz.html
-#        - text: "Collostructional Analysis"
-#          href: collostructionalanalysis.html
-#        - text: "MuPDARF"
-#          href: mupdarf.html
-    - text: "Text Analytics"
-      icon: fa-bars
-      menu:
-        - text: "Text Analysis and Distant Reading"
-          href: textanalysis.html
-        - text: "Web Crawling"
-          href: webcrawling.html
-        - text: "Network Analysis"
-          href: basicnetwork.html
-        - text: "Co-occurrence and Collocation Analysis"
-          href: collocations.html
-        - text: "Topic Modeling"
-          href: topicmodels.html
-        - text: "Classification"
-          href: classification.html
-        - text: "Tagging and Parsing"
-          href: tagging.html
-        - text: "Corpus Linguistics"        
-          href: corplingr.html
-#        - text: "Corpus Linguistics with AntConc, TextPad and Excel"
-#          href: corplingantconcexcel.html          
-#        - text: "Available Software"
-#          href: available.html
-  right:
-    - text: "Contact"
-      icon: fa-info
-      href: about.html
+      - text: "Lexicography with R: Generating Dictionaries"
+        href: lex.html
+      - text: "Questionnaires and Surveys: Analyses with R"
+        href: surveys.html
+      - text: "Corpus Linguistics with R: Swearing in Irish English"        
+        href: corplingr.html
+      - text: "Phonetics: Creating Vowel Charts with Praat and R"
+        href: vc.html
+      - text: "--------------------"
+      - text: "Useful How-To Tutorials"
+      - text: "Converting PDFs to txt"
+        href: convertpdf2txt.html
+      - text: "Web Crawling using R"
+        href: webcrawling.html
+      - text: "Downloading Texts from Project Gutenberg"
+        href: gutenberg.html
+    - text: "SERVICES & CONTACT"
+      href: services.html 
 output: 
   html_document:
     toc: true

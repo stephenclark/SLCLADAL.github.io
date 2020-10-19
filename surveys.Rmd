@@ -1,5 +1,5 @@
 ---
-title: "An introduction to creating and analyzing surveys and questionnaires"
+title: "Questionnaires and Surveys: Analyses with R"
 author: "Martin Schweinberger"
 date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output:
@@ -381,7 +381,7 @@ Again, we can also plot separate bar graphs for each class by specifying "facets
 # create grouped bar plot
 ggplot(groupedbardata, aes(Satisfaction, Frequency,  
                           fill = Satisfaction, color = Satisfaction)) +
-  facet_grid(rows = groupedbardata$Course) +
+  facet_grid(~Course) +
   geom_bar(stat="identity", position=position_dodge()) +
   geom_line() +
   # define colors
@@ -792,4 +792,33 @@ ggplot(newordata,
 
 For more information about regression modeling, model fitting, and model diagnostics, please have a look at the tutorial on [fixed-effects regressions](https://slcladal.github.io/fixedregressions.html).
 
-**References**
+
+# Citation & Session Info {-}
+
+Schweinberger, Martin. 2020. *Questionnaires and Surveys: Analyses with R*. Brisbane: The University of Queensland. url: https://slcladal.github.io/surveys.html (Version 2020.09.29).
+
+```
+@manual{schweinberger2020survey,
+  author = {Schweinberger, Martin},
+  title = {Questionnaires and Surveys: Analyses with R},
+  note = {https://slcladal.github.io/survey.html},
+  year = {2020},
+  organization = "The University of Queensland, Australia. School of Languages and Cultures},
+  address = {Brisbane},
+  edition = {2020/09/29}
+}
+```
+
+
+```{r fin}
+sessionInfo()
+```
+
+***
+
+[Main page](https://slcladal.github.io/index.html)
+
+***
+
+# References {-}
+
